@@ -1,0 +1,109 @@
+.requests {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.request {
+	width: 100%;
+	background: #fff;
+	box-sizing: border-box;
+	font-size: 16px;
+	line-height: 2em;
+	margin: 0 0 80px 0;
+	@include x-border-radius(6px);
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+	//border-bottom: 2px solid $lightGrey;
+	
+	header {
+		margin-bottom: 20px;
+		h2 {
+			font-size: 22px;
+			font-weight: $regular;
+			margin: 0;
+			float: left;
+			line-height: 1.25;
+			padding-left: 260px;
+			> a {
+				color: $darkGreen;
+				&.label {
+					background: $darkBlue;
+					color: $white;
+					font-size: 12px;
+					margin-left: 2px;
+					display: inline-block;
+					padding: 4px 6px;
+					line-height: 1;
+					position: relative;
+					top: -2px;
+					left: 2px;
+					@include x-border-radius(2px);
+				}
+			}
+			
+		}/* h2 */
+		
+	}/* header */
+	
+	aside {
+		width: 260px;
+		float: left;
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				color: $oliveGreen;
+				margin-bottom: 5px;
+				&.author {
+					color: $darkGrey;
+					img {
+						margin-right: 10px;
+						position: relative;
+						top: 8px;
+						@include x-border-radius(50%);
+					}
+				}
+				&.publishedDate {
+					font-size: 13px;
+					padding-left: 64px;
+					position: relative;
+					top: -25px;
+				}
+			}
+		}
+	}
+	
+	article {
+		float: left;
+		width: 100%;
+		max-width: 640px;
+		
+		p:last-of-type {
+			margin-bottom: .5em;
+		}
+		
+		footer {
+			> a {
+				margin-top: 1em;
+			}
+			p {
+				color: $oliveGreen;
+				font-size: 13px;
+				margin: 0;
+			}
+			.answers,
+			.interest {
+				display: inline-block;
+				margin-right: 2px;
+			}
+			.interest {
+				margin-left: 2px;
+			}
+		}
+	}
+	
+	
+}/* .request */

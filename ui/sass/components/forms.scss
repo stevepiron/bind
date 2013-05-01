@@ -1,0 +1,20 @@
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	color: $darkGrey;
+	background: $lightGrey;
+	@include x-box-sizing;
+	@include x-border-radius(3px);
+	border: none;
+	outline: none;
+	font-family: $font;
+}
+
+textarea {
+	width: 100%;
+	padding: 20px;
+	line-height: 1.8;
+	height: 180px;
+	margin-bottom: 2em;
+}

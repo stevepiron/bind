@@ -1,0 +1,45 @@
+#interactions {
+	width: 100%;
+	@include x-box-sizing;
+	.comments {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			margin-bottom: 2em;
+			header {
+				color: $oliveGreen;
+				font-size: 13px;
+				margin-bottom: 1em;
+			}
+			aside {
+				float: left;
+				width: 260px;
+				ul {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					li {
+						color: $oliveGreen;
+						margin-bottom: 5px;
+						&.author {
+							color: $darkGrey;
+							img {
+								margin-right: 10px;
+								position: relative;
+								top: 8px;
+								@include x-border-radius(50%);
+							}
+						}
+						&.publishedDate {
+							font-size: 13px;
+							padding-left: 64px;
+							position: relative;
+							top: -25px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
