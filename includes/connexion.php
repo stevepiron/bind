@@ -1,4 +1,9 @@
-<?php $title = 'Connexion • Bind'; $section = 'connexion'; $level = '1'; include('../includes/head.php'); ?>
+<?php
+	$__TITLE_PAGE__ = 'Connexion • Bind';
+	$__DESC_PAGE__ = '';
+	$section = 'connexion';
+	$level = '1';
+?>
 
 <header class="clearfix">
 	<a href="../index.php"><img id="logo" src="../media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"></a>
@@ -23,5 +28,3 @@
 		
 	</div><!-- /.container -->
 </div><!-- /.content -->
-
-<?php include('../includes/footer.php'); ?>

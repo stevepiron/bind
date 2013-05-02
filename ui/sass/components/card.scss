@@ -50,6 +50,7 @@
 	aside {
 		width: 260px;
 		float: left;
+		margin-top: -6px;
 		ul {
 			margin: 0;
 			padding: 0;
@@ -58,7 +59,8 @@
 				color: $oliveGreen;
 				margin-bottom: 5px;
 				&.author {
-					color: $darkGrey;
+					color: $black;
+					font-weight: bold;
 					img {
 						margin-right: 10px;
 						position: relative;
@@ -102,8 +104,24 @@
 			.interest {
 				margin-left: 2px;
 			}
+			#interestedUsersFaces {
+				margin-top: 5px;
+				display: none;
+				img {
+					@include x-border-radius(50%);
+					width: 32px;
+					height: 32px;
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
 		}
 	}
 	
 	
-}/* .request */
+}
+.demande {
+	.request {
+		margin-bottom: 30px;
+	}
+}

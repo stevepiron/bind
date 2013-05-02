@@ -108,8 +108,10 @@ $lightGrey: #edf0ea;
 $grey: #a1a1a1;
 $darkGrey: #6f7378;
 $darkestGrey: #6f6f6f;
+$black: #323232;
 
-$blue: #6b9eab;
+$lightBlue: #639cb4;
+$blue: #3d7c96;
 $darkBlue: #8c9299;
 
 $oliveGreen: #a6ada2;
@@ -258,7 +260,7 @@ body {
 							line-height: 1;
 							padding: 2px 0;
 							text-align: center;
-							margin: -4px 0 0 5px;
+							margin: -3px 0 0 5px;
 							@include x-border-radius(2px);
 						}
 						&:hover {
@@ -314,10 +316,13 @@ body {
  */
 
 @import "views/connexion.scss";
+@import "views/inscription.scss";
+
 @import "components/buttons.scss";
 @import "components/card.scss";
 @import "components/forms.scss";
 @import "components/comments.scss";
+
 @import "polypage/plain.css";
 
 

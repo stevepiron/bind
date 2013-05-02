@@ -18,7 +18,9 @@ $(function() {
 		dismiss = $('.dismiss'),
 		showArchive = $('#showArchive'),
 		hideArchive = $('#hideArchive'),
-		archive = $('#archive');
+		archive = $('#archive'),
+		interestedUsersTrigger = $('.interest'),
+		interestedUsersFaces = $('#interestedUsersFaces');
 	
 	/*
 	 * Functions
@@ -95,5 +97,15 @@ $(function() {
 		archive.hide();
 		e.preventDefault();
 	});
+	
+	/*
+	 * Toggle interested students
+	 */
+	
+	interestedUsersTrigger.click(function(e) {
+		interestedUsersFaces.slideToggle(250);
+		e.preventDefault();
+	});
+	
 	
 });

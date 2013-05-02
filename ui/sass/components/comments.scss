@@ -3,43 +3,72 @@
 	@include x-box-sizing;
 	.comments {
 		padding: 0;
-		margin: 0;
+		margin: 0 0 4em 0;
 		list-style: none;
 		li {
-			margin-bottom: 2em;
-			header {
-				color: $oliveGreen;
-				font-size: 13px;
-				margin-bottom: 1em;
-			}
+			margin-bottom: 1em;
+			margin-left: 190px;
 			aside {
 				float: left;
-				width: 260px;
-				ul {
-					margin: 0;
-					padding: 0;
-					list-style: none;
-					li {
+				img {
+					margin-right: 20px;
+					position: relative;
+					top: 8px;
+					@include x-border-radius(50%);
+				}
+			}
+			article {
+				float: left;
+				header {
+					color: $oliveGreen;
+					font-size: 13px;
+					margin-top: 10px;
+					.author {
+						color: $black;
+						font-weight: $bold;
+						font-size: 16px;
+						margin: 0;
+					}
+				}
+				> p {
+					margin-bottom: 0;
+					a {
+						color: $lightBlue;
+						text-decoration: underline;
+						&:hover {
+							color: $blue;
+						}
+					}
+				}
+				footer {
+					.publishedDate {
+						font-size: 13px;
 						color: $oliveGreen;
-						margin-bottom: 5px;
-						&.author {
-							color: $darkGrey;
-							img {
-								margin-right: 10px;
-								position: relative;
-								top: 8px;
-								@include x-border-radius(50%);
-							}
-						}
-						&.publishedDate {
-							font-size: 13px;
-							padding-left: 64px;
-							position: relative;
-							top: -25px;
-						}
+					}
+				}
+			}
+			&.lvl1 {
+				margin-left: 260px;
+				border-left: 4px solid $lightGrey;
+				padding-left: 20px;
+			}
+			&.bestAnswer {
+				margin-left: 15px;
+				aside {
+					.star {
+						text-indent: -9999px;
+						width: 16px;
+						height: 16px;
+						background: url('../../media/img/assets/star.png') no-repeat;
+						display: inline-block;
+						vertical-align: middle;
+						margin: 11px 155px 0 0;
 					}
 				}
 			}
 		}
+	}
+	.actions {
+		margin-left: 260px;
 	}
 }

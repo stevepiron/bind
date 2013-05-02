@@ -14,9 +14,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $title ?></title>
+        <title><?php echo $__TITLE_PAGE__; ?></title>
         <meta name="author" content="Steve Piron (@stevepiron)">
-        <meta name="description" content="">
+        <meta name="description" content="<?php echo $__DESC_PAGE__; ?>">
         <meta name="viewport" content="width=device-width">
 
         <link rel="icon" type="image/png" href="<?php echo $dig ?>media/img/assets/icons/favicon.png">
