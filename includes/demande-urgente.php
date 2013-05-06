@@ -30,9 +30,9 @@
 					<a class="btn pp_loggedIn" href="index.php?page=demande-urgente#commentForm">Répondre</a>
 					<p><a class="answers" href="index.php?page=demande-urgente#interactions_and_loggedIn">2 réponses</a> • <a class="interest" href="">3 intéressés</a></p>
 					<div class="interestedUsersFaces">
-						<img src="../media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
-						<img src="../media/img/user/user-female-4@2x.jpg" alt="" width="48" height="48">
-						<img src="../media/img/user/user-male-3@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-female-4@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-male-3@2x.jpg" alt="" width="48" height="48">
 					</div><!-- /.interestedUsersFaces -->
 				</footer>
 			</article>
@@ -42,7 +42,7 @@
 			<ol class="comments">
 				<li class="clearfix">
 					<aside>
-						<img src="../media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
 					</aside>
 					<article>
 						<header>
@@ -56,7 +56,7 @@
 				</li>
 				<li class="clearfix">
 					<aside>
-						<img src="../media/img/user/user-male-2@2x.png" alt="" width="48" height="48">
+						<img src="media/img/user/user-male-2@2x.png" alt="" width="48" height="48">
 					</aside>
 					<article>
 						<header>

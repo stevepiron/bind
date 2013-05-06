@@ -1,9 +1,11 @@
 <?php
 	$dig = '';
 	
-	if($level == 1) {
+	/*
+if($level == 1) {
 		$dig = '../';
 	}
+*/
 ?>
 
 <header class="clearfix">

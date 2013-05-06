@@ -1,9 +1,11 @@
 <?php
 	$dig = '';
 	
-	if($level == 1) {
+	/*
+if($level == 1) {
 		$dig = '../';
 	}
+*/
 ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo $dig; ?>ui/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>

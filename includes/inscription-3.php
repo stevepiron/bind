@@ -6,7 +6,7 @@
 ?>
 
 <header class="clearfix">
-	<a href="index.php#loggedIn"><img id="logo" src="../media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"></a>
+	<a href="index.php#loggedIn"><img id="logo" src="media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"></a>
 </header><!-- /header -->
 
 <div class="content">

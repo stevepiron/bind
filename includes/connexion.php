@@ -6,7 +6,7 @@
 ?>
 
 <header class="clearfix">
-	<a href="../index.php"><img id="logo" src="../media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"></a>
+	<a href="../index.php"><img id="logo" src="media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"></a>
 </header><!-- /header -->
 
 <div class="content">
@@ -14,7 +14,7 @@
 		
 		<h1>Connexion</h1>
 		
-		<form id="signInForm" action="../index.php#loggedIn" method="post">
+		<form id="signInForm" action="index.php#loggedIn" method="post">
 			<div>
 				<label for="email">Adresse email</label>
 				<input type="email" name="email" id="email" value="hi@stevepiron.be">

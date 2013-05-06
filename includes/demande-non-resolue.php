@@ -17,7 +17,7 @@
 			
 			<aside>
 				<ul>
-					<li class="author"><img src="../media/img/user/user-male-2@2x.png" alt="" width="48" height="48"> Maxime</li>
+					<li class="author"><img src="media/img/user/user-male-2@2x.png" alt="" width="48" height="48"> Maxime</li>
 					<li class="bestAnswersCount" title="122 réponses utiles">122</li>
 					<li class="publishedDate">Il y a 2 jours</li>
 				</ul>
@@ -30,9 +30,9 @@
 					<a class="btn pp_loggedIn" href="index.php?page=demande-non-resolue#commentForm">Répondre</a>
 					<p><a class="answers" href="index.php?page=demande-non-resolue#interactions_and_loggedIn">0 réponse</a> • <a class="interest" href="">1 intéressé</a></p>
 					<div class="interestedUsersFaces">
-						<img src="../media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
-						<img src="../media/img/user/user-female-4@2x.jpg" alt="" width="48" height="48">
-						<img src="../media/img/user/user-male-3@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-female-2@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-female-4@2x.jpg" alt="" width="48" height="48">
+						<img src="media/img/user/user-male-3@2x.jpg" alt="" width="48" height="48">
 					</div><!-- /.interestedUsersFaces -->
 				</footer>
 			</article>
