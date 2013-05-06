@@ -118,6 +118,8 @@ $oliveGreen: #a6ada2;
 $lightGreen: #a7cf47;
 $darkGreen: #95bb39;
 
+$red: #d66037;
+
 /*
  * Sass mixins
  */
@@ -163,6 +165,10 @@ a {
 	}
 }
 
+.rounded {
+	@include x-border-radius(50%);
+}
+
 img[src$=".gif"],
 img[src$=".png"] {
 	image-rendering: -moz-crisp-edges;         /* Firefox */
@@ -181,17 +187,23 @@ body {
 		text-align: center;
 		background: $white;
 		height: 107px;
-	}
-	
-	#logo {
-		display: inline-block;
-		float: left;
-		margin-top: 7px;
-		image-rendering: -moz-crisp-edges;         /* Firefox */
-		image-rendering:   -o-crisp-edges;         /* Opera */
-		image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-		image-rendering: crisp-edges;
-		-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+		#logoAnchor {
+			display: inline-block;
+			text-align: left;
+			float: left;
+			line-height: 38px;
+			#logo {
+				display: inline-block;
+				float: left;
+				margin-top: 7px;
+				margin-right: 10px;
+				image-rendering: -moz-crisp-edges;         /* Firefox */
+				image-rendering:   -o-crisp-edges;         /* Opera */
+				image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+				image-rendering: crisp-edges;
+				-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+			}
+		}
 	}
 	
 	#signIn,

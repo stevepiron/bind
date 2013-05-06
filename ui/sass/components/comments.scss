@@ -19,15 +19,24 @@
 			}
 			article {
 				float: left;
+				margin-top: 10px;
 				header {
 					color: $oliveGreen;
 					font-size: 13px;
-					margin-top: 10px;
 					.author {
 						color: $black;
 						font-weight: $bold;
 						font-size: 16px;
 						margin: 0;
+						.bestAnswersCount {
+							font-size: 14px;
+							font-weight: bold;
+							color: $darkGreen;
+							padding-left: 15px;
+							display: inline-block;
+							margin-left: 6px;
+							background: url('../../media/img/assets/best-answer.png') 0 center no-repeat;
+						}
 					}
 				}
 				> p {
@@ -53,22 +62,27 @@
 				padding-left: 20px;
 			}
 			&.bestAnswer {
-				margin-left: 15px;
-				aside {
-					.star {
-						text-indent: -9999px;
-						width: 16px;
-						height: 16px;
-						background: url('../../media/img/assets/star.png') no-repeat;
-						display: inline-block;
-						vertical-align: middle;
-						margin: 11px 155px 0 0;
-					}
+				article {
+					border-left: 4px solid $darkGreen;
+					padding-left: 15px;
 				}
 			}
 		}
 	}
 	.actions {
-		margin-left: 260px;
+		margin-left: 190px;
+		#commentForm {
+			.userAvatar {
+				float: left;
+				margin-right: 20px;
+			}
+			textarea {
+				float: left;
+				width: 642px;
+			}
+			input[type="submit"] {
+				margin-left: 68px;
+			}
+		}
 	}
 }

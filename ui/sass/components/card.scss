@@ -11,6 +11,7 @@
 	font-size: 16px;
 	line-height: 2em;
 	margin: 0 0 80px 0;
+	overflow: hidden;
 	@include x-border-radius(6px);
 	&:nth-child(3n) {
 		margin-right: 0;
@@ -19,6 +20,7 @@
 	
 	header {
 		margin-bottom: 20px;
+		overflow: hidden;
 		h2 {
 			font-size: 22px;
 			font-weight: $regular;
@@ -26,7 +28,7 @@
 			float: left;
 			line-height: 1.25;
 			padding-left: 260px;
-			> a {
+			a {
 				color: $darkGreen;
 				&.label {
 					background: $darkBlue;
@@ -68,11 +70,21 @@
 						@include x-border-radius(50%);
 					}
 				}
+				&.bestAnswersCount {
+					padding-left: 80px;
+					position: relative;
+					top: -18px;
+					font-size: 14px;
+					font-weight: bold;
+					color: $darkGreen;
+					background: url('../../media/img/assets/best-answer.png') 64px center no-repeat;
+					line-height: 1;
+				}
 				&.publishedDate {
 					font-size: 13px;
 					padding-left: 64px;
 					position: relative;
-					top: -25px;
+					top: -26px;
 				}
 			}
 		}
@@ -88,6 +100,9 @@
 		}
 		
 		footer {
+			> * {
+				margin-right: 10px;
+			}
 			> a {
 				margin-top: 1em;
 			}
@@ -95,6 +110,7 @@
 				color: $oliveGreen;
 				font-size: 13px;
 				margin: 0;
+				display: inline-block;
 			}
 			.answers,
 			.interest {
@@ -104,7 +120,7 @@
 			.interest {
 				margin-left: 2px;
 			}
-			#interestedUsersFaces {
+			.interestedUsersFaces {
 				margin-top: 5px;
 				display: none;
 				img {
@@ -118,7 +134,24 @@
 		}
 	}
 	
-	
+	&.solved {
+		h2 {
+			padding-left: 285px;
+			background: url('../../media/img/assets/solved.png') 262px center no-repeat;
+			a {
+				color: $darkBlue;
+			}
+		}
+	}
+	&.urgent {
+		h2 {
+			padding-left: 285px;
+			background: url('../../media/img/assets/urgent.png') 262px center no-repeat;
+			a {
+				color: $red;
+			}
+		}
+	}
 }
 .demande {
 	.request {

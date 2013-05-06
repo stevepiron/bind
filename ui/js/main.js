@@ -1,12 +1,3 @@
-/*
-window.onload = function() {
-  var grid = new Masonry( document.getElementsByClassName('requests')[0], {
-    columnWidth: 330,
-    isFitWidth: true
-  });
-};
-*/
-
 $(function() {
 
 	$('body').polypage();
@@ -14,13 +5,10 @@ $(function() {
 	var body = $('body'),
 		userAccountTrigger = $('#userAccountTrigger'),
 		dropdown = $('#userDropdown'),
-		watch = $('.watch'),
-		dismiss = $('.dismiss'),
-		showArchive = $('#showArchive'),
-		hideArchive = $('#hideArchive'),
+		showMore = $('#showMore'),
 		archive = $('#archive'),
 		interestedUsersTrigger = $('.interest'),
-		interestedUsersFaces = $('#interestedUsersFaces');
+		watchToggle = $('.watchToggle');
 	
 	/*
 	 * Functions
@@ -57,44 +45,12 @@ $(function() {
 	});
 	
 	/*
-	 * Toggle "watch" button
+	 * Show more requests
 	 */
 	
-	watch.click(function(e) {
-		var $this = $(this);
-		
-		if(!$this.hasClass('active')) {
-			$this.addClass('active');
-		}
-		else {
-			$this.removeClass('active');
-		}
-		e.preventDefault();
-		e.stopPropagation();
-	});
-	
-	/*
-	 * Dismiss request
-	 */
-	
-	dismiss.click(function(e) {
-		$(this).parent().parent().remove();
-		e.preventDefault();
-	});
-	
-	/*
-	 * Show or hide archive
-	 */
-	
-	showArchive.click(function(e) {
-		$(this).hide();
+	showMore.click(function(e) {
+		$(this).remove();
 		archive.show();
-		e.preventDefault();
-	});
-	
-	hideArchive.click(function(e) {
-		showArchive.show();
-		archive.hide();
 		e.preventDefault();
 	});
 	
@@ -103,9 +59,18 @@ $(function() {
 	 */
 	
 	interestedUsersTrigger.click(function(e) {
-		interestedUsersFaces.slideToggle(250);
+		var interestedUsersFaces = $(this).parent().siblings('.interestedUsersFaces');
+		interestedUsersFaces.slideToggle(180);
 		e.preventDefault();
 	});
 	
+	/*
+	 * Toggle watch state
+	 */
+	
+	watchToggle.click(function(e) {
+		$(this).toggleClass('watching');
+		e.preventDefault();
+	});
 	
 });

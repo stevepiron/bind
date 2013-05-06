@@ -6,14 +6,15 @@
 	}
 ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="<?php echo $dig ?>ui/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="<?php echo $dig ?>ui/js/plugins.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<?php echo $dig; ?>ui/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="<?php echo $dig; ?>ui/js/plugins.min.js"></script>
         
-        <script src="<?php echo $dig ?>ui/js/polypage/polypage.jquery.js"></script>
-        <script src="<?php echo $dig ?>ui/js/polypage/events.polypage.jquery.js"></script>
-        <script src="<?php echo $dig ?>ui/js/polypage/gui.polypage.jquery.js"></script>
+        <script src="<?php echo $dig; ?>ui/js/polypage/polypage.jquery.js"></script>
+        <script src="<?php echo $dig; ?>ui/js/polypage/events.polypage.jquery.js"></script>
+        <script src="<?php echo $dig; ?>ui/js/polypage/cookie.polypage.jquery.js"></script>
+        <script src="<?php echo $dig; ?>ui/js/polypage/gui.polypage.jquery.js"></script>
         
-        <script src="<?php echo $dig ?>ui/js/main.min.js"></script>
+        <script src="<?php echo $dig; ?>ui/js/main.min.js"></script>
 
         <script>
             var _gaq=[['_setAccount','UA-20126070-5'],['_trackPageview']];

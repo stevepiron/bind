@@ -13,13 +13,31 @@
 				include('includes/connexion.php');
 			break;
 			
-			case 'inscription':
-				include('includes/inscription.php');
+			case 'inscription-1':
+				include('includes/inscription-1.php');
 			break;
 			
-			case 'demande':
+			case 'inscription-2':
+				include('includes/inscription-2.php');
+			break;
+			
+			case 'inscription-3':
+				include('includes/inscription-3.php');
+			break;
+			
+			case 'demande-non-resolue':
 				include('global_html/header.php');
-				include('includes/demande.php');
+				include('includes/demande-non-resolue.php');
+			break;
+			
+			case 'demande-urgente':
+				include('global_html/header.php');
+				include('includes/demande-urgente.php');
+			break;
+			
+			case 'demande-resolue':
+				include('global_html/header.php');
+				include('includes/demande-resolue.php');
 			break;
 			
 			default:

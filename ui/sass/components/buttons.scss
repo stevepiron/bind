@@ -42,8 +42,21 @@
 			background: darken($lightBlue, 5%);
 		}
 	}
-	+ .btn {
-		margin-left: 10px;
+	&.btn-link {
+		background: transparent;
+		border: 2px solid $lightGrey;
+		padding: 8px 16px;
+		&.watchToggle {
+			&.watching {
+				text-indent: -9999px;
+				border: none;
+				width: 36px;
+				height: 36px;
+				padding: 0;
+				background: $lightGrey url('../../media/img/assets/watching.png') center center no-repeat;
+				vertical-align: top;
+			}
+		}
 	}
 }
 
