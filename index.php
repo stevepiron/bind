@@ -13,16 +13,12 @@
 				include('includes/connexion.php');
 			break;
 			
-			case 'inscription-1':
-				include('includes/inscription-1.php');
+			case 'inscription':
+				include('includes/inscription.php');
 			break;
 			
-			case 'inscription-2':
-				include('includes/inscription-2.php');
-			break;
-			
-			case 'inscription-3':
-				include('includes/inscription-3.php');
+			case 'activation':
+				include('includes/activation.php');
 			break;
 			
 			case 'demande-non-resolue':

@@ -1,8 +1,11 @@
 <?php
-	$__TITLE_PAGE__ = 'Accueil';
+	$__TITLE_PAGE__ = 'Bind';
 	$__DESC_PAGE__ = '';
 	$section = 'home';
 	$level = '0';
+	
+	session_start();
+	
 ?>
 
 <div class="content">
