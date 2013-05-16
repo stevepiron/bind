@@ -1,5 +1,5 @@
 <?php
-	$__TITLE_PAGE__ = 'Inscription (étape 2/3) • Bind';
+	$__TITLE_PAGE__ = 'Activation • Bind';
 	$__DESC_PAGE__ = '';
 	$section = 'inscription';
 	$level = '1';
