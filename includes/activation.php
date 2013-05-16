@@ -33,16 +33,15 @@
 	 */
 	 
 	
-	if(isset($_GET['email']) && isset($_GET['hash'])) {
-		if($_GET['email'] && $_GET['hash']) {
+	if(isset($_GET['hash'])) {
+		if($_GET['hash']) {
 			
 			extract($_GET); // Creates variables from POST
 			
 			try {
-				$sql = 'SELECT email, hash, active
+				$sql = 'SELECT hash, active
 						FROM users
-						WHERE email = "'.$email.'"
-						AND hash = "'.$hash.'"
+						WHERE hash = "'.$hash.'"
 						AND active = "0"';
 			
 				$res = $db -> query($sql);
@@ -55,12 +54,11 @@
 					try {
 						$sql = 'UPDATE users
 								SET active = "1"
-								WHERE email = "'.$email.'"
-								AND hash = "'.$hash.'"
+								WHERE hash = "'.$hash.'"
 								AND active = "0"';
 						
 						$db -> exec($sql);
-						$feedback = '<p class="notice">Ton compte a été activé ! C\'est quoi ton prénom ?</p>';
+						$feedback = '<p class="notice success">Ton compte a été activé ! C\'est quoi ton prénom ?</p>';
 								
 					}
 					catch(exception $e) {
@@ -69,7 +67,7 @@
 				}
 				else {
 					// No match: invalid url or account has already been activated
-					$feedback = '<p class="notice">Le lien n\'est pas correct ou ton compte a déjà été activé.</p>';
+					$feedback = '<p class="notice error">Le lien n\'est pas correct ou ton compte a déjà été activé.</p>';
 				}
 			}
 			catch(exception $e) {
@@ -129,8 +127,8 @@
 		?>
 		
 		<?php
-			if(isset($_GET['email']) && isset($_GET['hash'])) {
-				if($_GET['email'] && $_GET['hash']) {
+			if(isset($_GET['hash'])) {
+				if($_GET['hash']) {
 					if($match == 1) {
 		?>
 		<form action="" method="post">

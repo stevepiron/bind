@@ -1,0 +1,26 @@
+.nouvelle-demande {
+	.container {
+		max-width: 640px;
+		form {
+			div {
+				margin-bottom: 1.33em;
+				label {
+					display: block;
+					margin-bottom: .67em;
+				}
+				input[type="text"] {
+					width: 100%;
+				}
+				&.halfWidthSelect {
+					display: inline-block;
+					width: 170px;
+					margin-right: 40px;
+					+ .halfWidthSelect {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+	
+}

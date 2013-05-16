@@ -118,6 +118,10 @@ a:hover {
   border-radius: 50%;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 img[src$=".gif"],
 img[src$=".png"] {
   image-rendering: -moz-crisp-edges;
@@ -205,7 +209,7 @@ body #userAccount #userAccountTrigger span {
 body #userAccount #userDropdown {
   position: absolute;
   top: 65px;
-  background: #a6ada2;
+  background: #6f7378;
   min-width: 200px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -237,15 +241,16 @@ body #userAccount #userDropdown ul li a .count {
   border-radius: 2px;
 }
 body #userAccount #userDropdown ul li a:hover {
-  background: #6f7378;
+  background: #a6ada2;
 }
 body #userAccount #userDropdown.hidden {
   display: none !important;
   visibility: hidden;
 }
-body .askForHelp {
+body .btn.btn-primary.askForHelp {
   float: right;
-  margin-top: 6px;
+  margin-top: -5px;
+  padding: 20px 15px 21px;
 }
 body h1 {
   color: #a6ada2;
@@ -295,6 +300,9 @@ body #showMore a {
 .connexion h1 {
   margin-bottom: 1em;
 }
+.connexion .notice {
+  width: 300px;
+}
 .connexion #signInForm {
   margin: 0 auto;
   width: 100%;
@@ -305,6 +313,7 @@ body #showMore a {
 }
 .connexion #signInForm div label {
   display: block;
+  margin-bottom: .33em;
 }
 .connexion #signInForm div input[type="email"],
 .connexion #signInForm div input[type="password"] {
@@ -323,6 +332,9 @@ body #showMore a {
 }
 .inscription h1 {
   margin-bottom: 1em;
+}
+.inscription .notice {
+  width: 300px;
 }
 .inscription #signUpForm {
   margin: 0 auto;
@@ -346,6 +358,50 @@ body #showMore a {
 .inscription #signUpForm input[type="submit"] {
   margin: 0 auto;
   display: block;
+}
+
+.mon-compte .container {
+  max-width: 640px;
+}
+.mon-compte .container form div {
+  margin-bottom: 1.33em;
+}
+.mon-compte .container form div label {
+  display: inline-block;
+  width: 300px;
+}
+.mon-compte .container form div input[type="text"],
+.mon-compte .container form div input[type="email"],
+.mon-compte .container form div input[type="password"] {
+  width: 297px;
+}
+.mon-compte .container form div input[type="file"] {
+  margin: 20px 0 0 304px;
+}
+.mon-compte .container form input[type="submit"] {
+  margin-left: 304px;
+}
+
+.nouvelle-demande .container {
+  max-width: 640px;
+}
+.nouvelle-demande .container form div {
+  margin-bottom: 1.33em;
+}
+.nouvelle-demande .container form div label {
+  display: block;
+  margin-bottom: .67em;
+}
+.nouvelle-demande .container form div input[type="text"] {
+  width: 100%;
+}
+.nouvelle-demande .container form div.halfWidthSelect {
+  display: inline-block;
+  width: 170px;
+  margin-right: 40px;
+}
+.nouvelle-demande .container form div.halfWidthSelect + .halfWidthSelect {
+  margin-right: 0;
 }
 
 .btn {
@@ -560,6 +616,10 @@ body #showMore a {
   margin-bottom: 30px;
 }
 
+fieldset {
+  padding-bottom: 2em;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -580,6 +640,15 @@ textarea {
 input[type="password"] {
   letter-spacing: .2em;
 }
+input[type="password"].placeholder {
+  letter-spacing: 0;
+}
+input[type="password"]:-moz-placeholder {
+  letter-spacing: 0;
+}
+input[type="password"]::-webkit-input-placeholder {
+  letter-spacing: 0;
+}
 
 textarea {
   width: 100%;
@@ -587,6 +656,40 @@ textarea {
   line-height: 1.8;
   height: 180px;
   margin-bottom: 2em;
+}
+
+input[type="file"] {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+.helpText {
+  font-size: 14px;
+  padding-left: 304px;
+  margin: 0.67em 0;
+  color: #a6ada2;
+}
+
+.notice {
+  border: 2px solid #8c9299;
+  background: #edf0ea;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px 15px;
+  margin: 0 auto 3em;
+  list-style: none;
+}
+.notice.error {
+  background: #f6ced4;
+  border-color: #ebbcc3;
+  color: #d97171;
+}
+.notice.success {
+  background: #edf5d8;
+  border-color: #e0edc2;
+  color: #a7cf47;
+}
+.notice.wide {
+  width: 360px;
 }
 
 #interactions {

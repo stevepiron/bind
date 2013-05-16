@@ -21,6 +21,11 @@
 				include('includes/activation.php');
 			break;
 			
+			case 'mon-compte':
+				include('global_html/header.php');
+				include('includes/mon-compte.php');
+			break;
+			
 			case 'demande-non-resolue':
 				include('global_html/header.php');
 				include('includes/demande-non-resolue.php');
@@ -34,6 +39,11 @@
 			case 'demande-resolue':
 				include('global_html/header.php');
 				include('includes/demande-resolue.php');
+			break;
+			
+			case 'nouvelle-demande':
+				include('global_html/header.php');
+				include('includes/nouvelle-demande.php');
 			break;
 			
 			default:

@@ -33,40 +33,118 @@
 	echo '</div><!-- /.dev -->';
 	
 	if($_POST['login']) {
+		// Define variables
+		extract($_POST);
+		
 		if(isset($_POST['login'])) {
 			
-			extract($_POST);
-			$password = md5($password); // Converts password input to md5, as in the DB
+			// Define error variables as NULL
+			// so that they're not rendered
+			// if the error is not targeted
+			$errors = 0;
+			$error_emptyForm = NULL;
+			$error_emptyEmail = NULL;
+			$error_emailSyntax = NULL;
+			$errors_emailNotRegistered = NULL;
+			$error_emptyPassword = NULL;
 			
-			$sql = 'SELECT *
-					FROM users
-					WHERE email ="'.$email.'"
-					AND password ="'.$password.'"
-					AND active = "1"';
-			
-			$res = $db -> query($sql);
-			$user = $res -> fetchAll(PDO::FETCH_ASSOC);
-			$match = count($user);
-			
-			if($match == 1) {
-				// Login accepted
-				session_start();
-				$_SESSION['id'] = $user[0]['id'];
-				$_SESSION['firstname'] = $user[0]['firstname'];
-				$_SESSION['email'] = $user[0]['email'];
-				$_SESSION['picture_url'] = $user[0]['picture_url'];
-				$_SESSION['useful_answers'] = $user[0]['useful_answers'];
-				
-				echo '<pre>';
-				print_r($_SESSION);
-				echo '</pre><br>';
-				
-				header('Location: index.php');
+			if(empty($email) && empty($password)) {
+				// Both email and password fields are empty
+				$errors++;
+				$error_emptyForm = 'Aucun champ n\'a été rempli.';
 			}
 			else {
-				// Login denied: inactive account OR wrong login / password
-				$feedback = '<p class="notice error">Oups, problème !</p>';
+				// At least on field is filled
+				
+				// Email address verification
+				if(empty($email)) {
+					// Email field is empty
+					$errors++;
+					$error_emptyEmail = 'Il semblerait que tu aies oublié de renseigner ton adresse email.';
+				}
+				else {
+					// Email field is not empty
+					if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+						// Email syntax is wrong
+						$errors++;
+						$error_emailSyntax = 'Tu dois mentionner une adresse email valide.';
+					}
+					else {
+						// Email syntax is ok
+						// Verify if the email address exists in the database
+						$sql = "SELECT email
+								FROM users
+								WHERE email = '$email'";
+						try {
+							$res = $db -> query($sql);
+							$count = $res -> fetchAll(PDO::FETCH_ASSOC);
+						}
+						catch(exception $e) {
+							echo 'Erreur : '.$e -> getMessage();
+						}
+						if(empty($count)) {
+							// This email address is not registered
+							$errors++;
+							$errors_emailNotRegistered = 'Cette adresse email n\'est pas associée à un compte existant.';
+						}	
+					}
+				}
+				
+				// Password verification
+				if(empty($password)) {
+					// Password field is empty
+					$errors++;
+					$error_emptyPassword = 'Hé là-bas, pas trop vite ! Tu as oublié de renseigner ton mot de passe :)';
+				}
 			}
+			
+			/*
+			 *  No error found
+			 *  Attempt connection
+			 */
+			
+			if($errors == 0) {
+				
+				$password = md5($password); // Converts password input to md5, as in the database
+			
+				$sql = 'SELECT *
+						FROM users
+						WHERE email ="'.$email.'"
+						AND password ="'.$password.'"
+						AND active = "1"';
+				
+				$res = $db -> query($sql);
+				$user = $res -> fetchAll(PDO::FETCH_ASSOC);
+				$match = count($user);
+				
+				if($match == 1) {
+					// Login accepted
+					session_start();
+					$_SESSION['id'] = $user[0]['id'];
+					$_SESSION['firstname'] = $user[0]['firstname'];
+					$_SESSION['email'] = $user[0]['email'];
+					$_SESSION['picture_url'] = $user[0]['picture_url'];
+					$_SESSION['useful_answers'] = $user[0]['useful_answers'];
+					
+					header('Location: index.php');
+					//header('Location:'.$_SERVER['HTTP_REFERER']);
+				}
+				else {
+					// Login denied: inactive account OR wrong login / password
+					$feedback = '<p class="notice error">Ce mot de passe est incorrect.</p>';
+				}
+			}
+			else {
+				// Errors found
+				$feedback = '<ul class="notice error">';
+				$feedback .= '<li>'.$error_emptyForm.'</li>';
+				$feedback .= '<li>'.$error_emptyEmail.'</li>';
+				$feedback .= '<li>'.$error_emailSyntax.'</li>';
+				$feedback .= '<li>'.$errors_emailNotRegistered.'</li>';
+				$feedback .= '<li>'.$error_emptyPassword.'</li>';
+				$feedback .= '</ul><!-- /.notice -->';
+			}
+			
 			
 		}
 	}

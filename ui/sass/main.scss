@@ -142,6 +142,12 @@ $red: #d66037;
             box-sizing: $type; // IE 8, Opera 9.5+
 }
 
+@mixin placeholder {
+	&.placeholder { @content }
+	&:-moz-placeholder { @content }
+	&::-webkit-input-placeholder { @content }
+}
+
 /*
  * Common
  */
@@ -167,6 +173,10 @@ a {
 
 .rounded {
 	@include x-border-radius(50%);
+}
+
+.bold {
+	font-weight: $bold;
 }
 
 img[src$=".gif"],
@@ -248,7 +258,7 @@ body {
 		#userDropdown {
 			position: absolute;
 			top: 65px;
-			background: $oliveGreen;
+			background: $darkGrey;
 			min-width: 200px;
 			@include x-border-radius(3px);
 			text-align: left;
@@ -276,7 +286,7 @@ body {
 							@include x-border-radius(2px);
 						}
 						&:hover {
-							background: $darkGrey;
+							background: $oliveGreen;
 						}
 					}
 				}
@@ -289,9 +299,10 @@ body {
 		}
 	}
 	
-	.askForHelp {
+	.btn.btn-primary.askForHelp {
 		float: right;
-		margin-top: 6px;
+		margin-top: -5px;
+		padding: 20px 15px 21px;
 	}
 	
 	h1 {
@@ -342,10 +353,13 @@ body {
 
 @import "views/connexion.scss";
 @import "views/inscription.scss";
+@import "views/mon-compte.scss";
+@import "views/nouvelle-demande.scss";
 
 @import "components/buttons.scss";
 @import "components/card.scss";
 @import "components/forms.scss";
+@import "components/notices.scss";
 @import "components/comments.scss";
 
 @import "polypage/plain.css";

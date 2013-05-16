@@ -14,7 +14,7 @@
 	
 	function setError($error = '') {
 		$msg = ($error != '') ? $error : 'Une erreur inconnue s\'est produite.';
-		echo '<p>'.$msg.'</p>';
+		echo '<p class="notice error wide">'.$msg.'</p>';
 	}
 
 ?>

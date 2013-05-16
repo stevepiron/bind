@@ -13,6 +13,7 @@
 	// Session variables
 	$id = (isset($_SESSION['id'])) ? (int) $_SESSION['id'] : 0;
 	$firstname = (isset($_SESSION['firstname'])) ? $_SESSION['firstname'] : '';
+	extract($_SESSION);
 	
 	// Includes
 	require 'php/functions.php';
@@ -40,19 +41,20 @@
 	<a id="logoAnchor" href="<?php echo $dig; ?>index.php"><img id="logo" src="<?php echo $dig; ?>media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"> Lycée Emile Jacqmain</a>
 	
 	<?php if($_SESSION): ?>
-	<a class="askForHelp btn btn-primary pp_loggedIn" href="#">Demander de l'aide</a>
+	<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-demande">Demander de l'aide</a>
 	
 	<div id="userAccount">
     	<button id="userAccountTrigger">
-    		<img class="userAvatar" src="<?php echo $dig; ?>media/img/user/avatar@2x.png" alt="User name" width="36" height="36">
+    		<img class="userAvatar" src="<?php echo $dig; ?><?php if(isset($picture_url)) echo $picture_url; ?>" alt="<?php if(isset($firstname)) echo 'Ma photo ('.$firstname.')'; ?>" width="36" height="36">
     		<span>Mon compte</span>
     	</button>
     	
     	<div id="userDropdown" class="hidden">
     		<ul>
     			<li><a href="#">Mes questions <span class="count">0</span></a></li>
-    			<li><a href="#">Questions surveillées <span class="count">2</span></a></li>
-    			<li><a href="#">Mes élèves <span class="count">1</span></a></li>
+    			<!-- <li><a href="#">Questions surveillées <span class="count">2</span></a></li> -->
+    			<!-- <li><a href="#">Mes élèves <span class="count">1</span></a></li> -->
+    			<li><a href="index.php?page=mon-compte">Gérer mon compte</a></li>
     			<li><a id="signOff" href="php/logout.php">Déconnexion</a></li>
     		</ul>
     	</div>
