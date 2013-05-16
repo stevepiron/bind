@@ -119,6 +119,12 @@
 			}
 			.interest {
 				margin-left: 2px;
+				&.interest0 {
+					&:hover {
+						color: $oliveGreen;
+						cursor: default;
+					}
+				}
 			}
 			.interestedUsersFaces {
 				margin-top: 5px;

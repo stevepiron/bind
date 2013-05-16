@@ -112,7 +112,7 @@
     				<footer>
     					<a class="btn pp_loggedIn" href="index.php?page=demande-non-resolue#commentForm">Répondre</a>
     					<a class="btn btn-link watchToggle watching pp_loggedIn" href="#">Surveiller cette question</a>
-    					<p><a class="answers" href="index.php?page=demande-non-resolue#interactions_and_loggedIn">0 réponse</a> • <a class="interest" href="">1 intéressé</a></p>
+    					<p><a class="answers" href="index.php?page=demande-non-resolue#interactions_and_loggedIn">0 réponse</a> • <a class="interest interest0" href="">0 intéressé</a></p>
     				</footer>
 				</article>
 			</li><!-- /.request -->
