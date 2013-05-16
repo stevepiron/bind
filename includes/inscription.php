@@ -136,5 +136,7 @@
 			<input type="submit" name="signUp" class="btn btn-green" value="M'inscrire">
 		</form>
 		
+		<p class="center switchSignInSignUp"><a href="index.php?page=connexion">Tu as déjà un compte ?</a></p>
+		
 	</div><!-- /.container -->
 </div><!-- /.content -->

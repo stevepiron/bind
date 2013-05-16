@@ -122,6 +122,10 @@ a:hover {
   font-weight: 700;
 }
 
+.center {
+  text-align: center;
+}
+
 img[src$=".gif"],
 img[src$=".png"] {
   image-rendering: -moz-crisp-edges;
@@ -326,6 +330,13 @@ body #showMore a {
   margin: 0 auto;
   display: block;
 }
+.connexion .switchSignInSignUp {
+  margin-top: 1em;
+}
+.connexion .switchSignInSignUp a {
+  font-size: 14px;
+  text-decoration: underline;
+}
 
 .inscription > header #logo {
   float: none;
@@ -346,6 +357,7 @@ body #showMore a {
 }
 .inscription #signUpForm div label {
   display: block;
+  margin-bottom: .33em;
 }
 .inscription #signUpForm div input[type="email"],
 .inscription #signUpForm div input[type="password"] {
@@ -358,6 +370,13 @@ body #showMore a {
 .inscription #signUpForm input[type="submit"] {
   margin: 0 auto;
   display: block;
+}
+.inscription .switchSignInSignUp {
+  margin-top: 1em;
+}
+.inscription .switchSignInSignUp a {
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 .mon-compte .container {
@@ -683,10 +702,24 @@ input[type="file"] {
   border-color: #ebbcc3;
   color: #d97171;
 }
+.notice.error a {
+  color: #d97171;
+  text-decoration: underline;
+}
+.notice.error a:hover {
+  text-decoration: none;
+}
 .notice.success {
   background: #edf5d8;
   border-color: #e0edc2;
   color: #a7cf47;
+}
+.notice.success a {
+  color: #a7cf47;
+  text-decoration: underline;
+}
+.notice.success a:hover {
+  text-decoration: none;
 }
 .notice.wide {
   width: 360px;

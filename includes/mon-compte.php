@@ -25,7 +25,8 @@
 			// so that they're not rendered
 			// if the error is not targeted
 			$errors = 0;
-			$error_firstname = NULL;
+			$error_emptyFirstname = NULL;
+			$error_firstnameLength = NULL;
 			$error_email = NULL;
 			$error_emailAlreadyUsed = NULL;
 			$error_emptyConfirm  = NULL;
@@ -90,7 +91,15 @@
 			// Firstname verification
 			if(empty($firstname)) {
 				$errors++;
-				$error_firstname = 'Hé là-bas, pas trop vite ! C\'est quoi ton prénom ?';
+				$error_emptyFirstname = 'Hé là-bas, pas trop vite ! C\'est quoi ton prénom ?';
+			}
+			else {
+				// Firstname field is filled
+				if(strlen($firstname) > 20) {
+					// Firstname is longer than 20 chars.
+					$errors++;
+					$error_firstnameLength = 'Ton prénom ne peut dépasser 20 caractères.';
+				}
 			}
 			
 			// Email address verification
@@ -204,9 +213,9 @@
 			}
 			// Errors found
 			else {
-				echo $errors.' erreur(s) trouvée(s).<br>';
 				$feedback = '<ul class="notice error">';
-				$feedback .= '<li>'.$error_firstname.'</li>';
+				$feedback .= '<li>'.$error_emptyFirstname.'</li>';
+				$feedback .= '<li>'.$error_firstnameLength.'</li>';
 				$feedback .= '<li>'.$error_email.'</li>';
 				$feedback .= '<li>'.$error_emailAlreadyUsed.'</li>';
 				$feedback .= '<li>'.$error_emptyConfirm.'</li>';
@@ -220,10 +229,6 @@
 			
 		}
 	}
-	// Form is not sent
-	else {
-		if($id == 0) setError(ERR_NOTLOGGEDIN); // User is not logged in
-	}
 	
 ?>
 
@@ -236,6 +241,11 @@
 			if(isset($feedback)) {
 				echo $feedback;
 			}
+			
+			if($id == 0) {
+				setError(ERR_NOTLOGGEDIN); // If the user is not logged in
+			}
+			else {
 		?>
 		
 		<form id="editAccount" action="" method="post" enctype="multipart/form-data">
@@ -272,6 +282,8 @@
 			</fieldset>
 			<input type="submit" name="editAccount" class="btn btn-green" value="Enregistrer">
 		</form>
+		
+		<?php } ?>
 		
 	</div><!-- /.container -->
 </div><!-- /.content -->

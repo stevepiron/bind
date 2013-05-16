@@ -14,7 +14,11 @@
 	
 	function setError($error = '') {
 		$msg = ($error != '') ? $error : 'Une erreur inconnue s\'est produite.';
-		echo '<p class="notice error wide">'.$msg.'</p>';
+		echo '<p class="notice error wide center">'.$msg.'</p>';
+	}
+	
+	function redirect($page){
+		header('Location: '.$page);
 	}
 
 ?>

@@ -126,7 +126,7 @@
 					$_SESSION['picture_url'] = $user[0]['picture_url'];
 					$_SESSION['useful_answers'] = $user[0]['useful_answers'];
 					
-					header('Location: index.php');
+					redirect('index.php');
 					//header('Location:'.$_SERVER['HTTP_REFERER']);
 				}
 				else {
@@ -144,8 +144,19 @@
 				$feedback .= '<li>'.$error_emptyPassword.'</li>';
 				$feedback .= '</ul><!-- /.notice -->';
 			}
+		}
+	}
+	else {
+		// The form has not been submitted yet.
+		// This case happens when the user is
+		// redirected to this page after the
+		// activation of his/her account.
+		if($_GET['nom']) {
+			extract($_GET);
 			
-			
+			if(isset($_GET['nom'])) {
+				$feedback = '<p class="notice success center">Bienvenue, '.$nom.' !</p>';
+			}
 		}
 	}
 	
@@ -183,6 +194,9 @@
 			</div>
 			<input type="submit" name="login" class="btn btn-green" value="Connexion">
 		</form>
+		
+		<p class="center switchSignInSignUp"><a href="index.php?page=inscription">Tu n'as pas encore de compte ?</a></p>
+		
 		<?php } ?>
 		
 	</div><!-- /.container -->

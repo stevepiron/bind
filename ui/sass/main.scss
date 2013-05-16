@@ -179,6 +179,10 @@ a {
 	font-weight: $bold;
 }
 
+.center {
+	text-align: center;
+}
+
 img[src$=".gif"],
 img[src$=".png"] {
 	image-rendering: -moz-crisp-edges;         /* Firefox */

@@ -9,11 +9,25 @@
 		background: #f6ced4;
 		border-color: #ebbcc3;
 		color: #d97171;
+		a {
+			color: #d97171;
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	&.success {
 		background: #edf5d8;
 		border-color: #e0edc2;
 		color: $lightGreen;
+		a {
+			color: $lightGreen;
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	&.wide {
 		width: 360px;

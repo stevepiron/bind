@@ -32,7 +32,6 @@
 	 *  User account activation
 	 */
 	 
-	
 	if(isset($_GET['hash'])) {
 		if($_GET['hash']) {
 			
@@ -56,14 +55,12 @@
 								SET active = "1"
 								WHERE hash = "'.$hash.'"
 								AND active = "0"';
-						
 						$db -> exec($sql);
-						$feedback = '<p class="notice success">Ton compte a été activé ! C\'est quoi ton prénom ?</p>';
-								
 					}
 					catch(exception $e) {
 						echo 'erreur : '.$e->getMessage();
 					}
+					$feedback = '<p class="notice success">Ton compte a été activé ! C\'est quoi ton prénom ?</p>';
 				}
 				else {
 					// No match: invalid url or account has already been activated
@@ -86,30 +83,65 @@
 	/*
 	 *  Set firstname
 	 */
-	
+
 	if($_POST['setFirstname']) {
+		// Form has already been displayed once
+		// so we can say we have one match
+		$match = 1; // Allows setFirstname to be shown more than once
+		extract($_POST);
+		
 		if(isset($_POST['setFirstname'])) {
-			
-			extract($_POST);
 			$firstname = ucname(trim(strip_tags($firstname)));
-			extract($_GET);
 			
-			try {
-				$sql = 'UPDATE users
-						SET firstname = "'.$firstname.'"
-						WHERE email = "'.$email.'"
-						AND hash = "'.$hash.'"
-						AND active = "1"';
-				
-				$db -> exec($sql);
-				$feedback = '<p>Enchanté, '.htmlentities($firstname).' !</p>
-							<p>Tu peux dès à présent <a href="index.php?page=connexion&email='.urlencode($email).'">te connecter</a> pour poser tes questions ou aider les autres :)';
+			// Define error variables as NULL
+			// so that they're not rendered
+			// if the error is not targeted
+			$errors = 0;
+			$error_emptyFirstname = NULL;
+			$error_firstnameLength = NULL;
+			
+			if(empty($firstname)) {
+				// Firstname field is empty
+				$errors++;
+				$error_emptyFirstname = 'Tu n\'as pas renseigné ton prénom.';
 			}
-			catch(exception $e) {
-				echo 'erreur : '.$e->getMessage();
+			else {
+				// Firstname field is filled
+				if(strlen($firstname) > 20) {
+					// Firstname is longer than 20 chars.
+					$errors++;
+					$error_firstnameLength = 'Ton prénom ne peut dépasser 20 caractères.';
+				}
 			}
 			
+			if($errors == 0) {
+				try {
+					$sql = 'UPDATE users
+							SET firstname = "'.$firstname.'"
+							WHERE hash = "'.$hash.'"
+							AND active = "1"';
+					
+					$db -> exec($sql);
+				}
+				catch(exception $e) {
+					echo 'erreur : '.$e->getMessage();
+				}
+				redirect('index.php?page=connexion&nom='.urlencode($firstname));
+			}
+			else {
+				// Errors found
+				$feedback = '<ul class="notice error">';
+				$feedback .= '<li>'.$error_emptyFirstname.'</li>';
+				$feedback .= '<li>'.$error_firstnameLength.'</li>';
+				$feedback .= '</ul><!-- /.notice -->';
+			}
 		}
+	}
+	else {
+		// Prefer an empty string to a 0
+		// if the page is refreshed and therefore
+		// the firstname has not been set
+		$firstname = '';
 	}
 ?>
 
