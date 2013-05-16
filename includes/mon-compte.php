@@ -85,7 +85,6 @@
 					$error_pictureExtension = 'Ta photo doit être de type jpg, png, gif ou bmp pour être acceptée :(';
 				}
 				
-				
 			}
 			
 			// Firstname verification
@@ -248,12 +247,12 @@
 			else {
 		?>
 		
-		<form id="editAccount" action="" method="post" enctype="multipart/form-data">
+		<form class="horizontalForm" id="editAccount" action="" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<h3>Informations publiques</h3>
 				<div>
 					<label for="picture">Ta photo</label>
-					<img src="media/img/user/user-female-1@2x.jpg" class="rounded" alt="" width="48" height="48">
+					<img class="picturePreview rounded" src="<?php echo $dig; ?><?php if(isset($picture_url)) echo $picture_url; ?>" class="rounded" alt="<?php if(isset($firstname)) echo 'Ma photo ('.$firstname.')'; ?>" width="48" height="48">
 					<input type="file" name="picture" id="picture">
 					<p class="helpText">Min. 96x96 pixels (idéal), max. 200x200 pixels.</p>
 				</div>
@@ -280,7 +279,9 @@
 					<p class="helpText">Seulement si tu veux changer ton mot de passe.</p>
 				</div>
 			</fieldset>
-			<input type="submit" name="editAccount" class="btn btn-green" value="Enregistrer">
+			<div class="actions">
+				<input type="submit" name="editAccount" class="btn btn-green" value="Enregistrer">
+			</div><!-- /.actions -->
 		</form>
 		
 		<?php } ?>

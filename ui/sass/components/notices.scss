@@ -5,6 +5,18 @@
 	padding: 20px 15px;
 	margin: 0 auto 3em;
 	list-style: none;
+	&.info {
+		background: #e1eff8;
+		border-color: #c8e1ef;
+		color: #639bb9;
+		a {
+			color: #639bb9;
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+			}
+		}	
+	}
 	&.error {
 		background: #f6ced4;
 		border-color: #ebbcc3;

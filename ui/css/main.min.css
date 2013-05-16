@@ -379,26 +379,11 @@ body #showMore a {
   text-decoration: underline;
 }
 
-.mon-compte .container {
-  max-width: 640px;
+.mon-compte .horizontalForm .picturePreview {
+  margin-bottom: 20px;
 }
-.mon-compte .container form div {
-  margin-bottom: 1.33em;
-}
-.mon-compte .container form div label {
-  display: inline-block;
-  width: 300px;
-}
-.mon-compte .container form div input[type="text"],
-.mon-compte .container form div input[type="email"],
-.mon-compte .container form div input[type="password"] {
-  width: 297px;
-}
-.mon-compte .container form div input[type="file"] {
-  margin: 20px 0 0 304px;
-}
-.mon-compte .container form input[type="submit"] {
-  margin-left: 304px;
+.mon-compte .horizontalForm input[type="file"] {
+  margin: 0 0 0 304px;
 }
 
 .nouvelle-demande .container {
@@ -679,13 +664,55 @@ textarea {
 
 input[type="file"] {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 13px;
 }
 
-.helpText {
+.horizontalForm {
+  width: 600px;
+  margin: 0 auto;
+}
+.horizontalForm div {
+  margin-bottom: 1.33em;
+}
+.horizontalForm div label {
+  display: inline-block;
+  width: 300px;
+}
+.horizontalForm div input[type="text"],
+.horizontalForm div input[type="email"],
+.horizontalForm div input[type="password"] {
+  width: 297px;
+}
+.horizontalForm div .helpText {
   font-size: 14px;
   padding-left: 304px;
   margin: 0.67em 0;
   color: #a6ada2;
+}
+.horizontalForm div.actions {
+  padding-left: 304px;
+}
+.horizontalForm div.actions .btn + .btn {
+  margin-left: 5px;
+  /* 2nd button */
+}
+.horizontalForm.compact {
+  width: 400px;
+}
+.horizontalForm.compact div label {
+  width: 110px;
+}
+.horizontalForm.compact div input[type="text"],
+.horizontalForm.compact div input[type="email"],
+.horizontalForm.compact div input[type="password"],
+.horizontalForm.compact div input[type="file"] {
+  width: 287px;
+}
+.horizontalForm.compact div .helpText {
+  padding-left: 114px;
+}
+.horizontalForm.compact div.actions {
+  padding: 2em 0 0 114px;
 }
 
 .notice {
@@ -696,6 +723,18 @@ input[type="file"] {
   padding: 20px 15px;
   margin: 0 auto 3em;
   list-style: none;
+}
+.notice.info {
+  background: #e1eff8;
+  border-color: #c8e1ef;
+  color: #639bb9;
+}
+.notice.info a {
+  color: #639bb9;
+  text-decoration: underline;
+}
+.notice.info a:hover {
+  text-decoration: none;
 }
 .notice.error {
   background: #f6ced4;

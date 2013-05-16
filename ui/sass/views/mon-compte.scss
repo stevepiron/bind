@@ -1,28 +1,10 @@
 .mon-compte {
-	.container {
-		max-width: 640px;
-		form {
-			h3 {
-				
-			}
-			div {
-				margin-bottom: 1.33em;
-				label {
-					display: inline-block;
-					width: 300px;
-				}
-				input[type="text"],
-				input[type="email"],
-				input[type="password"] {
-					width: 297px;
-				}
-				input[type="file"] {
-					margin: 20px 0 0 304px;
-				}
-			}
-			input[type="submit"] {
-				margin-left: 304px;
-			}
+	.horizontalForm {
+		.picturePreview {
+			margin-bottom: 20px;
+		}
+		input[type="file"] {
+			margin: 0 0 0 304px;
 		}
 	}
 }

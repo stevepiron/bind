@@ -33,11 +33,59 @@ textarea {
 
 input[type="file"] {
 	font-family: $font;
+	font-size: 13px;
 }
 
-.helpText {
-	font-size: 14px;
-	padding-left: 304px;
-	margin: .67em 0;
-	color: $oliveGreen;
+.horizontalForm {
+	width: 600px;
+	margin: 0 auto;
+	h3 {
+		
+	}
+	div {
+		margin-bottom: 1.33em;
+		label {
+			display: inline-block;
+			width: 300px;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			width: 297px;
+		}
+		.helpText {
+			font-size: 14px;
+			padding-left: 304px;
+			margin: .67em 0;
+			color: $oliveGreen;
+		}
+		&.actions {
+			padding-left: 304px;
+			.btn {
+				&+ .btn {
+					margin-left: 5px; /* 2nd button */
+				}
+			}
+		}
+	}
+	&.compact {
+		width: 400px;
+		div {
+			label {
+				width: 110px;
+			}
+			input[type="text"],
+			input[type="email"],
+			input[type="password"],
+			input[type="file"] {
+				width: 287px;
+			}
+			.helpText {
+				padding-left: 114px;
+			}
+			&.actions {
+				padding: 2em 0 0 114px;
+			}
+		}
+	}
 }
