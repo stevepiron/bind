@@ -29,6 +29,11 @@
 		return floor($dateDiff/(60*60*24));
 	}
 	
+	// Source: http://stackoverflow.com/a/4217452
+	function clickableUrls($string) {
+	    return preg_replace('/https?:\/\/[\w\-\.!~?&+\*\'"(),\/]+/','<a href="$0" target="_blank">$0</a>',$string);
+	}
+	
 	function listAllRequests($dataArray) {
 		$requestMarkup = '<ol class="requests">';
 			foreach($dataArray as $request) {
@@ -87,7 +92,7 @@
 			
 			// Article: the request itself
 			$requestMarkup .= '<article>';
-			$requestMarkup .= $requestMessage;
+			$requestMarkup .= clickableUrls($requestMessage);
 			$requestMarkup .= '</article>';
 			
 			$requestMarkup .= '</li>';
