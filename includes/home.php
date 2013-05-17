@@ -34,7 +34,7 @@
 	echo '</pre></div><!-- /.devbox -->';
 	
 	if($requestsCount > 0) {
-		$requestsList = listAllRequests($requests); // Echo this ($request) in the html at the right place
+		$requestsList = listAllRequests($requests); // Echo this ($requestsList) in the html at the right place
 	}
 	
 	

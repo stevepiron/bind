@@ -21,6 +21,14 @@
 		header('Location: '.$page);
 	}
 	
+	// Source: http://stackoverflow.com/a/2040589
+	function daysSincePost($date) {
+		$now = time();
+		$dateOfPost = strtotime($date);
+		$dateDiff = $now - $dateOfPost;
+		return floor($dateDiff/(60*60*24));
+	}
+	
 	function listAllRequests($dataArray) {
 		$requestMarkup = '<ol class="requests">';
 			foreach($dataArray as $request) {
@@ -32,6 +40,7 @@
 			$requestTitle			= htmlentities($request['title']);
 			$requestCategory		= htmlentities($request['category']);
 			$requestMessage			= htmlentities($request['message']);
+			$requestDate			= $request['date'];
 			
 			$authorFirstname		= $request['firstname'];
 			$authorUsefulAnswers	= $request['useful_answers'];
@@ -73,7 +82,7 @@
 			$requestMarkup .= '<aside><ul>';
 			$requestMarkup .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
 			$requestMarkup .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
-			$requestMarkup .= '<li class="publishedDate">Il y a x jours</li>'; // Date
+			$requestMarkup .= '<li class="publishedDate">Il y a '.daysSincePost($requestDate).' jours</li>'; // Date
 			$requestMarkup .= '</ul></aside>';
 			
 			// Article: the request itself
