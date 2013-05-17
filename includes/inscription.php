@@ -81,7 +81,7 @@
 					$count = $db -> exec($sql); // Returns the number of insertions
 					
 					$feedback = '<div class="notice success wide">';
-					$feedback .= 'Ton compte a bien été créé ! Un email t\'a été envoyé à <span class="bold">'.$email.'</span> afin de le valider.';
+					$feedback .= 'Ton compte a bien été créé ! Un email t\'a été envoyé à <span class="bold">'.$email.'</span> afin de l\'activer.';
 					$feedback .= '</div><!-- /.notice -->';
 				
 					require 'php/signup-email.inc.php';	
@@ -89,6 +89,8 @@
 				catch(exception $e) {
 					echo 'erreur : '.$e->getMessage();
 				}
+				
+				$success = 1;
 				
 				// Reset input fields so that they're not filled again
 				// after submission
@@ -122,6 +124,10 @@
 			if(isset($feedback)) {
 				echo $feedback;
 			}
+			
+			if(!$success) {
+				// Sign up process failed
+				// or has not started
 		?>
 		
 		<form id="signUpForm" action="" method="post">
@@ -137,6 +143,16 @@
 		</form>
 		
 		<p class="center switchSignInSignUp"><a href="index.php?page=connexion">Tu as déjà un compte ?</a></p>
+		
+		<?php
+			}
+			else {
+				// Sign up process succesful
+		?>
+				<p class="center switchSignInSignUp"><a href="index.php?page=home">Retour à l'accueil</a></p>
+		<?php
+			}
+		?>
 		
 	</div><!-- /.container -->
 </div><!-- /.content -->
