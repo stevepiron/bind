@@ -516,7 +516,7 @@ body #showMore a {
   padding-left: 260px;
 }
 .request header h2 a {
-  color: #95bb39;
+  color: #8c9299;
 }
 .request header h2 a.label {
   background: #8c9299;
@@ -617,12 +617,15 @@ body #showMore a {
   display: inline-block;
   margin-right: 5px;
 }
+.request.solved {
+  opacity: .6;
+}
 .request.solved h2 {
   padding-left: 285px;
-  background: url("../../media/img/assets/solved.png") 262px center no-repeat;
+  background: url("../../media/img/assets/best-answer.png") 262px center no-repeat;
 }
-.request.solved h2 a {
-  color: #8c9299;
+.request.solved:hover {
+  opacity: 1;
 }
 .request.urgent h2 {
   padding-left: 285px;

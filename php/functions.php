@@ -26,7 +26,17 @@
 		$now = time();
 		$dateOfPost = strtotime($date);
 		$dateDiff = $now - $dateOfPost;
-		return floor($dateDiff/(60*60*24));
+		$days = floor($dateDiff/(60*60*24));
+		
+		if($days == 0) {
+			return 'Aujourd\'hui';
+		}
+		elseif($days == 1) {
+			return 'Hier';
+		}
+		else {
+			return 'Il y a '.$days.' jours';
+		}
 	}
 	
 	// Source: http://www.phpro.org/examples/URL-to-Link.html
@@ -90,7 +100,7 @@
 			$requestMarkup .= '<aside><ul>';
 			$requestMarkup .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
 			$requestMarkup .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
-			$requestMarkup .= '<li class="publishedDate">Il y a '.daysSincePost($requestDate).' jours</li>'; // Date
+			$requestMarkup .= '<li class="publishedDate">'.daysSincePost($requestDate).'</li>'; // Date
 			$requestMarkup .= '</ul></aside>';
 			
 			// Article: the request itself

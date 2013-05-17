@@ -29,9 +29,11 @@
 	 */
 	
 	// Development purposes
+/*
 	echo '<div class="devbox"><pre>Résultat de la requête (tableau des questions) :<br>';
 		print_r($requests);
 	echo '</pre></div><!-- /.devbox -->';
+*/
 	
 	if($requestsCount > 0) {
 		$requestsList = listAllRequests($requests); // Echo this ($requestsList) in the html at the right place

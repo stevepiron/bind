@@ -29,7 +29,7 @@
 			line-height: 1.25;
 			padding-left: 260px;
 			a {
-				color: $darkGreen;
+				color: $darkBlue;
 				&.label {
 					background: $darkBlue;
 					color: $white;
@@ -143,10 +143,11 @@
 	&.solved {
 		h2 {
 			padding-left: 285px;
-			background: url('../../media/img/assets/solved.png') 262px center no-repeat;
-			a {
-				color: $darkBlue;
-			}
+			background: url('../../media/img/assets/best-answer.png') 262px center no-repeat;
+		}
+		opacity : .6;
+		&:hover {
+			opacity: 1;
 		}
 	}
 	&.urgent {
