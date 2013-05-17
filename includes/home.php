@@ -11,9 +11,11 @@
 	 */
 	
 	try {
-		$sql = "SELECT *
+		$sql = "SELECT requests.id, requests.title, requests.category, requests.priority, requests.state, requests.date, requests.message, requests.fk_author, users.id, users.firstname, users.picture_url, users.useful_answers
 				FROM requests
-				ORDER BY id DESC";
+				LEFT JOIN users
+				ON requests.fk_author = users.id
+				ORDER BY requests.id DESC";
 		$res = $db -> query($sql);
 		$requests = $res -> fetchAll(PDO::FETCH_ASSOC); // The array
 		$requestsCount = count($requests); // Count how many entries were found

@@ -27,11 +27,15 @@
 			
 			
 			// Define variables
-			$requestState		= $request['state'];
-			$requestPriority	= $request['priority'];
-			$requestTitle		= htmlentities($request['title']);
-			$requestCategory	= htmlentities($request['category']);
-			$requestMessage		= htmlentities($request['message']);
+			$requestState			= $request['state'];
+			$requestPriority		= $request['priority'];
+			$requestTitle			= htmlentities($request['title']);
+			$requestCategory		= htmlentities($request['category']);
+			$requestMessage			= htmlentities($request['message']);
+			
+			$authorFirstname		= $request['firstname'];
+			$authorUsefulAnswers	= $request['useful_answers'];
+			$authorPictureUrl		= $request['picture_url'];	
 			
 			/*
 			 *  State check:
@@ -67,8 +71,8 @@
 			
 			// Aside: author info
 			$requestMarkup .= '<aside><ul>';
-			$requestMarkup .= '<li class="author"><img src="" alt="" width="48" height="48"> </li>'; // Author picture and name
-			$requestMarkup .= '<li class="bestAnswersCount" title=" réponses utiles"></li>'; // Number of best answers
+			$requestMarkup .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
+			$requestMarkup .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
 			$requestMarkup .= '<li class="publishedDate">Il y a x jours</li>'; // Date
 			$requestMarkup .= '</ul></aside>';
 			
