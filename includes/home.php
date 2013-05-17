@@ -6,6 +6,36 @@
 	
 	// session_start();
 	
+	/*
+	 *  Gather all the requests
+	 */
+	
+	try {
+		$sql = "SELECT *
+				FROM requests
+				ORDER BY id DESC";
+		$res = $db -> query($sql);
+		$requests = $res -> fetchAll(PDO::FETCH_ASSOC); // The array
+		$requestsCount = count($requests); // Count how many entries were found
+	}
+	catch(exception $e) {
+		'Erreur lors de la récolte des questions : '.$e -> getMessage();
+	}
+	
+	/*
+	 *  Display the requests
+	 */
+	
+	// Development purposes
+	echo '<div class="devbox"><pre>Résultat de la requête (tableau des questions) :<br>';
+		print_r($requests);
+	echo '</pre></div><!-- /.devbox -->';
+	
+	if($requestsCount > 0) {
+		$requestsList = listAllRequests($requests); // Echo this ($request) in the html at the right place
+	}
+	
+	
 ?>
 
 <div class="content">
@@ -13,8 +43,10 @@
 		
 		<h1><a href="index.php">Lycée Emile Jacqmain</a></h1>
 		
+		<?php echo $requestsList; ?>
+		
 		<ol class="requests">
-			<li class="request solved clearfix">
+			<li class="request solved">
 				<header>
 					<h2 class="pp_loggedIn"><a href="index.php?page=demande-resolue#loggedIn">Nomenclature</a> <a class="label" href="#">Chimie</a></h2>
 					<h2 class="pp_not_loggedIn"><a href="index.php?page=demande-resolue">Nomenclature</a> <a class="label" href="#">Chimie</a></h2>

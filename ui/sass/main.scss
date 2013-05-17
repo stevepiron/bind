@@ -351,6 +351,17 @@ body {
 	border-bottom: 2px solid #2A2A2A;
 }
 
+.devbox {
+	background: #393939;
+	color: #b3c974;
+	font-family: monospace, serif;
+	font-size: 10px;
+	padding: 20px 50px;
+	margin: 50px;
+	border: 2px solid #2A2A2A;
+	@include x-border-radius(3px);
+}
+
 /*
  * Imports
  */

@@ -25,8 +25,9 @@
 		require 'php/database-connection.php';
 		
 		// Session variables
-		echo '$id = '.$id.'<br>Utilisateur = '.$firstname.'<br>';
+		echo 'Variables de session :<br>$id = '.$id.'<br>Utilisateur = '.$firstname.'<br>';
 		
+		// Current session
 		if($_SESSION) {
 			echo '<pre>Session en cours :<br>';
 			print_r($_SESSION);
