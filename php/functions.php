@@ -29,9 +29,12 @@
 		return floor($dateDiff/(60*60*24));
 	}
 	
-	// Source: http://stackoverflow.com/a/4217452
-	function clickableUrls($string) {
-	    return preg_replace('/https?:\/\/[\w\-\.!~?&+\*\'"(),\/]+/','<a href="$0" target="_blank">$0</a>',$string);
+	// Source: http://www.phpro.org/examples/URL-to-Link.html
+	function clickableUrls($string){
+		$string = preg_replace('/([^\w\/])(www\.[a-z0-9\-]+\.[a-z0-9\-]+)/i', '$1http://$2',$string); // Make sure there is an http:// on all Urls
+		$string = preg_replace('/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i','<a target="_blank" href="$1">$1</A>',$string); // Make all Url links
+		$string = preg_replace('/([\w-?&;#~=\.\/]+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?))/i','<a href="mailto:$1">$1</a>',$string); // Make all emails hotlinks
+		return $string;
 	}
 	
 	function listAllRequests($dataArray) {
