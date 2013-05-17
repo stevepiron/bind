@@ -4,7 +4,7 @@
 	$section = 'home';
 	$level = '0';
 	
-	session_start();
+	// session_start();
 	
 ?>
 

@@ -10,10 +10,6 @@
 	$id = (isset($_SESSION['id'])) ? (int) $_SESSION['id'] : 0;
 	$firstname = (isset($_SESSION['firstname'])) ? $_SESSION['firstname'] : '';
 	
-	// If user comes from the activation page
-	extract($_GET);
-	$email = str_replace(' ', '+', urldecode($email)); // Decodes url and changes spaces to +
-	
 	// Includes
 	require 'php/functions.php';
 	require 'php/constants.php';
@@ -31,6 +27,10 @@
 			echo '</pre>';
 		}
 	echo '</div><!-- /.dev -->';
+	
+	// If user comes from the activation page
+	extract($_GET);
+	$email = str_replace(' ', '+', urldecode($email)); // Decodes url and changes spaces to +
 	
 	if($_POST['login']) {
 		// Define variables
