@@ -12,25 +12,23 @@
 	
 	try {
 		$sql = "SELECT
-					requests.id AS request_id,
-					requests.title,
-					requests.category,
-					requests.priority,
-					requests.state,
-					requests.date,
-					requests.message,
-					requests.fk_author,
-					users.id AS users_id,
-					users.firstname,
-					users.picture_url,
-					users.useful_answers,
-					answers.fk_request
-				FROM requests
-				LEFT JOIN users
-				ON requests.fk_author = users.id
-				LEFT JOIN answers
-				ON requests.id = answers.fk_request
-				ORDER BY requests.id DESC";
+					r.id AS request_id,
+					r.title,
+					r.category,
+					r.priority,
+					r.state,
+					r.date,
+					r.message,
+					r.fk_author,
+					u.id AS user_id,
+					u.firstname,
+					u.picture_url,
+					u.useful_answers,
+					(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) as nb_answers
+				FROM requests r
+				LEFT JOIN users u 
+				ON r.fk_author = u.id
+				ORDER BY r.id DESC";
 		$res = $db -> query($sql);
 		$requests = $res -> fetchAll(PDO::FETCH_ASSOC); // The array
 		$requestsCount = count($requests); // Count how many entries were found
@@ -44,9 +42,11 @@
 	 */
 	
 	// Development purposes
+/*
 	echo '<div class="devbox"><pre>Résultat de la requête (tableau des questions) :<br>';
 		print_r($requests);
 	echo '</pre></div><!-- /.devbox -->';
+*/
 	
 	if($requestsCount > 0) {
 		$requestsList = listAllRequests($requests, $id); // Echo this ($requestsList) in the html at the right place

@@ -40,6 +40,9 @@
 	}
 	
 	function numberOfAnswers($number) {
+		if($number == 0) {
+			return 'Pas encore de réponse';
+		}
 		if($number == 1) {
 			return '1 réponse';
 		}
@@ -70,6 +73,7 @@
 			$requestCategory		= htmlentities($request['category']);
 			$requestMessage			= htmlentities($request['message']);
 			$requestDate			= $request['date'];
+			$requestNbAnswers		= $request['nb_answers'];
 			
 			$authorFirstname		= $request['firstname'];
 			$authorUsefulAnswers	= $request['useful_answers'];
@@ -82,7 +86,7 @@
 			// Request start
 			$requestStartUnanswered = '<li class="request unanswered">';
 			$requestStartUrgent		= '<li class="request unanswered urgent">';
-			$requestStartAnswered	= '<li class="request solved">';
+			$requestStartSolved		= '<li class="request solved">';
 			
 			// Header
 			$requestHeader  = '<header>';
@@ -102,17 +106,24 @@
 			
 				// Footer if logged in
 				$requestFooterLoggedIn  = '<footer>';
-				$requestFooterLoggedIn .= '<a class="btn" href="#">Répondre</a>';
-				$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
-				$requestFooterLoggedIn .= '<p class="answers" href="#"></a> • <a class="interest" href="#"> intéressé</a></p>';
-				$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
-					// ...the pictures of the interested users
-				$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
+				if($requestState == 0) {
+					// Logged in and unsolved
+					$requestFooterLoggedIn .= '<a class="btn" href="#">Répondre</a>';
+					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
+					$requestFooterLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a> • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
+						// ...the pictures of the interested users
+					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
+				}
+				else {
+					// Logged in and solved
+					$requestFooterLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a></p>';
+				}
 				$requestFooterLoggedIn .= '</footer></article>';
 				
 				// Footer if not logged in
 				$requestFooterNotLoggedIn  = '<footer>';
-				$requestFooterNotLoggedIn .= '<p class="answers" href="#">x réponses</a>';
+				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a>';
 				$requestFooterNotLoggedIn .= '</footer></article>';
 			
 			// Request end	
@@ -123,6 +134,7 @@
 			 *  Build the request
 			 */
 			
+			// It's a question, not an answer
 			if($requestState == 0) {
 				// Request is unanswered
 				
@@ -141,8 +153,8 @@
 				}
 			}
 			else {
-				// Request is answered
-				$requestMarkup .= $requestStartAnswered;
+				// Request is solved
+				$requestMarkup .= $requestStartSolved;
 			}
 			
 			$requestMarkup .= $requestHeader;
