@@ -19,6 +19,7 @@
 	require 'php/functions.php';
 	require 'php/constants.php';
 	require 'php/database-connection.php';
+
 	// Development window
 /*
 	echo '<div class="dev">';
@@ -37,7 +38,22 @@
 		
 	echo '</div><!-- /.dev -->';
 */
-	
+
+	if($id != 0) {
+		// User is logged in
+		try {
+			$sql = "SELECT 
+						COUNT(*)
+					FROM requests
+					WHERE requests.fk_author = ".$id;
+			$res = $db -> query($sql);
+		}
+		catch(exception $e) {
+			'Erreur lors du compte du nombre de questions que tu as posées : '.$e -> getMessage();
+		}
+	}
+	$res = $res -> fetchAll(PDO::FETCH_ASSOC);
+	$myRequestsNumber = $res[0]['COUNT(*)'];
 ?>
 
 <header class="clearfix">
@@ -54,7 +70,7 @@
     	
     	<div id="userDropdown" class="hidden">
     		<ul>
-    			<li><a href="#">Mes questions <span class="count">0</span></a></li>
+    			<li><a href="#">Mes questions <span class="count"><?php echo $myRequestsNumber; ?></span></a></li>
     			<!-- <li><a href="#">Questions surveillées <span class="count">2</span></a></li> -->
     			<!-- <li><a href="#">Mes élèves <span class="count">1</span></a></li> -->
     			<li><a href="index.php?page=mon-compte">Gérer mon compte</a></li>

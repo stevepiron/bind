@@ -1,6 +1,6 @@
 $(function() {
 
-	$('body').polypage();
+	// $('body').polypage();
 
 	var body = $('body'),
 		userAccountTrigger = $('#userAccountTrigger'),
