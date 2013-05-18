@@ -2,5 +2,8 @@
 	.request {
 		margin-bottom: 30px;
 		overflow: auto;
+		&.solved {
+			opacity: 1;
+		}
 	}
 }

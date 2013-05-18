@@ -424,6 +424,9 @@ body #showMore a {
   margin-bottom: 30px;
   overflow: auto;
 }
+.question .request.solved {
+  opacity: 1;
+}
 
 .btn {
   display: inline-block;
@@ -802,6 +805,7 @@ input[type="file"] {
 #interactions .comments li {
   margin-bottom: 1em;
   margin-left: 190px;
+  overflow: hidden;
 }
 #interactions .comments li aside {
   float: left;

@@ -149,15 +149,10 @@
 				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a>';
 				$requestFooterNotLoggedIn .= '</footer></article>';
 			
-			// Request end	
-			$requestEnd  = '</li>';
-			$requestEnd .= '</article>';
-			
 			/*
 			 *  Build the request
 			 */
 			
-			// It's a question, not an answer
 			if($requestState == 0) {
 				// Request is unanswered
 				
@@ -189,10 +184,184 @@
 			else {
 				$requestMarkup .= $requestFooterLoggedIn;
 			}
-			$requestMarkup .= $requestEnd;
 		}
 		$requestMarkup .= '</ol><!-- /.requests -->';
 		return $requestMarkup;
+	}
+	
+	function singleRequest($dataArray, $id) {
+		$requestMarkup = '';
+		foreach($dataArray as $request) {
+			
+			/*
+			 *  Define variables
+			 */
+			 
+			$requestState			= $request['state'];
+			$requestPriority		= $request['priority'];
+			$requestId				= $request['request_id'];
+			$requestTitle			= htmlentities($request['title']);
+			$requestCategory		= htmlentities($request['category']);
+			$requestMessage			= htmlentities($request['message']);
+			$requestDate			= $request['date'];
+			$requestNbAnswers		= $request['nb_answers'];
+			
+			$authorFirstname		= $request['firstname'];
+			$authorUsefulAnswers	= $request['useful_answers'];
+			$authorPictureUrl		= $request['picture_url'];	
+			
+			/*
+			 *  Requests parts
+			 */
+			
+			// Request start
+			$requestStartUnanswered = '<section class="request unanswered">';
+			$requestStartUrgent		= '<section class="request unanswered urgent">';
+			$requestStartSolved		= '<section class="request solved">';
+			
+			// Header
+			$requestHeader  = '<header>';
+			$requestHeader .= '<h2><a href="index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '</header>';
+			
+			// Aside: author info
+			$requestAside  = '<aside><ul>';
+			$requestAside .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
+			$requestAside .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
+			$requestAside .= '<li class="publishedDate">'.daysSincePost($requestDate).'</li>'; // Date
+			$requestAside .= '</ul></aside>';
+			
+			// Article: the request itself
+			$requestArticle  = '<article>';
+			$requestArticle .= '<p>'.clickableUrls($requestMessage).'</p>';
+			
+				// Footer if logged in
+				$requestFooterLoggedIn  = '<footer>';
+				if($requestState == 0) {
+					// Logged in and unsolved
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
+						// ...the pictures of the interested users
+					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
+
+					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
+				}
+				else {
+					// Logged in and solved
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).'</p>';
+				}
+				$requestFooterLoggedIn .= '</footer></article>';
+				
+				// Footer if not logged in
+				$requestFooterNotLoggedIn  = '<footer>';
+				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a>';
+				$requestFooterNotLoggedIn .= '</footer></article>';
+			
+			/*
+			 *  Build the request
+			 */
+			
+			if($requestState == 0) {
+				// Request is unanswered
+				
+				/*
+				 *  Priority check:
+				 *  Is the request urgent or not?
+				 */
+				
+				if($requestPriority == 0) {
+					// Default priority
+					$requestMarkup .= $requestStartUnanswered;
+				}
+				else {
+					// Urgent request
+					$requestMarkup .= $requestStartUrgent;
+				}
+			}
+			else {
+				// Request is solved
+				$requestMarkup .= $requestStartSolved;
+			}
+			
+			$requestMarkup .= $requestHeader;
+			$requestMarkup .= $requestAside;
+			$requestMarkup .= $requestArticle;
+			if($id == 0) {
+				$requestMarkup .= $requestFooterNotLoggedIn;
+			}
+			else {
+				$requestMarkup .= $requestFooterLoggedIn;
+			}
+		}
+		$requestMarkup .= '</section><!-- /.request -->';
+		return $requestMarkup;
+	}
+	
+	function answersThread($dataArray, $id) {
+		$answerMarkup  = '<section id="interactions">';
+		$answerMarkup .= '<ol class="comments">';
+		foreach($dataArray as $answer) {
+			
+			/*
+			 *  Define variables
+			 */
+			 
+			$answerId				= $answer['answer_id'];
+			$answerAuthor			= $answer['author'];
+			$answerMessage			= htmlentities($answer['message']);
+			$answerDate				= $answer['date'];
+			$answerValue			= $answer['value'];
+			
+			$authorFirstname		= $answer['firstname'];
+			$authorUsefulAnswers	= $answer['useful_answers'];
+			$authorPictureUrl		= $answer['picture_url'];
+			
+			/*
+			 *  Answer parts
+			 */
+			
+			$answerStartNormal	= '<li>';
+			$answerStartBest	= '<li class="bestAnswer">';
+			
+			// Aside: author info
+			$answerAside  = '<aside>';
+			$answerAside .= '<img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48">';
+			$answerAside .= '</aside>';
+			
+			// Article: the answer itself
+			$answerArticle  = '<article>';
+			$answerArticle .= '<header>';
+			$answerArticle .= '<p class="author">'.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
+			$answerArticle .= '</header>';
+			$answerArticle .= '<p>'.clickableUrls($answerMessage).'</p>';
+			$answerArticle .= '<footer>';
+			$answerArticle .= '<span class="publishedDate">'.daysSincePost($answerDate).'</span>';
+			$answerArticle .= '</footer>';
+			$answerArticle .= '</article>';
+			
+			// Answer end
+			$answerEnd = '</li>';
+			
+			/*
+			 *  Build the answer
+			 */
+			
+			$answerMarkup  .= $answerStart;
+			if($answerValue == 0) {
+				// Normal answer
+				$answerMarkup .= $answerStartNormal;
+			}
+			else {
+				// Best answer
+				$answerMarkup  .= $answerStartBest;
+			}
+			$answerMarkup .= $answerAside;
+			$answerMarkup .= $answerArticle;
+			$answerMarkup .= $answerEnd;
+		}
+		$answerMarkup .= '</ol><!-- /.comments -->';
+		$answerMarkup .= '</section><!-- /#interactions -->';
+		return $answerMarkup;
 	}
 
 ?>

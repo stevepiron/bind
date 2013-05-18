@@ -1,5 +1,5 @@
 <?php
-	$__TITLE_PAGE__ = 'Nomenclature (chimie) • Bind';
+	$__TITLE_PAGE__ = 'Question • Bind'; // Needs variables from the SQL request
 	$__DESC_PAGE__ = '';
 	$section = 'question';
 	$level = '1';
@@ -21,13 +21,13 @@
 								r.category,
 								r.priority,
 								r.state,
-								r.date AS request_date,
-								r.message AS request_message,
-								r.fk_author AS request_author,
-								u.id AS request_author_id,
-								u.firstname AS request_author_firstname,
-								u.picture_url AS request_author_pictureUrl,
-								u.useful_answers AS answer_author_usefulAnswers,
+								r.date,
+								r.message,
+								r.fk_author,
+								u.id AS author_id,
+								u.firstname,
+								u.picture_url,
+								u.useful_answers,
 								(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) AS nb_answers
 							FROM requests r
 							LEFT JOIN users u 
@@ -46,15 +46,15 @@
 				try {
 					$sql = "SELECT
 								a.id AS answer_id,
-								a.fk_author AS answer_author,
-								a.message AS answer_message,
+								a.fk_author AS author,
+								a.message,
 								a.fk_request,
-								a.date AS answer_date,
+								a.date,
 								a.value,
-								u.id AS answer_author_id,
-								u.firstname AS answer_author_firstname,
-								u.picture_url AS answer_author_pictureUrl,
-								u.useful_answers AS answer_author_usefulAnswers,
+								u.id AS author_id,
+								u.firstname,
+								u.picture_url,
+								u.useful_answers,
 								r.id AS request_id
 							FROM answers a
 							LEFT JOIN users u
@@ -76,11 +76,16 @@
 				 */
 				
 				// Development purposes
+/*
 				echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 					print_r($request);
 				echo '<br>Résultat de la requête 2 (les réponses) :<br>';
 					print_r($answers);
 				echo '</pre></div><!-- /.devbox -->';
+*/
+				
+				$theRequest = singleRequest($request, $id);
+				$answersThread = answersThread($answers, $id);
 			
 		}
 	}
@@ -88,36 +93,29 @@
 		// Invalid approach: no &id= in the url
 		setError(ERR_NODATAINURL);
 	}
-
-
+	
+	if($request) {
+		$__TITLE_PAGE__ = $request[0]['title'].' ('.$request[0]['category'].') • Bind';
+	}
+	
 ?>
 
 <div class="content">
 	<div class="container">
 		<h1><a href="index.php">Lycée Emile Jacqmain</a></h1>
 		
-		<section class="request">
-			<header>
-				<h2 class="pp_loggedIn"><a href="index.php?page=demande-non-resolue#loggedIn">Nomenclature</a> <a class="label" href="#">Chimie</a></h2>
-				<h2 class="pp_not_loggedIn"><a href="index.php?page=demande-non-resolue">Nomenclature</a> <a class="label" href="#">Chimie</a></h2>
-			</header>
+		<?php
+			echo $theRequest;
+			echo $answersThread;
 			
-			<aside>
-				<ul>
-					<li class="author"><img src="media/img/user/user-male-2@2x.png" alt="" width="48" height="48"> Maxime</li>
-					<li class="bestAnswersCount" title="122 réponses utiles">122</li>
-					<li class="publishedDate">Il y a 2 jours</li>
-				</ul>
-			</aside>
-			
-			<article>
-				<p>J'ai raté le dernier cours (M. Danterre), je me suis mis en ordre au niveau de la théorie que j'ai déjà relue pas mal de fois mais j'ai vraiment du mal à les appliquer aux exercices... Quelqu'un qui a compris pourrait m'expliquer ? Merci !</p>
-			
-				<footer>
-					<p><a class="answers" href="index.php?page=demande-non-resolue#interactions_and_loggedIn">0 réponse</a> • <a class="interest" href="">1 intéressé</a></p>
-				</footer>
-			</article>
-		</section><!-- /.request -->
+			if($request[0]['state'] == 1) {
+				// Request in solved
+			}
+			else {
+				// Request is not solved yet
+				if($id != 0) {
+					// User is logged in
+		?>
 		
 		<section id="interactions">
 			<section class="actions">
@@ -130,5 +128,10 @@
 				</form><!-- /#commentForm -->
 			</section><!-- /.actions -->
 		</section><!-- /#interactions -->
+		
+		<?php
+				}
+			}
+		?>
 	</div><!-- /.container -->
 </div><!-- /.content -->
