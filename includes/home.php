@@ -11,7 +11,20 @@
 	 */
 	
 	try {
-		$sql = "SELECT requests.id AS request_id, requests.title, requests.category, requests.priority, requests.state, requests.date, requests.message, requests.fk_author, users.id AS users_id, users.firstname, users.picture_url, users.useful_answers, answers.id AS answers_id, answers.fk_author AS answer_author, answers.message AS answer_message, answers.fk_request, answers.date AS answer_date, answers.value AS answer_value
+		$sql = "SELECT
+					requests.id AS request_id,
+					requests.title,
+					requests.category,
+					requests.priority,
+					requests.state,
+					requests.date,
+					requests.message,
+					requests.fk_author,
+					users.id AS users_id,
+					users.firstname,
+					users.picture_url,
+					users.useful_answers,
+					answers.fk_request
 				FROM requests
 				LEFT JOIN users
 				ON requests.fk_author = users.id
