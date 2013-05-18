@@ -59,6 +59,21 @@
 		return $string;
 	}
 	
+	// Source: http://cubiq.org/the-perfect-php-clean-url-generator
+	setlocale(LC_ALL, 'en_US.UTF8');
+	function toAscii($str, $replace=array(), $delimiter='-') {
+		if(!empty($replace)) {
+			$str = str_replace((array)$replace, ' ', $str);
+		}
+	
+		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+		$clean = strtolower(trim($clean, '-'));
+		$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+	
+		return $clean;
+	}
+	
 	function listAllRequests($dataArray, $id) {
 		$requestMarkup = '<ol class="requests">';
 		foreach($dataArray as $request) {
@@ -90,7 +105,7 @@
 			
 			// Header
 			$requestHeader  = '<header>';
-			$requestHeader .= '<h2><a href="#">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '<h2><a href="index.php?page=question&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info
