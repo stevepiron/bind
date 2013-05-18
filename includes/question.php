@@ -119,9 +119,7 @@
 		
 		<section id="interactions">
 			<section class="actions">
-				<a class="btn pp_loggedIn_and_not_commenting" href="#pp_toggle_commenting">Répondre</a>
-				
-				<form id="commentForm" class="pp_loggedIn_and_commenting clearfix" action="#" method="post">
+				<form id="commentForm" class="clearfix" action="#" method="post">
 					<img class="userAvatar rounded" src="<?php echo $dig; ?>media/img/user/avatar@2x.png" alt="User name" width="48" height="48">
 					<textarea name="comment" id="comment"></textarea>
 					<input type="submit" class="btn btn-green" value="Envoyer ma réponse">
