@@ -120,7 +120,7 @@
 		<section id="interactions">
 			<section class="actions">
 				<form id="commentForm" class="clearfix" action="#" method="post">
-					<img class="userAvatar rounded" src="<?php echo $dig; ?>media/img/user/avatar@2x.png" alt="User name" width="48" height="48">
+					<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
 					<textarea name="comment" id="comment"></textarea>
 					<input type="submit" class="btn btn-green" value="Envoyer ma réponse">
 				</form><!-- /#commentForm -->
