@@ -84,6 +84,7 @@
 			 
 			$requestState			= $request['state'];
 			$requestPriority		= $request['priority'];
+			$requestId				= $request['request_id'];
 			$requestTitle			= htmlentities($request['title']);
 			$requestCategory		= htmlentities($request['category']);
 			$requestMessage			= htmlentities($request['message']);
@@ -105,7 +106,7 @@
 			
 			// Header
 			$requestHeader  = '<header>';
-			$requestHeader .= '<h2><a href="index.php?page=question&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '<h2><a href="index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info

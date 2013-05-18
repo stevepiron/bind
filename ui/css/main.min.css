@@ -420,6 +420,11 @@ body #showMore a {
   margin-right: 0;
 }
 
+.question .request {
+  margin-bottom: 30px;
+  overflow: auto;
+}
+
 .btn {
   display: inline-block;
   line-height: 1;
@@ -637,10 +642,6 @@ body #showMore a {
 }
 .request.urgent h2 a {
   color: #d66037;
-}
-
-.demande .request {
-  margin-bottom: 30px;
 }
 
 fieldset {

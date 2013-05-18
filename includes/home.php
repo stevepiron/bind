@@ -4,8 +4,6 @@
 	$section = 'home';
 	$level = '0';
 	
-	// session_start();
-	
 	/*
 	 *  Gather all the requests
 	 */
@@ -24,7 +22,7 @@
 					u.firstname,
 					u.picture_url,
 					u.useful_answers,
-					(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) as nb_answers
+					(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) AS nb_answers
 				FROM requests r
 				LEFT JOIN users u 
 				ON r.fk_author = u.id
@@ -42,9 +40,11 @@
 	 */
 	
 	// Development purposes
+/*
 	echo '<div class="devbox"><pre>Résultat de la requête (tableau des questions) :<br>';
 		print_r($requests);
 	echo '</pre></div><!-- /.devbox -->';
+*/
 	
 	if($requestsCount > 0) {
 		$requestsList = listAllRequests($requests, $id); // Echo this ($requestsList) in the html at the right place

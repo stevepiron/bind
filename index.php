@@ -26,6 +26,11 @@
 				include('includes/mon-compte.php');
 			break;
 			
+			case 'question':
+				include('global_html/header.php');
+				include('includes/question.php');
+			break;
+			
 			case 'demande-non-resolue':
 				include('global_html/header.php');
 				include('includes/demande-non-resolue.php');
