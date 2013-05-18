@@ -39,15 +39,15 @@
 		}
 	}
 	
-	function numberOfAnswers($number) {
+	function numberOfAnswers($number, $url) {
 		if($number == 0) {
 			return 'Pas encore de réponse';
 		}
 		if($number == 1) {
-			return '1 réponse';
+			return '<a href="'.$url.'">1 réponse</a>';
 		}
 		else {
-			return $number.' réponses';
+			return '<a href="'.$url.'">'.$number.' réponses</a>';
 		}
 	}
 	
@@ -105,8 +105,9 @@
 			$requestStartSolved		= '<li class="request solved">';
 			
 			// Header
+			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
 			$requestHeader  = '<header>';
-			$requestHeader .= '<h2><a href="index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '<h2><a href="'.$url.'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info
@@ -121,10 +122,11 @@
 			$requestArticle .= '<p>'.clickableUrls($requestMessage).'</p>';
 			
 				// Footer if logged in
+				$urlAnswers = $url.'#interactions';
 				$requestFooterLoggedIn  = '<footer>';
 				if($requestState == 0) {
 					// Logged in and unsolved
-					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
 					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
 						// ...the pictures of the interested users
 					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
@@ -140,13 +142,13 @@
 				}
 				else {
 					// Logged in and solved
-					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).'</p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).'</p>';
 				}
 				$requestFooterLoggedIn .= '</footer></article>';
 				
 				// Footer if not logged in
 				$requestFooterNotLoggedIn  = '<footer>';
-				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a>';
+				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers, $urlAnswers).'</a>';
 				$requestFooterNotLoggedIn .= '</footer></article>';
 			
 			/*
@@ -220,8 +222,9 @@
 			$requestStartSolved		= '<section class="request solved">';
 			
 			// Header
+			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
 			$requestHeader  = '<header>';
-			$requestHeader .= '<h2><a href="index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle).'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '<h2><a href="'.$url.'">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info
@@ -236,10 +239,11 @@
 			$requestArticle .= '<p>'.clickableUrls($requestMessage).'</p>';
 			
 				// Footer if logged in
+				$urlAnswers = $url.'#interactions';
 				$requestFooterLoggedIn  = '<footer>';
 				if($requestState == 0) {
 					// Logged in and unsolved
-					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
 					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
 						// ...the pictures of the interested users
 					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
@@ -248,13 +252,13 @@
 				}
 				else {
 					// Logged in and solved
-					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).'</p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).'</p>';
 				}
 				$requestFooterLoggedIn .= '</footer></article>';
 				
 				// Footer if not logged in
 				$requestFooterNotLoggedIn  = '<footer>';
-				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a>';
+				$requestFooterNotLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers, $urlAnswers).'</a>';
 				$requestFooterNotLoggedIn .= '</footer></article>';
 			
 			/*
