@@ -39,6 +39,15 @@
 		}
 	}
 	
+	function numberOfAnswers($number) {
+		if($number == 1) {
+			return '1 réponse';
+		}
+		else {
+			return $number.' réponses';
+		}
+	}
+	
 	// Source: http://www.phpro.org/examples/URL-to-Link.html
 	function clickableUrls($string){
 		$string = preg_replace('/([^\w\/])(www\.[a-z0-9\-]+\.[a-z0-9\-]+)/i', '$1http://$2',$string); // Make sure there is an http:// on all Urls
@@ -47,12 +56,14 @@
 		return $string;
 	}
 	
-	function listAllRequests($dataArray) {
+	function listAllRequests($dataArray, $id) {
 		$requestMarkup = '<ol class="requests">';
-			foreach($dataArray as $request) {
+		foreach($dataArray as $request) {
 			
-			
-			// Define variables
+			/*
+			 *  Define variables
+			 */
+			 
 			$requestState			= $request['state'];
 			$requestPriority		= $request['priority'];
 			$requestTitle			= htmlentities($request['title']);
@@ -65,8 +76,51 @@
 			$authorPictureUrl		= $request['picture_url'];	
 			
 			/*
-			 *  State check:
-			 *  Is the request answered or not?
+			 *  Requests parts
+			 */
+			
+			// Request start
+			$requestStartUnanswered = '<li class="request unanswered">';
+			$requestStartUrgent		= '<li class="request unanswered urgent">';
+			$requestStartAnswered	= '<li class="request solved">';
+			
+			// Header
+			$requestHeader  = '<header>';
+			$requestHeader .= '<h2><a href="#">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
+			$requestHeader .= '</header>';
+			
+			// Aside: author info
+			$requestAside  = '<aside><ul>';
+			$requestAside .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
+			$requestAside .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
+			$requestAside .= '<li class="publishedDate">'.daysSincePost($requestDate).'</li>'; // Date
+			$requestAside .= '</ul></aside>';
+			
+			// Article: the request itself
+			$requestArticle  = '<article>';
+			$requestArticle .= '<p>'.clickableUrls($requestMessage).'</p>';
+			
+				// Footer if logged in
+				$requestFooterLoggedIn  = '<footer>';
+				$requestFooterLoggedIn .= '<a class="btn" href="#">Répondre</a>';
+				$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
+				$requestFooterLoggedIn .= '<p class="answers" href="#"></a> • <a class="interest" href="#"> intéressé</a></p>';
+				$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
+					// ...the pictures of the interested users
+				$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
+				$requestFooterLoggedIn .= '</footer></article>';
+				
+				// Footer if not logged in
+				$requestFooterNotLoggedIn  = '<footer>';
+				$requestFooterNotLoggedIn .= '<p class="answers" href="#">x réponses</a>';
+				$requestFooterNotLoggedIn .= '</footer></article>';
+			
+			// Request end	
+			$requestEnd  = '</li>';
+			$requestEnd .= '</article>';
+			
+			/*
+			 *  Build the request
 			 */
 			
 			if($requestState == 0) {
@@ -79,36 +133,28 @@
 				
 				if($requestPriority == 0) {
 					// Default priority
-					$requestMarkup .= '<li class="request unanswered">'; 
+					$requestMarkup .= $requestStartUnanswered;
 				}
 				else {
 					// Urgent request
-					$requestMarkup .= '<li class="request unanswered urgent">';
+					$requestMarkup .= $requestStartUrgent;
 				}
 			}
 			else {
 				// Request is answered
-				$requestMarkup .= '<li class="request solved">';
+				$requestMarkup .= $requestStartAnswered;
 			}
 			
-			// Header
-			$requestMarkup .= '<header>';
-			$requestMarkup .= '<h2><a href="#">'.$requestTitle.'</a> <a class="label" href="#">'.$requestCategory.'</a></h2>'; // Request title and category
-			$requestMarkup .= '</header>';
-			
-			// Aside: author info
-			$requestMarkup .= '<aside><ul>';
-			$requestMarkup .= '<li class="author"><img src="'.$authorPictureUrl.'" alt="Photo de '.$authorFirstname.'" width="48" height="48"> '.$authorFirstname.'</li>'; // Author picture and name
-			$requestMarkup .= '<li class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</li>'; // Number of best answers
-			$requestMarkup .= '<li class="publishedDate">'.daysSincePost($requestDate).'</li>'; // Date
-			$requestMarkup .= '</ul></aside>';
-			
-			// Article: the request itself
-			$requestMarkup .= '<article>';
-			$requestMarkup .= clickableUrls($requestMessage);
-			$requestMarkup .= '</article>';
-			
-			$requestMarkup .= '</li>';
+			$requestMarkup .= $requestHeader;
+			$requestMarkup .= $requestAside;
+			$requestMarkup .= $requestArticle;
+			if($id == 0) {
+				$requestMarkup .= $requestFooterNotLoggedIn;
+			}
+			else {
+				$requestMarkup .= $requestFooterLoggedIn;
+			}
+			$requestMarkup .= $requestEnd;
 		}
 		$requestMarkup .= '</ol><!-- /.requests -->';
 		return $requestMarkup;
