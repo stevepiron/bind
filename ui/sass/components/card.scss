@@ -29,7 +29,7 @@
 			line-height: 1.25;
 			padding-left: 260px;
 			a {
-				color: $darkBlue;
+				color: $darkGreen;
 				&.label {
 					background: $darkBlue;
 					color: $white;
@@ -95,7 +95,7 @@
 		width: 100%;
 		max-width: 640px;
 		
-		p:last-of-type {
+		> p:last-of-type {
 			margin-bottom: .5em;
 		}
 		
@@ -104,25 +104,21 @@
 				margin-right: 10px;
 			}
 			> a {
-				margin-top: 1em;
+				margin-top: .33em;
 			}
 			p {
 				color: $oliveGreen;
 				font-size: 13px;
 				margin: 0;
-				display: inline-block;
-			}
-			.answers,
-			.interest {
-				display: inline-block;
-				margin-right: 2px;
-			}
-			.interest {
-				margin-left: 2px;
-				&.interest0 {
-					&:hover {
-						color: $oliveGreen;
-						cursor: default;
+				&.requestStats {
+					.interest {
+						margin-left: 2px;
+						&.interest0 {
+							&:hover {
+								color: $oliveGreen;
+								cursor: default;
+							}
+						}
 					}
 				}
 			}
@@ -144,6 +140,9 @@
 		h2 {
 			padding-left: 285px;
 			background: url('../../media/img/assets/best-answer.png') 262px center no-repeat;
+			a {
+				color: $darkBlue;
+			}
 		}
 		opacity : .6;
 		&:hover {

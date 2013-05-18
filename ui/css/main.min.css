@@ -459,6 +459,13 @@ body #showMore a {
 .btn.btn-green:hover {
   background: #9dc834;
 }
+.btn.btn-red {
+  background: #d66037;
+  color: white;
+}
+.btn.btn-red:hover {
+  background: #ca5329;
+}
 .btn.btn-blue {
   background: #639cb4;
   color: white;
@@ -516,7 +523,7 @@ body #showMore a {
   padding-left: 260px;
 }
 .request header h2 a {
-  color: #8c9299;
+  color: #95bb39;
 }
 .request header h2 a.label {
   background: #8c9299;
@@ -578,30 +585,24 @@ body #showMore a {
   width: 100%;
   max-width: 640px;
 }
-.request article p:last-of-type {
+.request article > p:last-of-type {
   margin-bottom: .5em;
 }
 .request article footer > * {
   margin-right: 10px;
 }
 .request article footer > a {
-  margin-top: 1em;
+  margin-top: .33em;
 }
 .request article footer p {
   color: #a6ada2;
   font-size: 13px;
   margin: 0;
-  display: inline-block;
 }
-.request article footer .answers,
-.request article footer .interest {
-  display: inline-block;
-  margin-right: 2px;
-}
-.request article footer .interest {
+.request article footer p.requestStats .interest {
   margin-left: 2px;
 }
-.request article footer .interest.interest0:hover {
+.request article footer p.requestStats .interest.interest0:hover {
   color: #a6ada2;
   cursor: default;
 }
@@ -623,6 +624,9 @@ body #showMore a {
 .request.solved h2 {
   padding-left: 285px;
   background: url("../../media/img/assets/best-answer.png") 262px center no-repeat;
+}
+.request.solved h2 a {
+  color: #8c9299;
 }
 .request.solved:hover {
   opacity: 1;

@@ -108,16 +108,23 @@
 				$requestFooterLoggedIn  = '<footer>';
 				if($requestState == 0) {
 					// Logged in and unsolved
-					$requestFooterLoggedIn .= '<a class="btn" href="#">Répondre</a>';
-					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
-					$requestFooterLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a> • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
 					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
 						// ...the pictures of the interested users
 					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
+					if($requestPriority == 0) {
+						// Normal request: green button
+						$requestFooterLoggedIn .= '<a class="btn btn-green" href="#">Répondre</a>';
+					}
+					else {
+						// Urgent request: red button
+						$requestFooterLoggedIn .= '<a class="btn btn-red" href="#">Répondre</a>';
+					}
+					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
 				}
 				else {
 					// Logged in and solved
-					$requestFooterLoggedIn .= '<p class="answers" href="#">'.numberOfAnswers($requestNbAnswers).'</a></p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers).'</p>';
 				}
 				$requestFooterLoggedIn .= '</footer></article>';
 				
