@@ -83,6 +83,9 @@
 			}
 			input[type="submit"] {
 				margin-left: 68px;
+				+ .btn {
+					margin-left: 10px;
+				}
 			}
 		}
 	}

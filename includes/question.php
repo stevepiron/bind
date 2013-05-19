@@ -110,6 +110,9 @@
 			
 			if($request[0]['state'] == 1) {
 				// Request in solved
+		?>
+				<a class="btn back" href="index.php">Retour aux questions</a>
+		<?php
 			}
 			else {
 				// Request is not solved yet
@@ -123,6 +126,7 @@
 					<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
 					<textarea name="comment" id="comment"></textarea>
 					<input type="submit" class="btn btn-green" value="Envoyer ma réponse">
+					<a class="btn" href="#">Retour aux questions</a>
 				</form><!-- /#commentForm -->
 			</section><!-- /.actions -->
 		</section><!-- /#interactions -->

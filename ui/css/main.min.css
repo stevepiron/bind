@@ -427,6 +427,9 @@ body #showMore a {
 .question .request.solved {
   opacity: 1;
 }
+.question .back {
+  margin-left: 258px;
+}
 
 .btn {
   display: inline-block;
@@ -876,6 +879,9 @@ input[type="file"] {
 }
 #interactions .actions #commentForm input[type="submit"] {
   margin-left: 68px;
+}
+#interactions .actions #commentForm input[type="submit"] + .btn {
+  margin-left: 10px;
 }
 
 /* ==========================================================================
