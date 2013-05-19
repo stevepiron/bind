@@ -1,7 +1,7 @@
 .question {
 	.request {
 		margin-bottom: 30px;
-		overflow: auto;
+		overflow: hidden;
 		&.solved {
 			opacity: 1;
 		}

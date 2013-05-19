@@ -422,7 +422,7 @@ body #showMore a {
 
 .question .request {
   margin-bottom: 30px;
-  overflow: auto;
+  overflow: hidden;
 }
 .question .request.solved {
   opacity: 1;
@@ -597,7 +597,7 @@ body #showMore a {
   max-width: 640px;
 }
 .request article > p:last-of-type {
-  margin-bottom: .5em;
+  margin-bottom: 1.33em;
 }
 .request article footer > * {
   margin-right: 10px;

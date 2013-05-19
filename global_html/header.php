@@ -43,12 +43,12 @@
 		// User is logged in
 		try {
 			$sql = "SELECT 
-						COUNT(*)
+						COUNT(*) AS count
 					FROM requests
 					WHERE requests.fk_author = ".$id;
 			$res = $db -> query($sql);
 			$res = $res -> fetchAll(PDO::FETCH_ASSOC);
-			$myRequestsNumber = $res[0]['COUNT(*)'];
+			$myRequestsNumber = $res[0]['count'];
 		}
 		catch(exception $e) {
 			'Erreur lors du compte du nombre de questions que tu as posées : '.$e -> getMessage();

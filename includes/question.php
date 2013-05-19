@@ -18,7 +18,7 @@
 					$sql = "SELECT
 								r.id AS request_id,
 								r.title,
-								r.category,
+								r.fk_category,
 								r.priority,
 								r.state,
 								r.date,
@@ -28,10 +28,16 @@
 								u.firstname,
 								u.picture_url,
 								u.useful_answers,
-								(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) AS nb_answers
+								(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) AS nb_answers,
+								c.id AS category_id,
+								c.category,
+								c.year,
+								c.group
 							FROM requests r
 							LEFT JOIN users u 
 							ON r.fk_author = u.id
+							LEFT JOIN categories c
+							ON r.fk_category = c.id
 							WHERE r.id = '".$requestId."'
 							ORDER BY r.id DESC";
 					$res = $db -> query($sql);
