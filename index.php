@@ -8,7 +8,12 @@
 	if(!empty($_GET['page'])){
 	
 		switch($_GET['page']){
-	
+			
+			case 'home':
+				include('global_html/header.php');
+				include('includes/home.php');
+			break;
+			
 			case 'connexion':
 				include('includes/connexion.php');
 			break;

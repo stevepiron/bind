@@ -149,7 +149,7 @@
 			else {
 				// Sign up process succesful
 		?>
-				<p class="center switchSignInSignUp"><a href="index.php?page=home">Retour à l'accueil</a></p>
+				<p class="center switchSignInSignUp"><a href="index.php">Retour à l'accueil</a></p>
 		<?php
 			}
 		?>
