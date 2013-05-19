@@ -91,8 +91,11 @@
 */
 				
 				$theRequest = singleRequest($request, $id);
-				$answersThread = answersThread($answers, $id);
-			
+				
+				if($answersCount > 0) {
+					// If there's at leat one answer
+					$answersThread = answersThread($answers, $id);
+				}
 		}
 	}
 	else {
