@@ -100,10 +100,56 @@
 		setError(ERR_NODATAINURL);
 	}
 	
+	if($_POST['reply']) {
+		if(isset($_POST['reply'])) {
+			
+			$message = trim(strip_tags($_POST['message']));
+			$now = date('Y-m-d H:i:s');
+			
+			// Define error variables as NULL
+			// so that they're not rendered
+			// if the error is not targeted
+			$errors = 0;
+			$error_emptyMessage = NULL;
+			
+			/*
+			 *  Error handling
+			 */
+			 
+			// Message verification
+			if(empty($message)) {
+				$errors++;
+				$error_emptyMessage = 'Ta réponse est vide ! :(';
+			}
+			
+			/*
+			 *  No error found
+			 *  Insert into the database
+			 */
+			 
+			if($errors == 0) {
+				try {
+					$sql = "INSERT INTO answers (fk_author, message, fk_request, date)
+									VALUES ('$id', '$message', '$requestId', '$now')";
+					$db -> exec($sql);
+				}
+				catch(exception $e) {
+					'Erreur lors de l\'envoi de ta réponse : '.$e -> getMessage();
+				}
+				$feedback = '<p class="notice success">Super, merci beaucoup pour ta réponse ! :)</p>';
+			}
+			// Errors found
+			else {
+				$feedback = '<ul class="notice error">';
+				$feedback .= '<li>'.$error_emptyMessage.'</li>';
+				$feedback .= '</ul><!-- /.notice -->';
+			}
+		}
+	}
+	
 	if($request) {
 		$__TITLE_PAGE__ = $request[0]['title'].' ('.$request[0]['category'].') • Bind';
 	}
-	
 ?>
 
 <div class="content">
@@ -111,6 +157,10 @@
 		<h1><a href="index.php">Lycée Emile Jacqmain</a></h1>
 		
 		<?php
+			if(isset($feedback)) {
+				echo $feedback;
+			}
+		
 			echo $theRequest;
 			echo $answersThread;
 			
@@ -128,10 +178,10 @@
 		
 		<section id="interactions">
 			<section class="actions">
-				<form id="commentForm" class="clearfix" action="#" method="post">
+				<form id="commentForm" class="clearfix" action="" method="post">
 					<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
-					<textarea name="comment" id="comment"></textarea>
-					<input type="submit" class="btn btn-green" value="Envoyer ma réponse">
+					<textarea name="message" id="comment"></textarea>
+					<input type="submit" name="reply" class="btn btn-green" value="Envoyer ma réponse">
 					<a class="btn" href="#">Retour aux questions</a>
 				</form><!-- /#commentForm -->
 			</section><!-- /.actions -->
