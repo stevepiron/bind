@@ -604,6 +604,8 @@ body #showMore a {
 }
 .request article footer > a {
   margin-top: .33em;
+  margin-bottom: 1px;
+  /* If omitted, weird rendering */
 }
 .request article footer p {
   color: #a6ada2;

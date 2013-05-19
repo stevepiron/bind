@@ -43,7 +43,7 @@
 					$res = $db -> query($sql);
 				}
 				catch(exception $e) {
-					'Erreur lors de la récolte des questions : '.$e -> getMessage();
+					'Erreur lors de la récolte de la question : '.$e -> getMessage();
 				}
 				$request = $res -> fetchAll(PDO::FETCH_ASSOC); // The array
 				$requestCount = count($requests); // Count how many entries were found
