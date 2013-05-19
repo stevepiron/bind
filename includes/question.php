@@ -184,7 +184,11 @@
 				<form id="commentForm" class="clearfix" action="" method="post">
 					<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
 					<textarea name="message" id="comment"></textarea>
+					<?php if($request[0]['priority'] == 0): ?>
 					<input type="submit" name="reply" class="btn btn-green" value="Envoyer ma réponse">
+					<?php else: ?>
+					<input type="submit" name="reply" class="btn btn-red" value="Envoyer ma réponse">
+					<?php endif ?>
 					<a class="btn" href="#">Retour aux questions</a>
 				</form><!-- /#commentForm -->
 			</section><!-- /.actions -->
