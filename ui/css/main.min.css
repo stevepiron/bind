@@ -430,6 +430,9 @@ body #showMore a {
 .question .back {
   margin-left: 258px;
 }
+.question .container > .btn {
+  margin-left: 260px;
+}
 
 .btn {
   display: inline-block;
@@ -801,6 +804,7 @@ input[type="file"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #interactions .comments {
   padding: 0;

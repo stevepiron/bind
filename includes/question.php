@@ -189,6 +189,12 @@
 		
 		<?php
 				}
+				else {
+					// User is not logged in
+		?>
+					<a class="btn" href="#">Retour aux questions</a>
+		<?php
+				}
 			}
 		?>
 	</div><!-- /.container -->

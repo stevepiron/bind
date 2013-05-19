@@ -1,6 +1,7 @@
 #interactions {
 	width: 100%;
 	@include x-box-sizing;
+	overflow: hidden;
 	.comments {
 		padding: 0;
 		margin: 0 0 4em 0;
