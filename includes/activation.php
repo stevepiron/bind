@@ -123,7 +123,6 @@
 								$error_pictureDimensionsTooSmall = NULL;
 								$error_pictureDimensionsTooLarge = NULL;
 								$error_pictureExtension = NULL;
-								$error_noPicture = NULL;
 								$error_emptyFirstname = NULL;
 								$error_firstnameLength = NULL;
 								
@@ -179,8 +178,6 @@
 								}
 								else {
 									// No picture provided
-									$errors++;
-									$error_noPicture = 'Tu n\'as pas choisi de photo.';
 								}
 								
 								// Firstname verification
