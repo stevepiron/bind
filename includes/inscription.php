@@ -4,9 +4,11 @@
 	$section = 'inscription';
 	$level = '1';
 	
+/*
 	echo '<div class="dev">';
 		require 'php/database-connection.php';
 	echo '</div><!-- /.dev -->';
+*/
 	
 	if(isset($_POST['signUp'])) {
 		if($_POST['signUp']) {

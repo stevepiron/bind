@@ -15,6 +15,7 @@
 	require 'php/constants.php';
 	
 	// Development window
+/*
 	echo '<div class="dev">';
 		require 'php/database-connection.php';
 		
@@ -27,6 +28,7 @@
 			echo '</pre>';
 		}
 	echo '</div><!-- /.dev -->';
+*/
 	
 	// If user comes from the activation page
 	extract($_GET);

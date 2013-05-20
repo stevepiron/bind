@@ -327,83 +327,95 @@ body > footer nav a:hover {
 /*
  * Imports
  */
+.connexion > header {
+  padding: 50px 50px;
+}
 .connexion > header #logo {
   float: none;
 }
-.connexion h1 {
-  margin-bottom: 1em;
+.connexion .container {
+  padding: 0 20px 30px;
 }
-.connexion .notice {
+.connexion .container h1 {
+  margin: 0 0 1em 0;
+}
+.connexion .container .notice {
   width: 300px;
 }
-.connexion #signInForm {
+.connexion .container #signInForm {
   margin: 0 auto;
   width: 100%;
   max-width: 220px;
 }
-.connexion #signInForm div {
+.connexion .container #signInForm div {
   margin-bottom: 1em;
 }
-.connexion #signInForm div label {
+.connexion .container #signInForm div label {
   display: block;
   margin-bottom: .33em;
 }
-.connexion #signInForm div input[type="email"],
-.connexion #signInForm div input[type="password"] {
+.connexion .container #signInForm div input[type="email"],
+.connexion .container #signInForm div input[type="password"] {
   width: 100%;
 }
-.connexion #signInForm div input[type="password"] {
+.connexion .container #signInForm div input[type="password"] {
   margin-bottom: 2em;
 }
-.connexion #signInForm input[type="submit"] {
+.connexion .container #signInForm input[type="submit"] {
   margin: 0 auto;
   display: block;
 }
-.connexion .switchSignInSignUp {
+.connexion .container .switchSignInSignUp {
   margin-top: 1em;
 }
-.connexion .switchSignInSignUp a {
+.connexion .container .switchSignInSignUp a {
   font-size: 14px;
   text-decoration: underline;
 }
 
+.inscription > header {
+  padding: 50px 50px;
+}
 .inscription > header #logo {
   float: none;
 }
-.inscription h1 {
-  margin-bottom: 1em;
+.inscription .container {
+  padding: 0 20px 30px;
 }
-.inscription .notice {
+.inscription .container h1 {
+  margin: 0 0 1em 0;
+}
+.inscription .container .notice {
   width: 300px;
 }
-.inscription #signUpForm {
+.inscription .container #signUpForm {
   margin: 0 auto;
   width: 100%;
   max-width: 220px;
 }
-.inscription #signUpForm div {
+.inscription .container #signUpForm div {
   margin-bottom: 1em;
 }
-.inscription #signUpForm div label {
+.inscription .container #signUpForm div label {
   display: block;
   margin-bottom: .33em;
 }
-.inscription #signUpForm div input[type="email"],
-.inscription #signUpForm div input[type="password"] {
+.inscription .container #signUpForm div input[type="email"],
+.inscription .container #signUpForm div input[type="password"] {
   width: 100%;
   padding: 10px 18px;
 }
-.inscription #signUpForm div input[type="password"] {
+.inscription .container #signUpForm div input[type="password"] {
   margin-bottom: 2em;
 }
-.inscription #signUpForm input[type="submit"] {
+.inscription .container #signUpForm input[type="submit"] {
   margin: 0 auto;
   display: block;
 }
-.inscription .switchSignInSignUp {
+.inscription .container .switchSignInSignUp {
   margin-top: 1em;
 }
-.inscription .switchSignInSignUp a {
+.inscription .container .switchSignInSignUp a {
   font-size: 14px;
   text-decoration: underline;
 }
