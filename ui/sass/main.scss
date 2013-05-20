@@ -157,10 +157,15 @@ html {
 	min-height: 100%;
 }
 
+html {
+	background: #595d62; /* footer extension */
+}
+
 body {
 	font-family: $font;
 	color: $darkGrey;
 	line-height: 1.6;
+	background: #fff;
 }
 
 a {
@@ -201,21 +206,17 @@ body {
 		text-align: center;
 		background: $white;
 		height: 107px;
-		#logoAnchor {
+		overflow: hidden;
+		#logoHeader {
 			display: inline-block;
 			text-align: left;
 			float: left;
 			line-height: 38px;
-			#logo {
+			.logo {
 				display: inline-block;
 				float: left;
 				margin-top: 7px;
 				margin-right: 10px;
-				image-rendering: -moz-crisp-edges;         /* Firefox */
-				image-rendering:   -o-crisp-edges;         /* Opera */
-				image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-				image-rendering: crisp-edges;
-				-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 			}
 		}
 	}
@@ -237,7 +238,7 @@ body {
 	#userAccount {
 		position: relative;
 		float: right;
-		margin: -5px 20px 0 0;
+		margin: -5px 0 0 0;
 		#userAccountTrigger {
 			display: inline-block;
 			background: none;
@@ -320,7 +321,7 @@ body {
 	.container {
 		width: 100%;
 		max-width: 940px;
-		padding: 0 20px 200px;
+		padding: 0 20px 120px;
 		margin: 0 auto;
 		@include x-box-sizing;
 	}
@@ -334,6 +335,26 @@ body {
 		a {
 			color: $oliveGreen;
 			text-decoration: underline;
+		}
+	}
+	
+	> footer {
+		overflow: hidden;
+		padding: 30px 50px 120px;
+		background: #595d62;
+		nav {
+			float: right;
+			font-size: 14px;
+			text-transform: uppercase;
+			a {
+				margin-left: 40px;
+				font-size: 12px;
+				letter-spacing: .1em;
+				color: $oliveGreen;
+				&:hover {
+					color: $lighterGrey;
+				}
+			}
 		}
 	}
 }

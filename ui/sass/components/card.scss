@@ -12,7 +12,6 @@
 	line-height: 2em;
 	margin: 0 0 80px 0;
 	overflow: hidden;
-	@include x-border-radius(6px);
 	&:nth-child(3n) {
 		margin-right: 0;
 	}
