@@ -1,5 +1,5 @@
 <?php
-	$__TITLE_PAGE__ = 'Nouvelle demande • Bind';
+	$__TITLE_PAGE__ = 'Nouvelle question • Bind';
 	$__DESC_PAGE__ = '';
 	$section = 'nouvelle-demande';
 	$level = '1';

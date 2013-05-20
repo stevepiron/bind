@@ -36,24 +36,9 @@
 				include('includes/question.php');
 			break;
 			
-			case 'demande-non-resolue':
+			case 'nouvelle-question':
 				include('global_html/header.php');
-				include('includes/demande-non-resolue.php');
-			break;
-			
-			case 'demande-urgente':
-				include('global_html/header.php');
-				include('includes/demande-urgente.php');
-			break;
-			
-			case 'demande-resolue':
-				include('global_html/header.php');
-				include('includes/demande-resolue.php');
-			break;
-			
-			case 'nouvelle-demande':
-				include('global_html/header.php');
-				include('includes/nouvelle-demande.php');
+				include('includes/nouvelle-question.php');
 			break;
 			
 			default:
