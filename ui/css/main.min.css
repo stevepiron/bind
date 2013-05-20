@@ -428,25 +428,25 @@ body > footer nav a:hover {
   margin: 0 0 0 304px;
 }
 
-.nouvelle-demande .container {
+.nouvelle-question .container {
   max-width: 640px;
 }
-.nouvelle-demande .container form div {
+.nouvelle-question .container form div {
   margin-bottom: 1.33em;
 }
-.nouvelle-demande .container form div label {
+.nouvelle-question .container form div label {
   display: block;
   margin-bottom: .67em;
 }
-.nouvelle-demande .container form div input[type="text"] {
+.nouvelle-question .container form div input[type="text"] {
   width: 100%;
 }
-.nouvelle-demande .container form div.halfWidthSelect {
+.nouvelle-question .container form div.halfWidthSelect {
   display: inline-block;
   width: 170px;
   margin-right: 40px;
 }
-.nouvelle-demande .container form div.halfWidthSelect + .halfWidthSelect {
+.nouvelle-question .container form div.halfWidthSelect + .halfWidthSelect {
   margin-right: 0;
 }
 

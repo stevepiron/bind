@@ -1,7 +1,7 @@
 <?php
 	$__TITLE_PAGE__ = 'Nouvelle question • Bind';
 	$__DESC_PAGE__ = '';
-	$section = 'nouvelle-demande';
+	$section = 'nouvelle-question';
 	$level = '1';
 	
 	session_start();
@@ -19,7 +19,7 @@
 <div class="content">
 	<div class="container">
 		
-		<h1>Nouvelle demande d'aide</h1>
+		<h1>Demander de l'aide</h1>
 		
 		<?php
 			if(isset($feedback)) {
@@ -38,7 +38,7 @@
 			<div class="halfWidthSelect">
 				<label for="priority">Priorité</label>
 				<select name="priority" id="category">
-					<option value="0">Normale</option>
+					<option value="0">Importante</option>
 					<option value="1">Urgente</option>
 				</select>
 			</div>
