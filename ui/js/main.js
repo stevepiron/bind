@@ -1,6 +1,6 @@
 $(function() {
 
-	// $('body').polypage();
+	FastClick.attach(document.body);
 
 	var body = $('body'),
 		userAccountTrigger = $('#userAccountTrigger'),
