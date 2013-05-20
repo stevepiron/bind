@@ -259,7 +259,7 @@
 			
 			// Article: the request itself
 			$requestArticle  = '<article>';
-			$requestArticle .= '<p>'.clickableUrls($requestMessage).'</p>';
+			$requestArticle .= '<p>'.nl2br(clickableUrls($requestMessage)).'</p>';
 			
 				// Footer if logged in
 				$urlAnswers = $url.'#interactions';
@@ -360,7 +360,7 @@
 			$answerArticle .= '<header>';
 			$answerArticle .= '<p class="author">'.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
 			$answerArticle .= '</header>';
-			$answerArticle .= '<p>'.clickableUrls($answerMessage).'</p>';
+			$answerArticle .= '<p>'.nl2br(clickableUrls($answerMessage)).'</p>';
 			$answerArticle .= '<footer>';
 			$answerArticle .= '<span class="publishedDate">'.daysSincePost($answerDate).'</span>';
 			$answerArticle .= '</footer>';
