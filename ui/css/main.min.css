@@ -1176,6 +1176,10 @@ input[type="file"] {
   body .container {
     padding: 0 20px 50px;
   }
+  body .container .btn.btn-link.watchToggle.watching {
+    width: 33px;
+    height: 33px;
+  }
   body h1 {
     font-size: 28px;
   }
@@ -1323,6 +1327,11 @@ input[type="file"] {
   .request aside ul li.bestAnswersCount {
     background-image: url("../../media/img/assets/best-answer@2x.png");
     background-size: 12px 11px;
+  }
+
+  .btn.btn-link.watchToggle.watching {
+    background-image: url("../../media/img/assets/watching@2x.png");
+    background-size: 16px 11px;
   }
 }
 /* ==========================================================================
