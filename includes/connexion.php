@@ -193,6 +193,7 @@
 			<div>
 				<label for="password">Mot de passe</label>
 				<input type="password" name="password" id="password">
+				<p class="helpText"><a href="#">Mot de passe oublié&nbsp;?</a></p>
 			</div>
 			<input type="submit" name="login" class="btn btn-green" value="Connexion">
 		</form>

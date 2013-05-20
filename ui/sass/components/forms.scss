@@ -36,6 +36,12 @@ input[type="file"] {
 	font-size: 13px;
 }
 
+.helpText {
+	font-size: 14px;
+	margin: .67em 0;
+	color: $oliveGreen;
+}
+
 .horizontalForm {
 	width: 100%;
 	max-width: 600px;
@@ -55,10 +61,7 @@ input[type="file"] {
 			width: 297px;
 		}
 		.helpText {
-			font-size: 14px;
 			padding-left: 304px;
-			margin: .67em 0;
-			color: $oliveGreen;
 			@include x-box-sizing(border-box);
 			max-width: 100%;
 		}

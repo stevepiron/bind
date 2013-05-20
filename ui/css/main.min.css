@@ -359,6 +359,9 @@ body > footer nav a:hover {
   width: 100%;
 }
 .connexion .container #signInForm div input[type="password"] {
+  margin-bottom: 0;
+}
+.connexion .container #signInForm div .helpText {
   margin-bottom: 2em;
 }
 .connexion .container #signInForm input[type="submit"] {
@@ -736,6 +739,12 @@ input[type="file"] {
   font-size: 13px;
 }
 
+.helpText {
+  font-size: 14px;
+  margin: 0.67em 0;
+  color: #a6ada2;
+}
+
 .horizontalForm {
   width: 100%;
   max-width: 600px;
@@ -754,10 +763,7 @@ input[type="file"] {
   width: 297px;
 }
 .horizontalForm div .helpText {
-  font-size: 14px;
   padding-left: 304px;
-  margin: 0.67em 0;
-  color: #a6ada2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -927,10 +933,10 @@ input[type="file"] {
 }
 .actions #commentForm .userAvatar {
   position: absolute;
-  margin-right: 20px;
+  margin-right: 18px;
 }
 .actions #commentForm div {
-  padding-left: 68px;
+  padding-left: 66px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
