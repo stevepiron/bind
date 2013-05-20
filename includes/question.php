@@ -156,7 +156,7 @@
 
 <div class="content">
 	<div class="container">
-		<h1><a href="index.php">Lycée Emile Jacqmain</a></h1>
+		<h1>Salle de remédiation</h1>
 		
 		<?php
 			if(isset($feedback)) {
@@ -188,7 +188,7 @@
 					<?php else: ?>
 					<input type="submit" name="reply" class="btn btn-red" value="Envoyer ma réponse">
 					<?php endif ?>
-					<a class="btn" href="#">Retour aux questions</a>
+					<a class="btn" href="index.php">Retour aux questions</a>
 				</form><!-- /#commentForm -->
 			</section><!-- /.actions -->
 		</section><!-- /#interactions -->
@@ -198,7 +198,7 @@
 				else {
 					// User is not logged in
 		?>
-					<a class="btn" href="#">Retour aux questions</a>
+					<a class="btn" href="index.php">Retour aux questions</a>
 		<?php
 				}
 			}

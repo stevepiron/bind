@@ -58,7 +58,7 @@
 ?>
 
 <header>
-	<a id="logoHeader" href="<?php echo $dig; ?>index.php"><img class="logo" src="<?php echo $dig; ?>media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"> Lycée Emile Jacqmain</a>
+	<a id="logoHeader" href="<?php echo $dig; ?>index.php"><img class="logo" src="<?php echo $dig; ?>media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"> Bind</a>
 	
 	<?php if($_SESSION && $id != 0): ?>
 	<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
@@ -66,23 +66,23 @@
 	<div id="userAccount">
     	<button id="userAccountTrigger">
     		<img class="userAvatar" src="<?php echo $dig; ?><?php if(isset($picture_url)) echo $picture_url; ?>" alt="<?php if(isset($firstname)) echo 'Ma photo ('.$firstname.')'; ?>" width="36" height="36">
-    		<span>Mon compte</span>
+    		<span>Ton compte</span>
     	</button>
     	
     	<div id="userDropdown" class="hidden">
     		<ul>
-    			<li><a href="#">Mes questions <span class="count"><?php echo $myRequestsNumber; ?></span></a></li>
+    			<li><a href="#">Tes questions <span class="count"><?php echo $myRequestsNumber; ?></span></a></li>
     			<!-- <li><a href="#">Questions surveillées <span class="count">2</span></a></li> -->
     			<!-- <li><a href="#">Mes élèves <span class="count">1</span></a></li> -->
-    			<li><a href="index.php?page=mon-compte">Gérer mon compte</a></li>
+    			<li><a href="index.php?page=mon-compte">Gérer ton compte</a></li>
     			<li><a id="signOff" href="php/logout.php">Déconnexion</a></li>
     		</ul>
     	</div>
 	</div>
 	<?php else: ?>
 	<div id="userAccount">
-		<a id="signIn" href="<?php echo $dig; ?>index.php?page=connexion">Me connecter</a>
-		<a id="signUp" href="<?php echo $dig; ?>index.php?page=inscription">M'inscrire</a>
+		<a id="signIn" href="<?php echo $dig; ?>index.php?page=connexion">Te connecter</a>
+		<a id="signUp" href="<?php echo $dig; ?>index.php?page=inscription">T'inscrire</a>
 	</div><!-- /#userAccount -->
 	<?php endif ?>
 </header><!-- /header -->

@@ -61,7 +61,7 @@
 <div class="content">
 	<div class="container">
 		
-		<h1><a href="index.php">Lycée Emile Jacqmain</a></h1>
+		<h1>Ton école</h1>
 		
 		<?php echo $requestsList; ?>
 		
