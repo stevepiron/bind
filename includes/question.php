@@ -75,7 +75,7 @@
 					'Erreur lors de la récolte des réponses : '.$e -> getMessage();
 				}
 				$answers = $res -> fetchAll(PDO::FETCH_ASSOC); // The array
-				$answersCount = count($requests); // Count how many entries were found
+				$answersCount = count($answers); // Count how many entries were found
 				
 				/*
 				 *  Display the requests
@@ -91,7 +91,6 @@
 */
 				
 				$theRequest = singleRequest($request, $id);
-				
 				if($answersCount > 0) {
 					// If there's at leat one answer
 					$answersThread = answersThread($answers, $id);
