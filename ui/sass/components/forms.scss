@@ -37,7 +37,8 @@ input[type="file"] {
 }
 
 .horizontalForm {
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	margin: 0 auto;
 	h3 {
 		
@@ -58,6 +59,8 @@ input[type="file"] {
 			padding-left: 304px;
 			margin: .67em 0;
 			color: $oliveGreen;
+			@include x-box-sizing(border-box);
+			max-width: 100%;
 		}
 		&.actions {
 			padding-left: 304px;

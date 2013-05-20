@@ -1,0 +1,48 @@
+.request {
+	header {
+		h2 {
+			float: none;
+			padding-left: 80px;
+		}
+	}
+	aside {
+		float: none;
+		position: static;
+		height: 64px;
+		margin-bottom: 10px;
+		ul {
+			li {
+				&.author {
+					display: inline-block;
+					img {
+						margin-right: 30px;
+					}
+				}
+				&.bestAnswersCount {
+					position: static;
+					top: auto;
+					display: inline-block;
+					background-position: 9px center;
+					padding-left: 25px;
+				}
+				&.publishedDate {
+					padding-left: 82px;
+				}
+			}
+		}
+	}
+	article {
+		float: none;
+		max-width: 100%;
+		padding-left: 80px;
+	}
+	&.urgent,
+	&.solved {
+		header {
+			h2 {
+				padding-left: 105px;
+				background-position-x: 82px;
+			}
+		}
+	}
+}

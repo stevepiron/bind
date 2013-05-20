@@ -4,9 +4,11 @@
 	$section = 'inscription';
 	$level = '1';
 	
+	require 'php/database-connection.php';
+	
 /*
 	echo '<div class="dev">';
-		require 'php/database-connection.php';
+		
 	echo '</div><!-- /.dev -->';
 */
 	

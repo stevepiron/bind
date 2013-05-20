@@ -1,0 +1,55 @@
+.request {
+	margin: 0 0 50px 0;
+	header {
+		margin-bottom: .33em;
+		h2 {
+			font-size: 16px;
+			padding-left: 67px;
+			line-height: 1.4;
+			a {
+				&.label {
+					top: -1px;
+					padding: 2px 6px 4px;
+					margin-left: -1px;
+				}
+			}
+		}
+	}
+	&.urgent,
+	&.solved {
+		header {
+			h2 {
+				padding-left: 67px;
+				background-position-x: 49px;
+			}
+		}
+	}
+	&.solved {
+		header {
+			h2 {
+				background-position-y: 6px;
+			}
+		}
+		opacity: 1;
+	}
+	aside {
+		width: 100%;
+		ul {
+			li {
+				&.author {
+					img {
+						margin-right: 15px;
+					}
+				}
+				&.publishedDate {
+					padding-left: 67px;
+				}
+			}
+		}
+	}
+	article {
+		padding-left: 65px;
+		font-size: 13px;
+		line-height: 1.7;
+	}
+}

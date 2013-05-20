@@ -206,7 +206,6 @@ body {
 		text-align: center;
 		background: $white;
 		height: 107px;
-		overflow: hidden;
 		#logoHeader {
 			display: inline-block;
 			text-align: left;
@@ -238,7 +237,7 @@ body {
 	#userAccount {
 		position: relative;
 		float: right;
-		margin: -5px 0 0 0;
+		margin: -5px 20px 0 0;
 		#userAccountTrigger {
 			display: inline-block;
 			background: none;
@@ -517,13 +516,85 @@ body {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Responsiveness
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 1000px) {
+	body {
+		.container {
+			padding-left: 50px;
+			padding-right: 50px;
+			max-width: 100%;
+		}
+	}
+	@import "components/card_max1000.scss";
+    @import "components/comments_max1000.scss";
+}
+
+@media only screen and (max-width: 750px) {
+    @import "components/card_max750.scss";
+    @import "components/comments_max750.scss";
+}
+
+@media only screen and (max-width: 700px) {
+	@import "components/forms_max700.scss";
+	@import "views/mon-compte_max700.scss";
+}
+
+@media only screen and (max-width: 640px) {
+	body {
+		> header {
+			height: auto;
+			padding: 27px 20px;
+			#logoHeader {
+				float: none;
+				display: block;
+				margin: 0 auto 2em auto;
+				width: 88px;
+			}
+			.btn.btn-primary.askForHelp {
+				float: none;
+				display: block;
+				margin: 1em 0;
+			}
+			#userAccount {
+				float: none;
+				display: block;
+				margin: 1em 0;
+				#userAccountTrigger {
+					width: 100%;
+					background: $lightGrey;
+					border: none;
+					&:hover {
+						border: none;
+					}
+				}
+			}
+		}
+		.container {
+			padding: 0 20px 50px;
+		}
+		h1 {
+			font-size: 28px;
+		}
+		> footer {
+			padding: 30px 20px 120px;
+			nav {
+				float: none;
+				a {
+					display: block;
+					margin: 0 0 1.33em 0;
+				}
+			}
+		}
+	}
+    @import "components/card_max640.scss";
+    @import "components/notices_max640.scss";
+    @import "components/forms_max640.scss";
+    @import "views/connexion_max640.scss";
+    @import "views/inscription_max640.scss";
+    @import "views/mon-compte_max640.scss";
+    @import "components/comments_max640.scss";
 }
 
 @media print,
@@ -532,6 +603,28 @@ body {
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
+
+/* ==========================================================================
+   Retina support
+   ========================================================================== */
+  
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+	.request.urgent h2 {
+		background-image: url('../../media/img/assets/urgent@2x.png');
+		background-size: 12px 15px;
+	}
+	
+	.request.solved h2,
+	.request aside ul li.bestAnswersCount {
+		background-image: url('../../media/img/assets/best-answer@2x.png');
+		background-size: 12px 11px;
+	}
+	
+} 
 
 /* ==========================================================================
    Print styles.

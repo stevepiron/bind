@@ -178,10 +178,10 @@
 					// User is logged in
 		?>
 		
-		<section id="interactions">
-			<section class="actions">
-				<form id="commentForm" class="clearfix" action="" method="post">
-					<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
+		<section class="actions">
+			<form id="commentForm" class="clearfix" action="" method="post">
+				<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
+				<div>
 					<textarea name="message" id="comment"></textarea>
 					<?php if($request[0]['priority'] == 0): ?>
 					<input type="submit" name="reply" class="btn btn-green" value="Envoyer ma réponse">
@@ -189,9 +189,9 @@
 					<input type="submit" name="reply" class="btn btn-red" value="Envoyer ma réponse">
 					<?php endif ?>
 					<a class="btn" href="index.php">Retour aux questions</a>
-				</form><!-- /#commentForm -->
-			</section><!-- /.actions -->
-		</section><!-- /#interactions -->
+				</div>
+			</form><!-- /#commentForm -->
+		</section><!-- /.actions -->
 		
 		<?php
 				}

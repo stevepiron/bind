@@ -57,7 +57,7 @@
 	
 ?>
 
-<header>
+<header class="clearfix">
 	<a id="logoHeader" href="<?php echo $dig; ?>index.php"><img class="logo" src="<?php echo $dig; ?>media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"> Bind</a>
 	
 	<?php if($_SESSION && $id != 0): ?>

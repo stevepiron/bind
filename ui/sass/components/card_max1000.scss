@@ -1,0 +1,28 @@
+.request {
+	position: relative;
+	header {
+		h2 {
+			padding-left: 210px;
+		}
+	}
+	&.urgent,
+	&.solved {
+		header {
+			h2 {
+				padding-left: 235px;
+				background-position-x: 212px;
+			}
+		}
+	}
+	aside {
+		width: 210px;
+		position: absolute;
+		top: 47px;
+		left: 0;
+	}
+	article {
+		padding-left: 210px;
+		max-width: 100%;
+		@include x-box-sizing(border-box);
+	}
+}

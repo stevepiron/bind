@@ -10,8 +10,11 @@
 			margin-bottom: 1em;
 			margin-left: 190px;
 			overflow: hidden;
+			position: relative;
 			aside {
-				float: left;
+				position: absolute;
+				top: 0;
+				left: 0;
 				img {
 					margin-right: 20px;
 					position: relative;
@@ -20,7 +23,9 @@
 				}
 			}
 			article {
-				float: left;
+				@include x-box-sizing(border-box);
+				width: 100%;
+				padding-left: 68px;
 				margin-top: 10px;
 				header {
 					color: $oliveGreen;
@@ -71,19 +76,23 @@
 			}
 		}
 	}
-	.actions {
-		margin-left: 190px;
-		#commentForm {
-			.userAvatar {
-				float: left;
-				margin-right: 20px;
-			}
+}
+
+.actions {
+	margin-left: 190px;
+	#commentForm {
+		position: relative;
+		.userAvatar {
+			position: absolute;
+			margin-right: 20px;
+		}
+		div {
+			padding-left: 68px;
+			@include x-box-sizing(border-box);
 			textarea {
-				float: left;
-				width: 642px;
+				width: 100%;
 			}
 			input[type="submit"] {
-				margin-left: 68px;
 				+ .btn {
 					margin-left: 10px;
 				}

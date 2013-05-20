@@ -133,7 +133,7 @@
 				}
 				else {
 					// Login denied: inactive account OR wrong login / password
-					$feedback = '<p class="notice error">Ce mot de passe est incorrect.</p>';
+					$feedback = '<p class="notice error center">Ce mot de passe est incorrect.</p>';
 				}
 			}
 			else {

@@ -1,0 +1,10 @@
+.inscription {
+	.container {
+		.notice {
+			width: 100%;
+			&.wide {
+				width: 100%;
+			}
+		}
+	}
+}

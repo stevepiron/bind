@@ -1,0 +1,18 @@
+.horizontalForm {
+	div {
+		label {
+			width: 270px;
+		}
+		input[type="text"],
+		input[type="password"],
+		input[type="email"] {
+			width: 260px;
+		}
+		.helpText {
+			padding-left: 274px;
+		}
+		&.actions {
+			padding-left: 274px;
+		}
+	}
+}

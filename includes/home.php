@@ -64,7 +64,5 @@
 		<h1>Ton école</h1>
 		
 		<?php echo $requestsList; ?>
-		
-		<p id="showMore"><a href="#">Voir plus d'annonces</a></p>
 	</div><!-- /.container -->
 </div><!-- /.content -->

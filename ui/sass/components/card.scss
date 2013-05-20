@@ -12,8 +12,8 @@
 	line-height: 2em;
 	margin: 0 0 80px 0;
 	overflow: hidden;
-	&:nth-child(3n) {
-		margin-right: 0;
+	&:last-of-type {
+		margin-bottom: 0;
 	}
 	//border-bottom: 2px solid $lightGrey;
 	
@@ -30,7 +30,7 @@
 			a {
 				color: $darkGreen;
 				&.label {
-					background: $darkBlue;
+					background: $darkGreen;
 					color: $white;
 					font-size: 12px;
 					margin-left: 2px;
@@ -49,9 +49,9 @@
 	}/* header */
 	
 	aside {
-		width: 260px;
+		width: 230px;
 		float: left;
-		margin-top: -6px;
+		margin: -6px 30px 0 0;
 		ul {
 			margin: 0;
 			padding: 0;
@@ -139,9 +139,12 @@
 	&.solved {
 		h2 {
 			padding-left: 285px;
-			background: url('../../media/img/assets/best-answer.png') 262px center no-repeat;
+			background: url('../../media/img/assets/best-answer.png') 262px 9px no-repeat;
 			a {
 				color: $darkBlue;
+				&.label {
+					background: $darkBlue;
+				}
 			}
 		}
 		opacity : .6;
@@ -152,9 +155,12 @@
 	&.urgent {
 		h2 {
 			padding-left: 285px;
-			background: url('../../media/img/assets/urgent.png') 262px center no-repeat;
+			background: url('../../media/img/assets/urgent.png') 262px 5px no-repeat;
 			a {
 				color: $red;
+				&.label {
+					background: $red;
+				}
 			}
 		}
 	}

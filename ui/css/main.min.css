@@ -155,7 +155,6 @@ body > header {
   text-align: center;
   background: white;
   height: 107px;
-  overflow: hidden;
 }
 body > header #logoHeader {
   display: inline-block;
@@ -185,7 +184,7 @@ body #signIn {
 body #userAccount {
   position: relative;
   float: right;
-  margin: -5px 0 0 0;
+  margin: -5px 20px 0 0;
 }
 body #userAccount #userAccountTrigger {
   display: inline-block;
@@ -329,6 +328,7 @@ body > footer nav a:hover {
  */
 .connexion > header {
   padding: 50px 50px;
+  overflow: hidden;
 }
 .connexion > header #logo {
   float: none;
@@ -375,6 +375,7 @@ body > footer nav a:hover {
 
 .inscription > header {
   padding: 50px 50px;
+  overflow: hidden;
 }
 .inscription > header #logo {
   float: none;
@@ -547,8 +548,8 @@ body > footer nav a:hover {
   overflow: hidden;
   /* header */
 }
-.request:nth-child(3n) {
-  margin-right: 0;
+.request:last-of-type {
+  margin-bottom: 0;
 }
 .request header {
   margin-bottom: 20px;
@@ -567,7 +568,7 @@ body > footer nav a:hover {
   color: #95bb39;
 }
 .request header h2 a.label {
-  background: #8c9299;
+  background: #95bb39;
   color: white;
   font-size: 12px;
   margin-left: 2px;
@@ -581,9 +582,9 @@ body > footer nav a:hover {
   border-radius: 2px;
 }
 .request aside {
-  width: 260px;
+  width: 230px;
   float: left;
-  margin-top: -6px;
+  margin: -6px 30px 0 0;
 }
 .request aside ul {
   margin: 0;
@@ -666,20 +667,26 @@ body > footer nav a:hover {
 }
 .request.solved h2 {
   padding-left: 285px;
-  background: url("../../media/img/assets/best-answer.png") 262px center no-repeat;
+  background: url("../../media/img/assets/best-answer.png") 262px 9px no-repeat;
 }
 .request.solved h2 a {
   color: #8c9299;
+}
+.request.solved h2 a.label {
+  background: #8c9299;
 }
 .request.solved:hover {
   opacity: 1;
 }
 .request.urgent h2 {
   padding-left: 285px;
-  background: url("../../media/img/assets/urgent.png") 262px center no-repeat;
+  background: url("../../media/img/assets/urgent.png") 262px 5px no-repeat;
 }
 .request.urgent h2 a {
   color: #d66037;
+}
+.request.urgent h2 a.label {
+  background: #d66037;
 }
 
 fieldset {
@@ -730,7 +737,8 @@ input[type="file"] {
 }
 
 .horizontalForm {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
 }
 .horizontalForm div {
@@ -750,6 +758,10 @@ input[type="file"] {
   padding-left: 304px;
   margin: 0.67em 0;
   color: #a6ada2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .horizontalForm div.actions {
   padding-left: 304px;
@@ -842,9 +854,12 @@ input[type="file"] {
   margin-bottom: 1em;
   margin-left: 190px;
   overflow: hidden;
+  position: relative;
 }
 #interactions .comments li aside {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 #interactions .comments li aside img {
   margin-right: 20px;
@@ -854,7 +869,11 @@ input[type="file"] {
   border-radius: 50%;
 }
 #interactions .comments li article {
-  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 68px;
   margin-top: 10px;
 }
 #interactions .comments li article header {
@@ -899,21 +918,27 @@ input[type="file"] {
   border-left: 4px solid #95bb39;
   padding-left: 15px;
 }
-#interactions .actions {
+
+.actions {
   margin-left: 190px;
 }
-#interactions .actions #commentForm .userAvatar {
-  float: left;
+.actions #commentForm {
+  position: relative;
+}
+.actions #commentForm .userAvatar {
+  position: absolute;
   margin-right: 20px;
 }
-#interactions .actions #commentForm textarea {
-  float: left;
-  width: 642px;
+.actions #commentForm div {
+  padding-left: 68px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-#interactions .actions #commentForm input[type="submit"] {
-  margin-left: 68px;
+.actions #commentForm div textarea {
+  width: 100%;
 }
-#interactions .actions #commentForm input[type="submit"] + .btn {
+.actions #commentForm div input[type="submit"] + .btn {
   margin-left: 10px;
 }
 
@@ -1013,15 +1038,292 @@ input[type="file"] {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Responsiveness
    ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 1000px) {
+  body .container {
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 100%;
+  }
+
+  .request {
+    position: relative;
+  }
+  .request header h2 {
+    padding-left: 210px;
+  }
+  .request.urgent header h2, .request.solved header h2 {
+    padding-left: 235px;
+    background-position-x: 212px;
+  }
+  .request aside {
+    width: 210px;
+    position: absolute;
+    top: 47px;
+    left: 0;
+  }
+  .request article {
+    padding-left: 210px;
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  #interactions .comments li {
+    margin-left: 142px;
+  }
+
+  .actions {
+    margin-left: 142px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .request header h2 {
+    float: none;
+    padding-left: 80px;
+  }
+  .request aside {
+    float: none;
+    position: static;
+    height: 64px;
+    margin-bottom: 10px;
+  }
+  .request aside ul li.author {
+    display: inline-block;
+  }
+  .request aside ul li.author img {
+    margin-right: 30px;
+  }
+  .request aside ul li.bestAnswersCount {
+    position: static;
+    top: auto;
+    display: inline-block;
+    background-position: 9px center;
+    padding-left: 25px;
+  }
+  .request aside ul li.publishedDate {
+    padding-left: 82px;
+  }
+  .request article {
+    float: none;
+    max-width: 100%;
+    padding-left: 80px;
+  }
+  .request.urgent header h2, .request.solved header h2 {
+    padding-left: 105px;
+    background-position-x: 82px;
+  }
+
+  #interactions .comments li {
+    margin-left: 13px;
+  }
+
+  .actions {
+    margin-left: 13px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .horizontalForm div label {
+    width: 270px;
+  }
+  .horizontalForm div input[type="text"],
+  .horizontalForm div input[type="password"],
+  .horizontalForm div input[type="email"] {
+    width: 260px;
+  }
+  .horizontalForm div .helpText {
+    padding-left: 274px;
+  }
+  .horizontalForm div.actions {
+    padding-left: 274px;
+  }
+
+  .mon-compte .horizontalForm input[type="file"] {
+    margin: 0 0 0 274px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  body > header {
+    height: auto;
+    padding: 27px 20px;
+  }
+  body > header #logoHeader {
+    float: none;
+    display: block;
+    margin: 0 auto 2em auto;
+    width: 88px;
+  }
+  body > header .btn.btn-primary.askForHelp {
+    float: none;
+    display: block;
+    margin: 1em 0;
+  }
+  body > header #userAccount {
+    float: none;
+    display: block;
+    margin: 1em 0;
+  }
+  body > header #userAccount #userAccountTrigger {
+    width: 100%;
+    background: #edf0ea;
+    border: none;
+  }
+  body > header #userAccount #userAccountTrigger:hover {
+    border: none;
+  }
+  body .container {
+    padding: 0 20px 50px;
+  }
+  body h1 {
+    font-size: 28px;
+  }
+  body > footer {
+    padding: 30px 20px 120px;
+  }
+  body > footer nav {
+    float: none;
+  }
+  body > footer nav a {
+    display: block;
+    margin: 0 0 1.33em 0;
+  }
+
+  .request {
+    margin: 0 0 50px 0;
+  }
+  .request header {
+    margin-bottom: .33em;
+  }
+  .request header h2 {
+    font-size: 16px;
+    padding-left: 67px;
+    line-height: 1.4;
+  }
+  .request header h2 a.label {
+    top: -1px;
+    padding: 2px 6px 4px;
+    margin-left: -1px;
+  }
+  .request.urgent header h2, .request.solved header h2 {
+    padding-left: 67px;
+    background-position-x: 49px;
+  }
+  .request.solved {
+    opacity: 1;
+  }
+  .request.solved header h2 {
+    background-position-y: 6px;
+  }
+  .request aside {
+    width: 100%;
+  }
+  .request aside ul li.author img {
+    margin-right: 15px;
+  }
+  .request aside ul li.publishedDate {
+    padding-left: 67px;
+  }
+  .request article {
+    padding-left: 65px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .notice {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .notice.wide {
+    width: 100%;
+  }
+
+  .horizontalForm div label {
+    display: block;
+    margin-bottom: .33em;
+  }
+  .horizontalForm div input[type="text"],
+  .horizontalForm div input[type="email"],
+  .horizontalForm div input[type="password"],
+  .horizontalForm div input[type="file"] {
+    width: 100%;
+  }
+  .horizontalForm div input[type="file"] {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .horizontalForm div .helpText {
+    padding-left: 0;
+  }
+  .horizontalForm div.actions {
+    padding: 0;
+  }
+  .horizontalForm.compact {
+    width: 100%;
+  }
+  .horizontalForm.compact div input[type="text"],
+  .horizontalForm.compact div input[type="email"],
+  .horizontalForm.compact div input[type="password"],
+  .horizontalForm.compact div input[type="file"] {
+    width: 100%;
+  }
+  .horizontalForm.compact div .helpText {
+    padding-left: 0;
+  }
+  .horizontalForm.compact div.actions {
+    padding: 1em 0 0 0;
+  }
+
+  .connexion .container .notice {
+    width: 100%;
+  }
+  .connexion .container .notice.wide {
+    width: 100%;
+  }
+
+  .inscription .container .notice {
+    width: 100%;
+  }
+  .inscription .container .notice.wide {
+    width: 100%;
+  }
+
+  .mon-compte .horizontalForm input[type="file"] {
+    margin: 0;
+  }
+
+  #interactions .comments li {
+    margin-left: 0;
+  }
+
+  .actions {
+    margin-left: 0;
+  }
+  .actions #commentForm div input[type="submit"] + .btn {
+    margin-left: 0;
+    margin-top: 20px;
+  }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
+}
+/* ==========================================================================
+   Retina support
+   ========================================================================== */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  .request.urgent h2 {
+    background-image: url("../../media/img/assets/urgent@2x.png");
+    background-size: 12px 15px;
+  }
+
+  .request.solved h2,
+  .request aside ul li.bestAnswersCount {
+    background-image: url("../../media/img/assets/best-answer@2x.png");
+    background-size: 12px 11px;
+  }
 }
 /* ==========================================================================
    Print styles.

@@ -120,7 +120,7 @@
 				$requestGroup = '';
 				$label = '<a class="label" href="#">'.$requestYear.$requestGroup.' - '.$requestCategory.'</a>';
 			}
-			$requestHeader .= '<h2><a href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
+			$requestHeader .= '<h2><a class="title" href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info
@@ -151,7 +151,7 @@
 						// Urgent request: red button
 						$requestFooterLoggedIn .= '<a class="btn btn-red" href="#">Répondre</a>';
 					}
-					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
+					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller</a>';
 				}
 				else {
 					// Logged in and solved
@@ -247,7 +247,7 @@
 				$requestGroup = '';
 				$label = '<a class="label" href="#">'.$requestYear.$requestGroup.' - '.$requestCategory.'</a>';
 			}
-			$requestHeader .= '<h2><a href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
+			$requestHeader .= '<h2><a class="title"href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
 			// Aside: author info
@@ -271,7 +271,7 @@
 						// ...the pictures of the interested users
 					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
 
-					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller cette question</a>';
+					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller</a>';
 				}
 				else {
 					// Logged in and solved

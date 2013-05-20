@@ -13,11 +13,11 @@
 	// Includes
 	require 'php/functions.php';
 	require 'php/constants.php';
+	require 'php/database-connection.php';
 	
 	// Development window
+/*
 	echo '<div class="dev">';
-		require 'php/database-connection.php';
-		
 		// Session variables
 		echo '$id = '.$id.'<br>Utilisateur = '.$firstname.'<br>';
 		
@@ -27,6 +27,7 @@
 			echo '</pre>';
 		}
 	echo '</div><!-- /.dev -->';
+*/
 		
 	
 	 
