@@ -70,8 +70,14 @@
 			}
 			&.bestAnswer {
 				article {
-					border-left: 4px solid $darkGreen;
-					padding-left: 15px;
+					p {
+						border-left: 4px solid $darkGreen;
+						padding-left: 10px;
+						&.author {
+							border: none;
+							padding-left: 0;
+						}
+					}
 				}
 			}
 		}

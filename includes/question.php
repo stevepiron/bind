@@ -67,7 +67,8 @@
 							ON a.fk_author = u.id
 							LEFT JOIN requests r
 							ON a.fk_request = r.id
-							WHERE r.id = '".$requestId."'";
+							WHERE r.id = '".$requestId."'
+							ORDER BY a.date ASC";
 					$res = $db -> query($sql);
 					
 				}

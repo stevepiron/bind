@@ -550,7 +550,13 @@ body {
 				float: none;
 				display: block;
 				margin: 0 auto 2em auto;
-				width: 88px;
+				width: 47px;
+				height: 25px;
+				overflow: hidden;
+				.logo {
+					margin: 0;
+					vertical-align: top;
+				}
 			}
 			.btn.btn-primary.askForHelp {
 				float: none;

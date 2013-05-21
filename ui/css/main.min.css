@@ -423,6 +423,16 @@ body > footer nav a:hover {
   font-size: 14px;
   text-decoration: underline;
 }
+.inscription .container .horizontalForm {
+  margin-bottom: 4em;
+}
+.inscription .container .horizontalForm .actions {
+  margin-left: 0;
+  padding-top: 1em;
+}
+.inscription .container .horizontalForm .actions .btn-green {
+  margin-left: 0;
+}
 
 .mon-compte .horizontalForm .picturePreview {
   margin-bottom: 20px;
@@ -920,9 +930,13 @@ input[type="file"] {
   border-left: 4px solid #edf0ea;
   padding-left: 20px;
 }
-#interactions .comments li.bestAnswer article {
+#interactions .comments li.bestAnswer article p {
   border-left: 4px solid #95bb39;
-  padding-left: 15px;
+  padding-left: 10px;
+}
+#interactions .comments li.bestAnswer article p.author {
+  border: none;
+  padding-left: 0;
 }
 
 .actions {
@@ -1162,7 +1176,13 @@ input[type="file"] {
     float: none;
     display: block;
     margin: 0 auto 2em auto;
-    width: 88px;
+    width: 47px;
+    height: 25px;
+    overflow: hidden;
+  }
+  body > header #logoHeader .logo {
+    margin: 0;
+    vertical-align: top;
   }
   body > header .btn.btn-primary.askForHelp {
     float: none;
