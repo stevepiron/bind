@@ -20,8 +20,7 @@ if($level == 1) {
         <meta name="author" content="Steve Piron (@stevepiron)">
         <meta name="description" content="<?php echo $__DESC_PAGE__; ?>">
         <meta name="viewport" content="width=device-width">
-
-        <link rel="icon" type="image/png" href="<?php echo $dig ?>media/img/assets/icons/favicon.png">
+        
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $dig ?>media/img/assets/icons/apple-touch-icon-144x144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $dig ?>media/img/assets/icons/apple-touch-icon-114x114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $dig ?>media/img/assets/icons/apple-touch-icon-72x72-precomposed.png">
