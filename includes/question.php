@@ -165,20 +165,20 @@
 		
 			echo $theRequest;
 			echo $answersThread;
-			
-			if($request[0]['state'] == 1) {
-				// Request in solved
 		?>
-				<a class="btn back" href="index.php">Retour aux questions</a>
-		<?php
-			}
-			else {
-				// Request is not solved yet
-				if($id != 0) {
-					// User is logged in
-		?>
-		
 		<section class="actions">
+			<?php	
+				if($request[0]['state'] == 1) {
+					// Request in solved
+			?>
+				<a class="btn" href="index.php">Retour aux questions</a>
+			<?php
+				}
+				else {
+					// Request is not solved yet
+					if($id != 0) {
+						// User is logged in
+			?>
 			<form id="commentForm" class="clearfix" action="" method="post">
 				<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
 				<div>
@@ -191,17 +191,16 @@
 					<a class="btn" href="index.php">Retour aux questions</a>
 				</div>
 			</form><!-- /#commentForm -->
-		</section><!-- /.actions -->
-		
-		<?php
-				}
-				else {
-					// User is not logged in
-		?>
+			<?php
+					}
+					else {
+						// User is not logged in
+			?>
 					<a class="btn" href="index.php">Retour aux questions</a>
-		<?php
+		</section><!-- /.actions -->
+			<?php
+					}
 				}
-			}
-		?>
+			?>
 	</div><!-- /.container -->
 </div><!-- /.content -->
