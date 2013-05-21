@@ -9,9 +9,9 @@ if($level == 1) {
 ?>
 		<footer>
 			<nav>
-				<a href="#">Support</a>
+				<a href="mailto:&#104;&#105;&#064;&#115;&#116;&#101;&#118;&#101;&#112;&#105;&#114;&#111;&#110;&#046;&#098;&#101;?subject=Bind:%20" rel="me">Assistance / contact</a>
 				<a href="#">Conditions d'utilisation</a>
-				<a href="#">Crédits</a>
+				<a href="http://stevepiron.be/tfe">Crédits</a>
 			</nav>
 		</footer><!-- /footer -->
 	
