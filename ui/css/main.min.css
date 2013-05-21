@@ -1178,9 +1178,17 @@ input[type="file"] {
     width: 100%;
     background: #edf0ea;
     border: none;
+    float: none;
   }
   body > header #userAccount #userAccountTrigger:hover, body > header #userAccount #userAccountTrigger.active {
     border: none;
+  }
+  body > header #userAccount #userDropdown {
+    width: 100%;
+    text-align: center;
+  }
+  body > header #userAccount #userDropdown ul li a {
+    padding: 10px;
   }
   body .container {
     padding: 0 20px 50px;

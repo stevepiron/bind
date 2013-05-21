@@ -565,9 +565,17 @@ body {
 					width: 100%;
 					background: $lightGrey;
 					border: none;
+					float: none;
 					&:hover,
 					&.active {
 						border: none;
+					}
+				}
+				#userDropdown {
+					width: 100%;
+					text-align: center;
+					ul li a {
+						padding: 10px;
 					}
 				}
 			}
