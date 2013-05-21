@@ -565,7 +565,8 @@ body {
 					width: 100%;
 					background: $lightGrey;
 					border: none;
-					&:hover {
+					&:hover,
+					&.active {
 						border: none;
 					}
 				}

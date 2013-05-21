@@ -1179,7 +1179,7 @@ input[type="file"] {
     background: #edf0ea;
     border: none;
   }
-  body > header #userAccount #userAccountTrigger:hover {
+  body > header #userAccount #userAccountTrigger:hover, body > header #userAccount #userAccountTrigger.active {
     border: none;
   }
   body .container {
