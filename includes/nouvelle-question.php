@@ -49,6 +49,65 @@
 	}
 	$categoriesOptionsList = listCategories($categories); // Then echo this in the html at the right place
 	
+	if($id != 0) {
+		// User is logged in
+		if($_POST['newRequest']) {
+			if(isset($_POST['newRequest'])) {
+				extract($_POST);
+				$title = trim(strip_tags($title));
+				$requestMessage = trim(strip_tags($request));
+				$now = date('Y-m-d H:i:s');
+				
+				// Define error variables as NULL
+				// so that they're not rendered
+				// if the error is not targeted
+				$errors = 0;
+				$error_emptyTitle = NULL;
+				$error_emptyRequestMessage = NULL;
+				
+				/*
+				 *  Error handling
+				 */
+				
+				// Title verification
+				if(empty($title)) {
+					$errors++;
+					$error_emptyTitle = 'Il faut un titre à ta question.';
+				}
+				
+				// Message verification
+				if(empty($requestMessage)) {
+					$errors++;
+					$error_emptyRequestMessage = 'Ben alors ? Tu n\'avais pas une question à poser ? :)';
+				}
+				
+				/*
+				 *  No error found
+				 *  Insert into the database
+				 */
+				 
+				if($errors == 0) {
+					$sql = "INSERT INTO requests (fk_category, priority, title, message, date, fk_author)
+									VALUES ('$category', '$priority', '$title', '$requestMessage', '$now', '$id');";
+					try {
+						$db -> exec($sql);
+					}
+					catch(exception $e) {
+						'Erreur lors de l\'ajout de ta question dans la base de données : '.$e -> getMessage();	
+					}
+					
+					$feedback = '<p class="notice success">Ta demande a bien été envoyée. Elle se trouve désormais exposée à <a href="index.php">toute l\'école</a> :)</p>';
+				}
+				// Errors found
+				else {
+					$feedback = '<ul class="notice error">';
+					$feedback .= '<li>'.$error_emptyTitle.'</li>';
+					$feedback .= '<li>'.$error_emptyRequestMessage.'</li>';
+					$feedback .= '</ul><!-- /.notice -->';
+				}
+			}
+		}
+	}
 	
 	// Development purposes
 /*
@@ -90,7 +149,7 @@
 			</div>
 			<div>
 				<label for="request">Demande</label>
-				<textarea type="request" name="request" id="request"></textarea>
+				<textarea type="request" name="request" id="request"><?php if(isset($requestMessage)) echo $requestMessage; ?></textarea>
 			</div>
 			<input type="submit" name="newRequest" class="btn btn-green" value="Envoyer ma demande">
 		</form>

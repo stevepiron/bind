@@ -127,6 +127,7 @@
 					$_SESSION['email'] = $user[0]['email'];
 					$_SESSION['picture_url'] = $user[0]['picture_url'];
 					$_SESSION['useful_answers'] = $user[0]['useful_answers'];
+					$_SESSION['year'] = $user[0]['year'];
 					
 					redirect('index.php');
 					//header('Location:'.$_SERVER['HTTP_REFERER']);

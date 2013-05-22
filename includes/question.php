@@ -28,11 +28,10 @@
 								u.firstname,
 								u.picture_url,
 								u.useful_answers,
+								u.year,
 								(SELECT COUNT(*) FROM answers a WHERE a.fk_request = r.id) AS nb_answers,
 								c.id AS category_id,
-								c.category,
-								c.year,
-								c.group
+								c.category
 							FROM requests r
 							LEFT JOIN users u 
 							ON r.fk_author = u.id

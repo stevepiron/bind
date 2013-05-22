@@ -88,7 +88,6 @@
 			$requestTitle			= htmlentities($request['title']);
 			$requestCategory		= htmlentities($request['category']);
 			$requestYear			= $request['year'];
-			$requestGroup			= $request['group'];
 			$requestMessage			= htmlentities($request['message']);
 			$requestDate			= $request['date'];
 			$requestNbAnswers		= $request['nb_answers'];
@@ -96,9 +95,6 @@
 			$authorFirstname		= $request['firstname'];
 			$authorUsefulAnswers	= $request['useful_answers'];
 			$authorPictureUrl		= $request['picture_url'];	
-			
-			
-			
 			
 			/*
 			 *  Requests parts
@@ -112,14 +108,7 @@
 			// Header
 			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
 			$requestHeader  = '<header>';
-			if(!empty($requestGroup)) {
-				// Not 1ti
-				$label = '<a class="label" href="#">'.$requestYear.' - '.$requestGroup.' - '.$requestCategory.'</a>';
-			}
-			else {
-				$requestGroup = '';
-				$label = '<a class="label" href="#">'.$requestYear.$requestGroup.' - '.$requestCategory.'</a>';
-			}
+			$label = '<a class="label" href="#">'.$requestYear.' - '.$requestCategory.'</a>';
 			$requestHeader .= '<h2><a class="title" href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
@@ -218,7 +207,6 @@
 			$requestTitle			= htmlentities($request['title']);
 			$requestCategory		= htmlentities($request['category']);
 			$requestYear			= $request['year'];
-			$requestGroup			= $request['group'];
 			$requestMessage			= htmlentities($request['message']);
 			$requestDate			= $request['date'];
 			$requestNbAnswers		= $request['nb_answers'];
@@ -239,14 +227,7 @@
 			// Header
 			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
 			$requestHeader  = '<header>';
-			if(!empty($requestGroup)) {
-				// Not 1ti
-				$label = '<a class="label" href="#">'.$requestYear.' - '.$requestGroup.' - '.$requestCategory.'</a>';
-			}
-			else {
-				$requestGroup = '';
-				$label = '<a class="label" href="#">'.$requestYear.$requestGroup.' - '.$requestCategory.'</a>';
-			}
+			$label = '<a class="label" href="#">'.$requestYear.' - '.$requestCategory.'</a>';
 			$requestHeader .= '<h2><a class="title"href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
 			$requestHeader .= '</header>';
 			
