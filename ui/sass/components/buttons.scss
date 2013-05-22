@@ -10,6 +10,9 @@
 	&:hover {
 		background: darken($lightGrey, 5%);
 	}
+	&:focus {
+		outline: none;
+	}
 	&.btn-primary {
 		background: $lightGreen;
 		color: $white;
@@ -27,12 +30,16 @@
 			border-left-color: darken($darkGreen, 5%);
 			border-right-color: darken($darkGreen, 5%);
 		}
+		
 	}
 	&.btn-green {
 		background: $lightGreen;
 		color: $white;
 		&:hover {
 			background: darken($lightGreen, 5%);
+		}
+		&:focus {
+			@include box-shadow(0, 0, 0, 2px, darken($lightGreen, 10%));
 		}
 	}
 	&.btn-red {
@@ -41,12 +48,18 @@
 		&:hover {
 			background: darken($red, 5%);
 		}
+		&:focus {
+			@include box-shadow(0, 0, 0, 2px, darken($red, 10%));
+		}
 	}
 	&.btn-blue {
 		background: $lightBlue;
 		color: $white;
 		&:hover {
 			background: darken($lightBlue, 5%);
+		}
+		&:focus {
+			@include box-shadow(0, 0, 0, 2px, darken($lightBlue, 10%));
 		}
 	}
 	&.btn-link {

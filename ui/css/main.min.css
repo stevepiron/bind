@@ -201,6 +201,9 @@ body #userAccount #userAccountTrigger {
 body #userAccount #userAccountTrigger.active, body #userAccount #userAccountTrigger:hover {
   border: 1px solid #edf0ea;
 }
+body #userAccount #userAccountTrigger:focus {
+  outline: none;
+}
 body #userAccount #userAccountTrigger .userAvatar {
   margin: 0 12px 0 0;
 }
@@ -491,6 +494,9 @@ body > footer nav a:hover {
 .btn:hover {
   background: #e0e5db;
 }
+.btn:focus {
+  outline: none;
+}
 .btn.btn-primary {
   background: #a7cf47;
   color: white;
@@ -516,6 +522,11 @@ body > footer nav a:hover {
 .btn.btn-green:hover {
   background: #9dc834;
 }
+.btn.btn-green:focus {
+  -webkit-box-shadow: 0 0 0 2px #8db42f;
+  -moz-box-shadow: 0 0 0 2px #8db42f;
+  box-shadow: 0 0 0 2px #8db42f;
+}
 .btn.btn-red {
   background: #d66037;
   color: white;
@@ -523,12 +534,22 @@ body > footer nav a:hover {
 .btn.btn-red:hover {
   background: #ca5329;
 }
+.btn.btn-red:focus {
+  -webkit-box-shadow: 0 0 0 2px #b54a25;
+  -moz-box-shadow: 0 0 0 2px #b54a25;
+  box-shadow: 0 0 0 2px #b54a25;
+}
 .btn.btn-blue {
   background: #639cb4;
   color: white;
 }
 .btn.btn-blue:hover {
   background: #5291ab;
+}
+.btn.btn-blue:focus {
+  -webkit-box-shadow: 0 0 0 2px #4a829a;
+  -moz-box-shadow: 0 0 0 2px #4a829a;
+  box-shadow: 0 0 0 2px #4a829a;
 }
 .btn.btn-link {
   background: transparent;
@@ -722,6 +743,14 @@ textarea {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   padding: 10px 18px;
 }
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  -webkit-box-shadow: 0 0 0 2px #d4dbcc;
+  -moz-box-shadow: 0 0 0 2px #d4dbcc;
+  box-shadow: 0 0 0 2px #d4dbcc;
+}
 
 input[type="password"] {
   letter-spacing: .2em;
@@ -742,6 +771,11 @@ textarea {
   line-height: 1.8;
   height: 180px;
   margin-bottom: 2em;
+}
+textarea:focus {
+  -webkit-box-shadow: 0 0 0 2px #d4dbcc;
+  -moz-box-shadow: 0 0 0 2px #d4dbcc;
+  box-shadow: 0 0 0 2px #d4dbcc;
 }
 
 input[type="file"] {

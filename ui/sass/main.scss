@@ -148,6 +148,12 @@ $red: #d66037;
 	&::-webkit-input-placeholder { @content }
 }
 
+@mixin box-shadow($top, $left, $blur, $color, $inset:'') {
+	-webkit-box-shadow:$top $left $blur $color #{$inset};
+	-moz-box-shadow:$top $left $blur $color #{$inset};
+	box-shadow:$top $left $blur $color #{$inset};
+}
+
 /*
  * Common
  */
@@ -251,6 +257,9 @@ body {
 			&.active,
 			&:hover {
 				border: 1px solid $lightGrey;
+			}
+			&:focus {
+				outline: none;
 			}
 			.userAvatar {
 				margin: 0 12px 0 0;
