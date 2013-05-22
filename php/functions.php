@@ -390,5 +390,21 @@
 		$answerMarkup .= '</section><!-- /#interactions -->';
 		return $answerMarkup;
 	}
+	
+	function listCategories($dataArray) {
+		$categoriesOptions  = '';
+		foreach($dataArray as $category) {
+		
+			/*
+			 *  Define variables
+			 */
+			
+			$categoryId		= $category['id'];
+			$categoryName	= htmlentities($category['category']);
+			
+			$categoriesOptions .= '<option value="'.$categoryId.'">'.$categoryName.'</option>';
+		}
+		return $categoriesOptions;
+	}
 
 ?>

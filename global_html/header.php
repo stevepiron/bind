@@ -23,8 +23,6 @@
 	// Development window
 /*
 	echo '<div class="dev">';
-	
-		require 'php/database-connection.php';
 		
 		// Session variables
 		echo 'Variables de session :<br>$id = '.$id.'<br>Utilisateur = '.$firstname.'<br>';
@@ -47,12 +45,12 @@
 					FROM requests
 					WHERE requests.fk_author = ".$id;
 			$res = $db -> query($sql);
-			$res = $res -> fetchAll(PDO::FETCH_ASSOC);
-			$myRequestsNumber = $res[0]['count'];
 		}
 		catch(exception $e) {
 			'Erreur lors du compte du nombre de questions que tu as posées : '.$e -> getMessage();
 		}
+		$res = $res -> fetchAll(PDO::FETCH_ASSOC);
+		$myRequestsNumber = $res[0]['count'];
 	}
 	
 ?>

@@ -14,6 +14,49 @@
 	require_once 'php/functions.php';
 	require_once 'php/constants.php';
 	
+	// Development window	
+/*
+	echo '<div class="dev">';
+		
+		// Session variables
+		echo 'Variables de session :<br>$id = '.$id.'<br>Utilisateur = '.$firstname.'<br>';
+		
+		// Current session
+		if($_SESSION) {
+			echo '<pre>Session en cours :<br>';
+			print_r($_SESSION);
+			echo '</pre>';
+		}
+		
+	echo '</div><!-- /.dev -->';
+*/
+	
+	/*
+	 *  Gather all categories
+	 */
+	
+	try {
+		$sql = "SELECT
+					c.id,
+					c.category
+				FROM categories c
+				ORDER BY c.category ASC";
+		$res = $db -> query($sql);
+		$categories = $res -> fetchAll(PDO::FETCH_ASSOC);
+	}
+	catch(exception $e) {
+		'Erreur lors de la récupération de la liste des cours : '.$e -> getMessage();
+	}
+	$categoriesOptionsList = listCategories($categories); // Then echo this in the html at the right place
+	
+	
+	// Development purposes
+/*
+	echo '<div class="devbox"><pre>Résultat de la requête (cours) :<br>';
+		print_r($categories);
+	echo '</pre></div><!-- /.devbox -->';
+*/
+	
 ?>
 
 <div class="content">
@@ -31,8 +74,7 @@
 			<div class="halfWidthSelect">
 				<label for="category">Cours concerné</label>
 				<select name="category" id="category">
-					<option value="math">Math</option>
-					<option value="chimie">Chimie</option>
+					<?php echo $categoriesOptionsList; ?>
 				</select>
 			</div>
 			<div class="halfWidthSelect">
