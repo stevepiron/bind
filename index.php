@@ -22,6 +22,10 @@
 				include('includes/inscription.php');
 			break;
 			
+			case 'reset':
+				include('includes/nouveau-motdepasse.php');
+			break;
+			
 			case 'activation':
 				include('includes/activation.php');
 			break;

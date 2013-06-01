@@ -437,6 +437,44 @@ body > footer nav a:hover {
   margin-left: 0;
 }
 
+.reset > header {
+  padding: 50px 50px;
+  overflow: hidden;
+}
+.reset > header #logo {
+  float: none;
+}
+.reset .container {
+  padding: 0 20px 30px;
+}
+.reset .container h1 {
+  margin: 0 0 1em 0;
+}
+.reset .container .notice {
+  width: 300px;
+}
+.reset .container #emailForReset {
+  margin: 0 auto;
+  text-align: center;
+}
+.reset .container #emailForReset div {
+  margin: 0 auto 1em auto;
+  width: 191px;
+  display: inline-block;
+}
+.reset .container #emailForReset div label {
+  display: block;
+  text-align: left;
+}
+.reset .container #emailForReset input[type="submit"] {
+  padding: 12px 18px;
+  margin-left: 10px;
+}
+.reset .container .switchSignInSignUp {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
 .mon-compte .horizontalForm .picturePreview {
   margin-bottom: 20px;
 }
