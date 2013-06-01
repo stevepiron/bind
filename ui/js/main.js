@@ -8,7 +8,8 @@ $(function() {
 		showMore = $('#showMore'),
 		archive = $('#archive'),
 		interestedUsersTrigger = $('.interest'),
-		watchToggle = $('.watchToggle');
+		watchToggle = $('.watchToggle'),
+		vote = $('.voteBest');
 	
 	/*
 	 * Functions
@@ -72,5 +73,72 @@ $(function() {
 		$(this).toggleClass('watching');
 		e.preventDefault();
 	});
+	
+	/*
+	 * Vote for the best answer
+	 */
+	
+	vote.click(function() {
+		// Get data attributes from the button
+		var $this = $(this),
+			id = $this.data('id'),
+			request = $this.data('request'),
+			li = $this.parent().parent().parent(),
+			liSiblings = li.siblings();
+		
+		// Vote for this answer
+		voteBest(id, request, li, liSiblings);
+		
+		liSiblings.removeClass('bestAnswer');
+		li.addClass('bestAnswer');
+		
+	});
+	
+	var xmlHttp;
+	
+	function voteBest(answerId, requestId) {
+		
+		xmlHttp = GetXmlHttpObject();
+		if(xmlHttp == null) {
+			console.log('Browser does not support HTTP Request.');
+			return;
+		}
+		else {
+			var url = 'php/vote.php';
+			url += '?id='+answerId;
+			url += '&r='+requestId;
+			
+			xmlHttp.onreadystatechange = stateChanged;
+			xmlHttp.open('GET', url, true);
+			xmlHttp.send(null);
+			
+			return true;
+		}
+	}
+	
+	function stateChanged() {
+		if(xmlHttp.readyState == 4 || xmlHttp.readyState == 'complete') {
+			// On ajoute la classe à la meilleure réponse
+			console.log(xmlHttp.responseText);
+		}
+	}
+	
+	function GetXmlHttpObject() {
+		var xmlHttp = null;
+		try {
+			// Firefox, Opera 8.0+, Safari
+			xmlHttp = new XMLHttpRequest();
+		}
+		catch(e) {
+			// Internet Explorer
+			try {
+				xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+			}
+			catch(e) {
+				xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+		}
+		return xmlHttp;
+	}
 	
 });

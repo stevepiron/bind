@@ -324,6 +324,8 @@
 			$authorUsefulAnswers	= $answer['useful_answers'];
 			$authorPictureUrl		= $answer['picture_url'];
 			
+			$request				= $answer['fk_request'];
+			
 			/*
 			 *  Answer parts
 			 */
@@ -344,6 +346,7 @@
 			$answerArticle .= '<p>'.nl2br(clickableUrls($answerMessage)).'</p>';
 			$answerArticle .= '<footer>';
 			$answerArticle .= '<span class="publishedDate">'.daysSincePost($answerDate).'</span>';
+			$answerArticle .= '<button class="voteBest" data-id="'.$answerId.'" data-request="'.$request.'">Meilleure réponse</button>';
 			$answerArticle .= '</footer>';
 			$answerArticle .= '</article>';
 			
