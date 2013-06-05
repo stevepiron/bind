@@ -1037,6 +1037,65 @@ input[type="file"] {
   margin-left: 68px;
 }
 
+.styled-select {
+  display: none;
+}
+
+.containerFakeSelect {
+  position: relative;
+}
+.containerFakeSelect .valSelect,
+.containerFakeSelect .arrowSelect {
+  display: inline-block;
+  line-height: 1;
+  background: #dce8e6;
+  color: #79818a;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.containerFakeSelect .valSelect {
+  -webkit-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  padding: 10px 18px;
+  border-right: 2px solid #edf3f2;
+}
+.containerFakeSelect .arrowSelect {
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  padding: 10px;
+  text-indent: -9999px;
+  width: 7px;
+  background: #dce8e6 url("../../media/img/assets/select-arrow.png") center center no-repeat;
+}
+.containerFakeSelect .contVal {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 40px;
+  margin: 0;
+  list-style: none;
+  background: #6f7378;
+  color: white;
+  min-width: 130px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: left;
+  padding: 10px 0;
+  display: none;
+  max-height: 115px;
+  /* 10px + 3*(35px) */
+  overflow: scroll;
+}
+.containerFakeSelect .contVal li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.containerFakeSelect .contVal li:hover {
+  background: #8c9299;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -1444,6 +1503,11 @@ input[type="file"] {
   .btn.btn-link.watchToggle.watching {
     background-image: url("../../media/img/assets/watching@2x.png");
     background-size: 16px 11px;
+  }
+
+  .containerFakeSelect .arrowSelect {
+    background-image: url("../../media/img/assets/select-arrow@2x.png");
+    background-size: 7px 5px;
   }
 }
 /* ==========================================================================

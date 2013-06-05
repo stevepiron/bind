@@ -132,16 +132,28 @@
 		<form id="newRequest" action="" method="post">
 			<div class="halfWidthSelect">
 				<label for="category">Cours concerné</label>
-				<select name="category" id="category">
+				<select name="category" id="category" class="styled-select">
 					<?php echo $categoriesOptionsList; ?>
 				</select>
+				<div class="containerFakeSelect">
+					<span class="valSelect"></span><span class="arrowSelect">v</span>
+					<ul class="contVal">
+						
+					</ul><!-- /.contVal -->
+				</div><!-- /.containerFakeSelect -->
 			</div>
 			<div class="halfWidthSelect">
 				<label for="priority">Priorité</label>
-				<select name="priority" id="category">
-					<option value="0">Importante</option>
+				<select name="priority" id="category" class="styled-select">
+					<option value="0" selected>Importante</option>
 					<option value="1">Urgente</option>
 				</select>
+				<div class="containerFakeSelect">
+					<span class="valSelect"></span><span class="arrowSelect">v</span>
+					<ul class="contVal">
+						
+					</ul><!-- /.contVal -->
+				</div><!-- /.containerFakeSelect -->
 			</div>
 			<div>
 				<label for="title">Titre de ta demande</label>

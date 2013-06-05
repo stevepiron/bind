@@ -141,4 +141,62 @@ $(function() {
 		return xmlHttp;
 	}
 	
+	/*
+	 *  Styled select (by @Cryde_)
+	 */
+	
+	$('.styled-select').each(function(i, elem) {
+		/* On crée une fausse liste d'éléments */
+		var firstElem = '',
+			$this = $(this);
+		$this.children('option').each(function(i, elem){
+	
+			if($(elem).attr('selected') == 'selected') firstElem = $(elem).text();
+			//var background = $(elem).attr('data-img');
+			//img = (typeof background != 'undefined')? '<img src="'+background+'" />' : '';
+			$(this).parent().siblings().children('.contVal').append($('<li>' + '<span>' +$(elem).text() + '</span></li>').data('value', $(elem).val()));
+		});
+	
+		$this.siblings().children('.valSelect').text(firstElem);
+	});
+	
+	var allContVals = $('.contVal');
+	
+	/* Lorsqu'on clique */
+	$('.valSelect, .arrowSelect').click(function(e){
+		var relatedContVal = $(this).siblings('.contVal');
+		
+		/* If we want only one dropdown to be visible at a time */
+		allContVals.hide();
+		if(!relatedContVal.hasClass('shown')) {
+			relatedContVal.addClass('shown').show();
+		}
+		else {
+			relatedContVal.removeClass('shown');
+		}
+		
+		/* If we want to keep the dropdowns open */
+		// relatedContVal.toggle();
+		
+		e.stopPropagation();
+	});
+
+	/* On a choisi un élement */
+	$('.contVal li').click(function(){
+
+		$('select option[selected="selected"]').removeAttr('selected');
+		$('.contVal').hide();
+		var text = $(this).text(),
+			val = $(this).data('value');
+
+		$(this).parent().siblings('.valSelect').text(text);
+		$('select option[value="'+val+'"]').attr('selected', 'selected').change();
+	});
+
+
+	/* Si on clique autre part */
+	$('html').click(function(){
+		if($('.contVal').is(':visible')) $('.contVal').hide();
+	});
+	
 });

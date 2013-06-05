@@ -407,6 +407,7 @@ body {
 @import "components/forms.scss";
 @import "components/notices.scss";
 @import "components/comments.scss";
+@import "components/select.scss";
 
 @import "polypage/plain.css";
 
@@ -656,6 +657,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	.btn.btn-link.watchToggle.watching {
 		background-image: url('../../media/img/assets/watching@2x.png');
 		background-size: 16px 11px;
+	}
+	
+	.containerFakeSelect .arrowSelect {
+		background-image: url('../../media/img/assets/select-arrow@2x.png');
+		background-size: 7px 5px;
 	}
 	
 } 

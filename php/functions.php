@@ -341,7 +341,7 @@
 			// Article: the answer itself
 			$answerArticle  = '<article>';
 			$answerArticle .= '<header>';
-			$answerArticle .= '<p class="author">'.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
+			$answerArticle .= '<p class="author">'.$requestAuthor.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
 			$answerArticle .= '</header>';
 			$answerArticle .= '<p>'.nl2br(clickableUrls($answerMessage)).'</p>';
 			$answerArticle .= '<footer>';
@@ -377,6 +377,7 @@
 	
 	function listCategories($dataArray) {
 		$categoriesOptions  = '';
+		$i = 0;
 		foreach($dataArray as $category) {
 		
 			/*
@@ -386,7 +387,13 @@
 			$categoryId		= $category['id'];
 			$categoryName	= htmlentities($category['category']);
 			
-			$categoriesOptions .= '<option value="'.$categoryId.'">'.$categoryName.'</option>';
+			if($i == 0) {
+				$categoriesOptions .= '<option value="'.$categoryId.'" selected>'.$categoryName.'</option>';
+			}
+			else {
+				$categoriesOptions .= '<option value="'.$categoryId.'">'.$categoryName.'</option>';	
+			}
+			$i = 1;
 		}
 		return $categoriesOptions;
 	}
