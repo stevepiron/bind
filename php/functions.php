@@ -106,7 +106,7 @@
 			$requestStartSolved		= '<li class="request solved">';
 			
 			// Header
-			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
+			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii(html_entity_decode($requestTitle, ENT_QUOTES, 'UTF-8'));
 			$requestHeader  = '<header>';
 			$label = '<a class="label" href="#">'.$requestYear.' - '.$requestCategory.'</a>';
 			$requestHeader .= '<h2><a class="title" href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
