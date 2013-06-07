@@ -55,7 +55,7 @@
 			if(isset($_POST['newRequest'])) {
 				extract($_POST);
 				$title = trim(strip_tags($title));
-				$requestMessage = trim(strip_tags($request));
+				$requestMessage = trim($request);
 				$now = date('Y-m-d H:i:s');
 				
 				// Define error variables as NULL
@@ -161,6 +161,19 @@
 			</div>
 			<div>
 				<label for="request">Demande</label>
+				<div id="wysihtml5-toolbar" style="display: none;">
+					<a data-wysihtml5-command="bold">bold</a>
+					
+					<!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+					<a data-wysihtml5-command="createLink">insert link</a>
+					<div data-wysihtml5-dialog="createLink" style="display: none;">
+						<label>
+							Link:
+							<input type="text" data-wysihtml5-dialog-field="href" value="http://" class="text">
+						</label>
+						<a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+					</div>
+				</div><!-- /#wysihtml5-toolbar -->
 				<textarea type="request" name="request" id="request"><?php if(isset($requestMessage)) echo $requestMessage; ?></textarea>
 			</div>
 			<input type="submit" name="newRequest" class="btn btn-green" value="Envoyer ma demande">

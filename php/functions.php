@@ -121,7 +121,7 @@
 			
 			// Article: the request itself
 			$requestArticle  = '<article>';
-			$requestArticle .= '<p>'.nl2br(clickableUrls($requestMessage)).'</p>'; 
+			$requestArticle .= '<p>'.nl2br($requestMessage).'</p>'; 
 			
 				// Footer if logged in
 				$urlAnswers = $url.'#interactions';

@@ -1,7 +1,23 @@
 $(function() {
-
+	/*
+	 * Fastclick
+	 */
+	
 	FastClick.attach(document.body);
-
+	
+	/*
+	 * WYSIHTML5
+	 */
+	
+	var editor = new wysihtml5.Editor("request", { // id of textarea element
+		toolbar:      "wysihtml5-toolbar", // id of toolbar element
+		parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	});
+	
+	/*
+	 * Global variables
+	 */
+	
 	var body = $('body'),
 		userAccountTrigger = $('#userAccountTrigger'),
 		dropdown = $('#userDropdown'),
