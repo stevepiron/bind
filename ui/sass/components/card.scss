@@ -105,6 +105,7 @@
 			> a {
 				margin-top: .33em;
 				margin-bottom: 1px; /* If omitted, weird rendering */
+				vertical-align: top; /* Prevents 1px glitch when clicking on watch */
 			}
 			p {
 				color: $oliveGreen;
@@ -138,26 +139,30 @@
 	
 	&.solved {
 		h2 {
-			padding-left: 285px;
 			background: url('../../media/img/assets/best-answer.png') 262px 9px no-repeat;
 			a {
 				color: $darkBlue;
+				&.title {
+					text-indent: 20px;
+					display: inline-block;
+					text-decoration: line-through;
+				}
 				&.label {
 					background: $darkBlue;
 				}
 			}
 		}
 		opacity : .6;
-		&:hover {
-			opacity: 1;
-		}
 	}
 	&.urgent {
 		h2 {
-			padding-left: 285px;
-			background: url('../../media/img/assets/urgent.png') 262px 5px no-repeat;
+			background: url('../../media/img/assets/urgent.png') 262px 6px no-repeat;
 			a {
 				color: $red;
+				&.title {
+					text-indent: 20px;
+					display: inline-block;
+				}
 				&.label {
 					background: $red;
 				}

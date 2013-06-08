@@ -19,8 +19,7 @@
 	&.solved {
 		header {
 			h2 {
-				padding-left: 67px;
-				background-position-x: 49px;
+				background-position-x: 67px;
 			}
 		}
 	}
@@ -31,6 +30,13 @@
 			}
 		}
 		opacity: 1;
+	}
+	&.urgent {
+		header {
+			h2 {
+				background-position-y: 4px;
+			}
+		}
 	}
 	aside {
 		width: 100%;
