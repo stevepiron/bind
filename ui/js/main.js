@@ -167,11 +167,16 @@ $(function() {
 		var firstElem = '',
 			$this = $(this);
 		$this.children('option').each(function(i, elem){
-	
 			if($(elem).attr('selected') == 'selected') firstElem = $(elem).text();
+			
+			// This will be used for adding tags relevant to the syntax chosen (math, chemistry...)
+			var liClass = $(elem).attr('data-class');
+			(typeof liClass == 'undefined') ? liClass = '' : liClass = liClass;
+			
 			//var background = $(elem).attr('data-img');
 			//img = (typeof background != 'undefined')? '<img src="'+background+'" />' : '';
-			$(this).parent().siblings().children('.contVal').append($('<li>' + '<span>' +$(elem).text() + '</span></li>').data('value', $(elem).val()));
+			
+			$(this).parent().siblings().children('.contVal').append($('<li class="'+liClass+'">' + '<span>' +$(elem).text() + '</span></li>').data('value', $(elem).val()));
 		});
 	
 		$this.siblings().children('.valSelect').text(firstElem);
