@@ -9,9 +9,10 @@ $(function() {
 	 * WYSIHTML5
 	 */
 	
-	var editor = new wysihtml5.Editor("request", { // id of textarea element
-		toolbar:      "wysihtml5-toolbar", // id of toolbar element
-		parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+		toolbar: "wysihtml5-toolbar", // id of toolbar element
+		parserRules: wysihtml5ParserRules, // defined in parser rules set
+		useLineBreaks: false // By default wysihtml5 will insert a <br> for line breaks, set this to false to use <p>
 	});
 	
 	/*
@@ -180,15 +181,22 @@ $(function() {
 	
 	/* Lorsqu'on clique */
 	$('.valSelect, .arrowSelect').click(function(e){
-		var relatedContVal = $(this).siblings('.contVal');
+		var $this = $(this),
+			relatedContVal = $(this).siblings('.contVal');
 		
 		/* If we want only one dropdown to be visible at a time */
 		allContVals.hide();
 		if(!relatedContVal.hasClass('shown')) {
 			relatedContVal.addClass('shown').show();
+			// Styling
+			$this.addClass('active');
+			$this.siblings('span').addClass('active');
 		}
 		else {
-			relatedContVal.removeClass('shown');
+			relatedContVal.removeClass('shown').hide();
+			// Styling
+			$this.removeClass('active');
+			$this.siblings('span').removeClass('active');
 		}
 		
 		/* If we want to keep the dropdowns open */
@@ -202,10 +210,17 @@ $(function() {
 
 		$('select option[selected="selected"]').removeAttr('selected');
 		$('.contVal').hide();
+		
 		var text = $(this).text(),
 			val = $(this).data('value');
 
-		$(this).parent().siblings('.valSelect').text(text);
+		$(this).parent()
+			.removeClass('shown')
+			.siblings('.valSelect')
+				.text(text)
+				.removeClass('active')
+			.siblings('.arrowSelect')
+				.removeClass('active');
 		$('select option[value="'+val+'"]').attr('selected', 'selected').change();
 	});
 
@@ -213,6 +228,9 @@ $(function() {
 	/* Si on clique autre part */
 	$('html').click(function(){
 		if($('.contVal').is(':visible')) $('.contVal').hide();
+		if($('.contVal').hasClass('shown')) $('.contVal').removeClass('shown');
+		if($('.valSelect').hasClass('active')) $('.valSelect').removeClass('active');
+		if($('.arrowSelect').hasClass('active')) $('.arrowSelect').removeClass('active');
 	});
 	
 });
