@@ -82,8 +82,8 @@
 				 */
 				
 				// Development purposes
-/*
-				echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
+				/*
+echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 					print_r($request);
 				echo '<br>Résultat de la requête 2 (les réponses) :<br>';
 					print_r($answers);
@@ -105,7 +105,7 @@
 	if($_POST['reply']) {
 		if(isset($_POST['reply'])) {
 			
-			$message = trim(strip_tags($_POST['message']));
+			$message = $_POST['message'];
 			$now = date('Y-m-d H:i:s');
 			
 			// Define error variables as NULL
@@ -150,13 +150,23 @@
 	}
 	
 	if($request) {
-		$__TITLE_PAGE__ = $request[0]['title'].' ('.$request[0]['category'].') • Bind';
+		$__TITLE_PAGE__ = htmlentities($request[0]['title']).' ('.htmlentities($request[0]['category']).') • Bind';
 	}
 ?>
 
 <div class="content">
 	<div class="container">
-		<h1>Salle de remédiation</h1>
+		<header role="page-header">
+			<div>
+				<h1>Question</h1>
+				<div class="headerActions">
+					<button id="search" class="btn btn-blue">Rechercher</button>
+					<?php if($_SESSION && $id != 0): ?>
+					<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
+					<?php endif ?>
+				</div><!-- actions -->
+			</div>
+		</header>
 		
 		<?php
 			if(isset($feedback)) {
@@ -182,7 +192,33 @@
 			<form id="commentForm" class="clearfix" action="" method="post">
 				<img class="userAvatar rounded" src="<?php echo $dig; echo $_SESSION['picture_url']; ?>" alt="Ma photo (<?php echo $_SESSION['firstname']; ?>)" width="48" height="48">
 				<div>
-					<textarea name="message" id="comment"></textarea>
+					<div id="wysihtml5-toolbar" style="display: none;">
+						<a data-wysihtml5-command="bold">Gras</a>
+						
+						<!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+						<a data-wysihtml5-command="createLink">Lien</a>
+						
+						<select class="styled-select">
+							<option selected>Syntaxe</option>
+							<option data-class="math">Math</option>
+							<option data-class="chimie">Chimie</option>
+						</select>
+						<div class="containerFakeSelect">
+							<span class="valSelect"></span><span class="arrowSelect">v</span>
+							<ul class="contVal">
+								
+							</ul><!-- /.contVal -->
+						</div><!-- /.containerFakeSelect -->
+						
+						<div class="defineLink" data-wysihtml5-dialog="createLink" style="display: none;">
+							<label>
+								Lien&nbsp;:
+								<input type="text" data-wysihtml5-dialog-field="href" value="http://" class="text">
+							</label>
+							<a class="btn btn-green" data-wysihtml5-dialog-action="save">OK</a> <a class="btn" data-wysihtml5-dialog-action="cancel">Cancel</a>
+						</div>
+					</div><!-- /#wysihtml5-toolbar -->
+					<textarea name="message" id="wysihtml5-textarea"><?php if(isset($message)) echo $message; ?></textarea>
 					<?php if($request[0]['priority'] == 0): ?>
 					<input type="submit" name="reply" class="btn btn-green" value="Envoyer ma réponse">
 					<?php else: ?>
