@@ -306,7 +306,7 @@
 		return $requestMarkup;
 	}
 	
-	function answersThread($dataArray, $id) {
+	function answersThread($dataArray, $relatedRequest, $id) {
 		$answerMarkup  = '<section id="interactions">';
 		$answerMarkup .= '<ol class="comments">';
 		foreach($dataArray as $answer) {
@@ -326,6 +326,7 @@
 			$authorPictureUrl		= $answer['picture_url'];
 			
 			$request				= $answer['fk_request'];
+			$requestAuthor			= intval($relatedRequest[0]['author_id']);
 			
 			/*
 			 *  Answer parts
@@ -342,12 +343,15 @@
 			// Article: the answer itself
 			$answerArticle  = '<article>';
 			$answerArticle .= '<header>';
-			$answerArticle .= '<p class="author">'.$requestAuthor.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
+			$answerArticle .= '<p class="author">'.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
 			$answerArticle .= '</header>';
 			$answerArticle .= html_entity_decode($answerMessage, ENT_QUOTES, 'UTF-8').'</p>';
 			$answerArticle .= '<footer>';
 			$answerArticle .= '<span class="publishedDate">'.daysSincePost($answerDate).'</span>';
-			$answerArticle .= '<button class="voteBest btn btn-small btn-link" data-id="'.$answerId.'" data-request="'.$request.'">Définir comme meilleure réponse</button>';
+			if($_SESSION['id'] == $requestAuthor) {
+				// If the user seeing this page is the author of the request, then he can vote
+				$answerArticle .= '<button class="voteBest btn btn-small btn-link" data-id="'.$answerId.'" data-request="'.$request.'">Définir comme meilleure réponse</button>';	
+			}
 			$answerArticle .= '</footer>';
 			$answerArticle .= '</article>';
 			

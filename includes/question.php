@@ -93,7 +93,7 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 				$theRequest = singleRequest($request, $id);
 				if($answersCount > 0) {
 					// If there's at leat one answer
-					$answersThread = answersThread($answers, $id);
+					$answersThread = answersThread($answers, $request, $id);
 				}
 		}
 	}
