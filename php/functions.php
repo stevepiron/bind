@@ -85,10 +85,10 @@
 			$requestState			= $request['state'];
 			$requestPriority		= $request['priority'];
 			$requestId				= $request['request_id'];
-			$requestTitle			= htmlentities($request['title']);
+			$requestTitle			= $request['title'];
 			$requestCategory		= htmlentities($request['category']);
 			$requestYear			= $request['year'];
-			$requestMessage			= htmlentities($request['message']);
+			$requestMessage			= $request['message'];
 			$requestDate			= $request['date'];
 			$requestNbAnswers		= $request['nb_answers'];
 			
@@ -106,7 +106,7 @@
 			$requestStartSolved		= '<li class="request solved">';
 			
 			// Header
-			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii(html_entity_decode($requestTitle, ENT_QUOTES, 'UTF-8'));
+			$url = 'index.php?page=question&id='.$requestId.'&q='.toAscii($requestTitle);
 			$requestHeader  = '<header>';
 			$label = '<a class="label" href="#">'.$requestYear.' - '.$requestCategory.'</a>';
 			$requestHeader .= '<h2><a class="title" href="'.$url.'">'.$requestTitle.'</a> '.$label.'</h2>'; // Request title and category
@@ -121,24 +121,25 @@
 			
 			// Article: the request itself
 			$requestArticle  = '<article>';
-			$requestArticle .= '<p>'.nl2br($requestMessage).'</p>'; 
+			$requestArticle .= $requestMessage; 
 			
 				// Footer if logged in
 				$urlAnswers = $url.'#interactions';
+				$urlForm = $url.'#commentForm';
 				$requestFooterLoggedIn  = '<footer>';
 				if($requestState == 0) {
 					// Logged in and unsolved
-					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).' • <a class="interest" href="#"> intéressé</a></p>';
+					$requestFooterLoggedIn .= '<p class="requestStats">'.numberOfAnswers($requestNbAnswers, $urlAnswers).' • <span class="interest" href="#">2 intéressés</span></p>';
 					$requestFooterLoggedIn .= '<div class="interestedUsersFaces">';
 						// ...the pictures of the interested users
 					$requestFooterLoggedIn .= '</div><!-- /.interestedUserfaces -->';
 					if($requestPriority == 0) {
 						// Normal request: green button
-						$requestFooterLoggedIn .= '<a class="btn btn-green" href="#">Répondre</a>';
+						$requestFooterLoggedIn .= '<a class="btn btn-green" href="'.$urlForm.'">Répondre</a>';
 					}
 					else {
 						// Urgent request: red button
-						$requestFooterLoggedIn .= '<a class="btn btn-red" href="#">Répondre</a>';
+						$requestFooterLoggedIn .= '<a class="btn btn-red" href="'.$urlForm.'">Répondre</a>';
 					}
 					$requestFooterLoggedIn .= '<a class="btn btn-link watchToggle" href="#">Surveiller</a>';
 				}
@@ -204,10 +205,10 @@
 			$requestState			= $request['state'];
 			$requestPriority		= $request['priority'];
 			$requestId				= $request['request_id'];
-			$requestTitle			= htmlentities($request['title']);
+			$requestTitle			= $request['title'];
 			$requestCategory		= htmlentities($request['category']);
 			$requestYear			= $request['year'];
-			$requestMessage			= htmlentities($request['message']);
+			$requestMessage			= $request['message'];
 			$requestDate			= $request['date'];
 			$requestNbAnswers		= $request['nb_answers'];
 			
@@ -240,7 +241,7 @@
 			
 			// Article: the request itself
 			$requestArticle  = '<article>';
-			$requestArticle .= '<p>'.nl2br(clickableUrls($requestMessage)).'</p>';
+			$requestArticle .= html_entity_decode(($requestMessage), ENT_QUOTES, 'UTF-8');
 			
 				// Footer if logged in
 				$urlAnswers = $url.'#interactions';
@@ -316,7 +317,7 @@
 			 
 			$answerId				= $answer['answer_id'];
 			$answerAuthor			= $answer['author'];
-			$answerMessage			= htmlentities($answer['message']);
+			$answerMessage			= $answer['message'];
 			$answerDate				= $answer['date'];
 			$answerValue			= $answer['value'];
 			
@@ -343,10 +344,10 @@
 			$answerArticle .= '<header>';
 			$answerArticle .= '<p class="author">'.$requestAuthor.$authorFirstname.' <span class="bestAnswersCount" title="'.$authorUsefulAnswers.' réponses utiles">'.$authorUsefulAnswers.'</span></p>';
 			$answerArticle .= '</header>';
-			$answerArticle .= '<p>'.nl2br(clickableUrls($answerMessage)).'</p>';
+			$answerArticle .= html_entity_decode($answerMessage, ENT_QUOTES, 'UTF-8').'</p>';
 			$answerArticle .= '<footer>';
 			$answerArticle .= '<span class="publishedDate">'.daysSincePost($answerDate).'</span>';
-			$answerArticle .= '<button class="voteBest" data-id="'.$answerId.'" data-request="'.$request.'">Meilleure réponse</button>';
+			$answerArticle .= '<button class="voteBest btn btn-small btn-link" data-id="'.$answerId.'" data-request="'.$request.'">Définir comme meilleure réponse</button>';
 			$answerArticle .= '</footer>';
 			$answerArticle .= '</article>';
 			
