@@ -110,7 +110,8 @@ $darkGrey: #6f7378;
 $darkestGrey: #6f6f6f;
 $black: #323232;
 
-$lightBlue: #639cb4;
+$blueLink: #639cb4;
+$lightBlue: #dce8e6;
 $blue: #3d7c96;
 $darkBlue: #8c9299;
 
@@ -271,8 +272,9 @@ body {
 		#userDropdown {
 			position: absolute;
 			top: 65px;
+			right: 0;
 			background: $darkGrey;
-			min-width: 200px;
+			min-width: 153px;
 			@include x-border-radius(3px);
 			text-align: left;
 			padding: 10px 0;
@@ -311,19 +313,12 @@ body {
 			
 		}
 	}
-	
-	.btn.btn-primary.askForHelp {
-		float: right;
-		margin-top: -5px;
-		padding: 20px 15px 21px;
-	}
-	
 	h1 {
 		color: $oliveGreen;
 		font-size: 38px;
 		font-weight: $regular;
-		text-align: center;
-		margin: 1em 0 2em 0;
+		margin: 0;
+		display: inline-block;
 	}
 	
 	.container {
@@ -332,6 +327,33 @@ body {
 		padding: 0 20px 120px;
 		margin: 0 auto;
 		@include x-box-sizing;
+		> header {
+			@include x-box-sizing;
+			width: 100%;
+			padding: 0 0 0 260px;
+			margin: 3em 0;
+			> div {
+				border-bottom: 2px solid $lightGrey;
+				overflow: hidden;
+				padding-bottom: 2em;
+			}
+			.headerActions {
+				float: right;
+				line-height: 60px;
+			}
+		}
+	}
+	
+	.askForHelp {
+		margin-left: 7px;
+	}
+	
+	#search {
+		text-indent: -9999px;
+		background: $lightBlue url('../../media/img/assets/search.png') center center no-repeat;
+		&:hover {
+			background-color: darken($lightBlue, 5%);
+		}
 	}
 	
 	p {
@@ -408,8 +430,7 @@ body {
 @import "components/notices.scss";
 @import "components/comments.scss";
 @import "components/select.scss";
-
-@import "polypage/plain.css";
+@import "components/wysihtml5.scss";
 
 
 
@@ -536,6 +557,9 @@ body {
 			padding-left: 50px;
 			padding-right: 50px;
 			max-width: 100%;
+			> header {
+				padding-left: 210px;
+			}
 		}
 	}
 	@import "components/card_max1000.scss";
@@ -543,7 +567,14 @@ body {
 }
 
 @media only screen and (max-width: 750px) {
-    @import "components/card_max750.scss";
+    body {
+		.container {
+			> header {
+				padding-left: 80px;
+			}
+		}
+	}
+	@import "components/card_max750.scss";
     @import "components/comments_max750.scss";
 }
 
@@ -599,6 +630,15 @@ body {
 		}
 		.container {
 			padding: 0 20px 50px;
+			> header {
+				padding-left: 0;
+				> div {
+					h1 {
+						display: block;
+						text-align: center;
+					}
+				}
+			}
 			.btn.btn-link.watchToggle.watching {
 				width: 33px;
 				height: 33px;

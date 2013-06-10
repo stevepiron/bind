@@ -1,4 +1,3 @@
-@import url(polypage/plain.css);
 /*
  * HTML5 Boilerplate
  *
@@ -213,8 +212,9 @@ body #userAccount #userAccountTrigger span {
 body #userAccount #userDropdown {
   position: absolute;
   top: 65px;
+  right: 0;
   background: #6f7378;
-  min-width: 200px;
+  min-width: 153px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: left;
@@ -251,17 +251,12 @@ body #userAccount #userDropdown.hidden {
   display: none !important;
   visibility: hidden;
 }
-body .btn.btn-primary.askForHelp {
-  float: right;
-  margin-top: -5px;
-  padding: 20px 15px 21px;
-}
 body h1 {
   color: #a6ada2;
   font-size: 38px;
   font-weight: 400;
-  text-align: center;
-  margin: 1em 0 2em 0;
+  margin: 0;
+  display: inline-block;
 }
 body .container {
   width: 100%;
@@ -271,6 +266,33 @@ body .container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+body .container > header {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0 0 260px;
+  margin: 3em 0;
+}
+body .container > header > div {
+  border-bottom: 2px solid #edf0ea;
+  overflow: hidden;
+  padding-bottom: 2em;
+}
+body .container > header .headerActions {
+  float: right;
+  line-height: 60px;
+}
+body .askForHelp {
+  margin-left: 7px;
+}
+body #search {
+  text-indent: -9999px;
+  background: #dce8e6 url("../../media/img/assets/search.png") center center no-repeat;
+}
+body #search:hover {
+  background-color: #cddedb;
 }
 body p {
   margin: 0 0 1.8em 0;
@@ -341,6 +363,8 @@ body > footer nav a:hover {
 }
 .connexion .container h1 {
   margin: 0 0 1em 0;
+  display: block;
+  text-align: center;
 }
 .connexion .container .notice {
   width: 300px;
@@ -391,6 +415,8 @@ body > footer nav a:hover {
 }
 .inscription .container h1 {
   margin: 0 0 1em 0;
+  display: block;
+  text-align: center;
 }
 .inscription .container .notice {
   width: 300px;
@@ -449,6 +475,8 @@ body > footer nav a:hover {
 }
 .reset .container h1 {
   margin: 0 0 1em 0;
+  display: block;
+  text-align: center;
 }
 .reset .container .notice {
   width: 300px;
@@ -475,15 +503,31 @@ body > footer nav a:hover {
   text-decoration: underline;
 }
 
+.mon-compte .container {
+  width: 100%;
+  max-width: 640px;
+}
+.mon-compte .container > header {
+  padding: 0;
+}
 .mon-compte .horizontalForm .picturePreview {
   margin-bottom: 20px;
 }
 .mon-compte .horizontalForm input[type="file"] {
   margin: 0 0 0 304px;
 }
+.mon-compte .horizontalForm #deleteAccount {
+  display: block;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 1em;
+}
 
 .nouvelle-question .container {
   max-width: 640px;
+}
+.nouvelle-question .container > header {
+  padding-left: 0;
 }
 .nouvelle-question .container form div {
   margin-bottom: 1.33em;
@@ -514,14 +558,14 @@ body > footer nav a:hover {
 .question .back {
   margin-left: 258px;
 }
-.question .container > .btn {
+.question .container > .btn, .question #wysihtml5-toolbar.container > a {
   margin-left: 260px;
 }
 
-.btn {
+.btn, #wysihtml5-toolbar > a {
   display: inline-block;
   line-height: 1;
-  padding: 10px 18px;
+  padding: 9px 18px 10px;
   background: #edf0ea;
   color: #6f6f6f;
   border: none;
@@ -529,72 +573,85 @@ body > footer nav a:hover {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-.btn:hover {
+.btn:hover, #wysihtml5-toolbar > a:hover {
   background: #e0e5db;
 }
-.btn:focus {
+.btn:focus, #wysihtml5-toolbar > a:focus {
   outline: none;
 }
-.btn.btn-primary {
+.btn.btn-primary, #wysihtml5-toolbar > a.btn-primary {
   background: #a7cf47;
   color: white;
   font-size: 16px;
-  padding: 10px 15px;
+  padding: 9px 15px 10px;
   border-left: 6px solid #95bb39;
   border-right: 6px solid #95bb39;
 }
-.btn.btn-primary:before {
+.btn.btn-primary:before, #wysihtml5-toolbar > a.btn-primary:before {
   content: '+ ';
   font-weight: 700;
   margin-right: 5px;
 }
-.btn.btn-primary:hover {
+.btn.btn-primary:hover, #wysihtml5-toolbar > a.btn-primary:hover {
   background: #9dc834;
   border-left-color: #85a733;
   border-right-color: #85a733;
 }
-.btn.btn-green {
+.btn.btn-small, #wysihtml5-toolbar > a.btn-small {
+  padding: 4px 8px 5px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 7px;
+}
+.btn.btn-small.btn-link, #wysihtml5-toolbar > a.btn-small.btn-link {
+  padding: 0;
+  background: none;
+  text-decoration: underline;
+  border: none;
+  font-weight: normal;
+}
+.btn.btn-green, #wysihtml5-toolbar > a.btn-green {
   background: #a7cf47;
   color: white;
 }
-.btn.btn-green:hover {
+.btn.btn-green:hover, #wysihtml5-toolbar > a.btn-green:hover {
   background: #9dc834;
 }
-.btn.btn-green:focus {
+.btn.btn-green:focus, #wysihtml5-toolbar > a.btn-green:focus {
   -webkit-box-shadow: 0 0 0 2px #8db42f;
   -moz-box-shadow: 0 0 0 2px #8db42f;
   box-shadow: 0 0 0 2px #8db42f;
 }
-.btn.btn-red {
+.btn.btn-red, #wysihtml5-toolbar > a.btn-red {
   background: #d66037;
   color: white;
 }
-.btn.btn-red:hover {
+.btn.btn-red:hover, #wysihtml5-toolbar > a.btn-red:hover {
   background: #ca5329;
 }
-.btn.btn-red:focus {
+.btn.btn-red:focus, #wysihtml5-toolbar > a.btn-red:focus {
   -webkit-box-shadow: 0 0 0 2px #b54a25;
   -moz-box-shadow: 0 0 0 2px #b54a25;
   box-shadow: 0 0 0 2px #b54a25;
 }
-.btn.btn-blue {
-  background: #639cb4;
-  color: white;
+.btn.btn-blue, #wysihtml5-toolbar > a {
+  background: #dce8e6;
+  color: #79818a;
 }
-.btn.btn-blue:hover {
-  background: #5291ab;
+.btn.btn-blue:hover, #wysihtml5-toolbar > a:hover {
+  background: #cddedb;
 }
-.btn.btn-blue:focus {
-  -webkit-box-shadow: 0 0 0 2px #4a829a;
-  -moz-box-shadow: 0 0 0 2px #4a829a;
-  box-shadow: 0 0 0 2px #4a829a;
+.btn.btn-blue:focus, #wysihtml5-toolbar > a:focus {
+  -webkit-box-shadow: 0 0 0 2px #bdd4d0;
+  -moz-box-shadow: 0 0 0 2px #bdd4d0;
+  box-shadow: 0 0 0 2px #bdd4d0;
 }
-.btn.btn-link {
+.btn.btn-link, #wysihtml5-toolbar > a.btn-link {
   background: transparent;
   border: 2px solid #edf0ea;
   padding: 8px 16px;
 }
-.btn.btn-link.watchToggle.watching {
+.btn.btn-link.watchToggle.watching, #wysihtml5-toolbar > a.btn-link.watchToggle.watching {
   text-indent: -9999px;
   border: none;
   width: 36px;
@@ -699,6 +756,9 @@ body > footer nav a:hover {
   width: 100%;
   max-width: 640px;
 }
+.request article p {
+  margin-bottom: .67em;
+}
 .request article > p:last-of-type {
   margin-bottom: 1.33em;
 }
@@ -709,6 +769,8 @@ body > footer nav a:hover {
   margin-top: .33em;
   margin-bottom: 1px;
   /* If omitted, weird rendering */
+  vertical-align: top;
+  /* Prevents 1px glitch when clicking on watch */
 }
 .request article footer p {
   color: #a6ada2;
@@ -738,24 +800,28 @@ body > footer nav a:hover {
   opacity: .6;
 }
 .request.solved h2 {
-  padding-left: 285px;
   background: url("../../media/img/assets/best-answer.png") 262px 9px no-repeat;
 }
 .request.solved h2 a {
   color: #8c9299;
 }
+.request.solved h2 a.title {
+  text-indent: 20px;
+  display: inline-block;
+  text-decoration: line-through;
+}
 .request.solved h2 a.label {
   background: #8c9299;
 }
-.request.solved:hover {
-  opacity: 1;
-}
 .request.urgent h2 {
-  padding-left: 285px;
-  background: url("../../media/img/assets/urgent.png") 262px 5px no-repeat;
+  background: url("../../media/img/assets/urgent.png") 262px 6px no-repeat;
 }
 .request.urgent h2 a {
   color: #d66037;
+}
+.request.urgent h2 a.title {
+  text-indent: 20px;
+  display: inline-block;
 }
 .request.urgent h2 a.label {
   background: #d66037;
@@ -815,6 +881,9 @@ textarea:focus {
   -moz-box-shadow: 0 0 0 2px #d4dbcc;
   box-shadow: 0 0 0 2px #d4dbcc;
 }
+textarea a {
+  color: red;
+}
 
 input[type="file"] {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
@@ -854,7 +923,7 @@ input[type="file"] {
 .horizontalForm div.actions {
   padding-left: 304px;
 }
-.horizontalForm div.actions .btn + .btn {
+.horizontalForm div.actions .btn + .btn, .horizontalForm div.actions #wysihtml5-toolbar > a + .btn, .horizontalForm div.actions #wysihtml5-toolbar > .btn + a, .horizontalForm div.actions #wysihtml5-toolbar > a + a {
   margin-left: 5px;
   /* 2nd button */
 }
@@ -1011,29 +1080,29 @@ input[type="file"] {
   padding-left: 0;
 }
 
-.actions {
+.question .actions {
   margin-left: 190px;
 }
-.actions #commentForm {
+.question .actions #commentForm {
   position: relative;
 }
-.actions #commentForm .userAvatar {
+.question .actions #commentForm .userAvatar {
   position: absolute;
   margin-right: 18px;
 }
-.actions #commentForm div {
+.question .actions #commentForm > div {
   padding-left: 66px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.actions #commentForm div textarea {
+.question .actions #commentForm > div textarea {
   width: 100%;
 }
-.actions #commentForm div input[type="submit"] + .btn {
+.question .actions #commentForm > div input[type="submit"] + .btn, .question .actions #commentForm > div #wysihtml5-toolbar > input[type="submit"] + a {
   margin-left: 10px;
 }
-.actions > .btn {
+.question .actions > .btn, .question #wysihtml5-toolbar.actions > a {
   margin-left: 68px;
 }
 
@@ -1043,6 +1112,7 @@ input[type="file"] {
 
 .containerFakeSelect {
   position: relative;
+  display: inline-block;
 }
 .containerFakeSelect .valSelect,
 .containerFakeSelect .arrowSelect {
@@ -1058,16 +1128,28 @@ input[type="file"] {
 .containerFakeSelect .valSelect {
   -webkit-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
-  padding: 10px 18px;
+  padding: 9px 18px 10px;
   border-right: 2px solid #edf3f2;
+}
+.containerFakeSelect .valSelect:hover, .containerFakeSelect .valSelect.active {
+  background-color: #cddedb;
+}
+.containerFakeSelect .valSelect:hover + .arrowSelect, .containerFakeSelect .valSelect.active + .arrowSelect {
+  background-color: #cddedb;
 }
 .containerFakeSelect .arrowSelect {
   -webkit-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  padding: 10px;
+  padding: 9px 10px 10px;
   text-indent: -9999px;
   width: 7px;
   background: #dce8e6 url("../../media/img/assets/select-arrow.png") center center no-repeat;
+}
+.containerFakeSelect .arrowSelect:hover, .containerFakeSelect .arrowSelect.active {
+  background-color: #cddedb;
+}
+.containerFakeSelect .arrowSelect:hover + .valSelect, .containerFakeSelect .arrowSelect.active + .valSelect {
+  background-color: #cddedb;
 }
 .containerFakeSelect .contVal {
   position: absolute;
@@ -1078,7 +1160,7 @@ input[type="file"] {
   list-style: none;
   background: #6f7378;
   color: white;
-  min-width: 130px;
+  min-width: 140px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: left;
@@ -1086,7 +1168,7 @@ input[type="file"] {
   display: none;
   max-height: 115px;
   /* 10px + 3*(35px) */
-  overflow: scroll;
+  overflow: auto;
 }
 .containerFakeSelect .contVal li {
   padding: 5px 10px;
@@ -1094,6 +1176,44 @@ input[type="file"] {
 }
 .containerFakeSelect .contVal li:hover {
   background: #8c9299;
+}
+
+.activeSelect {
+  background-color: #cddedb;
+}
+
+#wysihtml5-toolbar {
+  margin-bottom: 10px;
+}
+#wysihtml5-toolbar > a {
+  font-weight: 600;
+  font-size: 14px;
+}
+#wysihtml5-toolbar > a + a {
+  margin-left: 7px;
+}
+#wysihtml5-toolbar .containerFakeSelect {
+  margin-left: 7px;
+}
+#wysihtml5-toolbar .defineLink {
+  margin: 10px 0 0 0;
+}
+#wysihtml5-toolbar .defineLink input[type="text"] {
+  padding: 7px 18px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 12px 0 7px;
+}
+#wysihtml5-toolbar .defineLink input[type="text"]:focus {
+  padding: 5px 18px 6px;
+}
+#wysihtml5-toolbar .defineLink .btn, #wysihtml5-toolbar .defineLink #wysihtml5-toolbar > a {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+#wysihtml5-toolbar .defineLink .btn + .btn, #wysihtml5-toolbar .defineLink #wysihtml5-toolbar > a + .btn, #wysihtml5-toolbar .defineLink #wysihtml5-toolbar > .btn + a, #wysihtml5-toolbar .defineLink #wysihtml5-toolbar > a + a {
+  margin-left: 7px;
 }
 
 /* ==========================================================================
@@ -1200,6 +1320,9 @@ input[type="file"] {
     padding-right: 50px;
     max-width: 100%;
   }
+  body .container > header {
+    padding-left: 210px;
+  }
 
   .request {
     position: relative;
@@ -1208,7 +1331,6 @@ input[type="file"] {
     padding-left: 210px;
   }
   .request.urgent header h2, .request.solved header h2 {
-    padding-left: 235px;
     background-position-x: 212px;
   }
   .request aside {
@@ -1229,11 +1351,15 @@ input[type="file"] {
     margin-left: 142px;
   }
 
-  .actions {
+  .question .actions {
     margin-left: 142px;
   }
 }
 @media only screen and (max-width: 750px) {
+  body .container > header {
+    padding-left: 80px;
+  }
+
   .request header h2 {
     float: none;
     padding-left: 80px;
@@ -1266,7 +1392,6 @@ input[type="file"] {
     padding-left: 80px;
   }
   .request.urgent header h2, .request.solved header h2 {
-    padding-left: 105px;
     background-position-x: 82px;
   }
 
@@ -1274,7 +1399,7 @@ input[type="file"] {
     margin-left: 13px;
   }
 
-  .actions {
+  .question .actions {
     margin-left: 13px;
   }
 }
@@ -1315,7 +1440,7 @@ input[type="file"] {
     margin: 0;
     vertical-align: top;
   }
-  body > header .btn.btn-primary.askForHelp {
+  body > header .btn.btn-primary.askForHelp, body > header #wysihtml5-toolbar > a.btn-primary.askForHelp {
     float: none;
     display: block;
     margin: 1em 0;
@@ -1344,7 +1469,14 @@ input[type="file"] {
   body .container {
     padding: 0 20px 50px;
   }
-  body .container .btn.btn-link.watchToggle.watching {
+  body .container > header {
+    padding-left: 0;
+  }
+  body .container > header > div h1 {
+    display: block;
+    text-align: center;
+  }
+  body .container .btn.btn-link.watchToggle.watching, body .container #wysihtml5-toolbar > a.btn-link.watchToggle.watching {
     width: 33px;
     height: 33px;
   }
@@ -1379,14 +1511,16 @@ input[type="file"] {
     margin-left: -1px;
   }
   .request.urgent header h2, .request.solved header h2 {
-    padding-left: 67px;
-    background-position-x: 49px;
+    background-position-x: 67px;
   }
   .request.solved {
     opacity: 1;
   }
   .request.solved header h2 {
     background-position-y: 6px;
+  }
+  .request.urgent header h2 {
+    background-position-y: 4px;
   }
   .request aside {
     width: 100%;
@@ -1468,16 +1602,19 @@ input[type="file"] {
   }
 
   #interactions .comments {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
   }
   #interactions .comments li {
     margin-left: 0;
   }
 
-  .actions {
+  .question .actions {
     margin-left: 0;
   }
-  .actions #commentForm div input[type="submit"] + .btn {
+  .question .actions #commentForm div input[type="submit"] {
+    display: block;
+  }
+  .question .actions #commentForm div input[type="submit"] + .btn, .question .actions #commentForm div #wysihtml5-toolbar > input[type="submit"] + a {
     margin-left: 0;
     margin-top: 20px;
   }
@@ -1500,7 +1637,7 @@ input[type="file"] {
     background-size: 12px 11px;
   }
 
-  .btn.btn-link.watchToggle.watching {
+  .btn.btn-link.watchToggle.watching, #wysihtml5-toolbar > a.btn-link.watchToggle.watching {
     background-image: url("../../media/img/assets/watching@2x.png");
     background-size: 16px 11px;
   }

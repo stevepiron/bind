@@ -4,6 +4,7 @@
 
 .containerFakeSelect {
 	position: relative;
+	display: inline-block;
 	.valSelect,
 	.arrowSelect {
 		display: inline-block;
@@ -17,15 +18,29 @@
 	}
 	.valSelect {
 		@include x-border-radius(3px 0 0 3px);
-		padding: 10px 18px;
+		padding: 9px 18px 10px;
 		border-right: 2px solid #edf3f2;
+		&:hover,
+		&.active {
+			background-color: darken(#dce8e6, 5%);
+			+.arrowSelect {
+				background-color: darken(#dce8e6, 5%);
+			}
+		}
 	}
 	.arrowSelect {
 		@include x-border-radius(0 3px 3px 0);
-		padding: 10px;
+		padding: 9px 10px 10px;
 		text-indent: -9999px;
 		width: 7px;
 		background: #dce8e6 url('../../media/img/assets/select-arrow.png') center center no-repeat;
+		&:hover,
+		&.active {
+			background-color: darken(#dce8e6, 5%);
+			+.valSelect {
+				background-color: darken(#dce8e6, 5%);
+			}
+		}
 	}
 	.contVal {
 		position: absolute;
@@ -36,13 +51,13 @@
 		list-style: none;
 		background: $darkGrey;
 		color: $white;
-		min-width: 130px;
+		min-width: 140px;
 		@include x-border-radius(3px);
 		text-align: left;
 		padding: 10px 0;
 		display: none;
 		max-height: 115px; /* 10px + 3*(35px) */
-		overflow: scroll;
+		overflow: auto;
 		li {
 			padding: 5px 10px;
 			cursor: pointer;
@@ -51,4 +66,8 @@
 			}
 		}
 	}
+}
+
+.activeSelect {
+	background-color: #cddedb;
 }

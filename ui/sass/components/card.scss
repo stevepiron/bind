@@ -93,7 +93,9 @@
 		float: left;
 		width: 100%;
 		max-width: 640px;
-		
+		p {
+			margin-bottom: .67em;
+		}
 		> p:last-of-type {
 			margin-bottom: 1.33em;
 		}

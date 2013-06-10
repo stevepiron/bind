@@ -1,6 +1,9 @@
 .nouvelle-question {
 	.container {
 		max-width: 640px;
+		> header {
+			padding-left: 0;
+		}
 		form {
 			div {
 				margin-bottom: 1.33em;
