@@ -97,6 +97,8 @@
 					}
 					
 					$feedback = '<p class="notice success">Ta demande a bien été envoyée. Elle se trouve désormais exposée à <a href="index.php">toute l\'école</a> :)</p>';
+					$title = '';
+					$requestMessage = '';
 				}
 				// Errors found
 				else {

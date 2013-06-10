@@ -139,6 +139,7 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 					'Erreur lors de l\'envoi de ta réponse : '.$e -> getMessage();
 				}
 				$feedback = '<p class="notice success">Super, merci beaucoup pour ta réponse ! :)</p>';
+				$message = '';
 			}
 			// Errors found
 			else {
