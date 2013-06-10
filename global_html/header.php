@@ -55,11 +55,11 @@
 	
 ?>
 
-<header class="clearfix">
+<header role="main-header">
 	<a id="logoHeader" href="<?php echo $dig; ?>index.php"><img class="logo" src="<?php echo $dig; ?>media/img/assets/bind-logo-knot@2x.png" alt="Bind" width="47" height="25"> Bind</a>
 	
 	<?php if($_SESSION && $id != 0): ?>
-	<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
+	
 	
 	<div id="userAccount">
     	<button id="userAccountTrigger">
