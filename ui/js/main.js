@@ -9,11 +9,15 @@ $(function() {
 	 * WYSIHTML5
 	 */
 	
-	var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
-		toolbar: "wysihtml5-toolbar", // id of toolbar element
-		parserRules: wysihtml5ParserRules, // defined in parser rules set
-		useLineBreaks: false // By default wysihtml5 will insert a <br> for line breaks, set this to false to use <p>
-	});
+	// Wrapping in an if statement to prevent errors on other pages
+	if($('#commentForm, #newRequest').length != 0) {
+		var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+			toolbar: "wysihtml5-toolbar", // id of toolbar element
+			parserRules: wysihtml5ParserRules, // defined in parser rules set
+			useLineBreaks: false // By default wysihtml5 will insert a <br> for line breaks, set this to false to use <p>
+		});
+		
+	}
 	
 	/*
 	 * Global variables
@@ -76,11 +80,13 @@ $(function() {
 	 * Toggle interested students
 	 */
 	
+/*
 	interestedUsersTrigger.click(function(e) {
 		var interestedUsersFaces = $(this).parent().siblings('.interestedUsersFaces');
 		interestedUsersFaces.slideToggle(180);
 		e.preventDefault();
 	});
+*/
 	
 	/*
 	 * Toggle watch state
@@ -95,6 +101,8 @@ $(function() {
 	 * Vote for the best answer
 	 */
 	
+	$('.bestAnswer .voteBest').hide();
+	
 	vote.click(function() {
 		// Get data attributes from the button
 		var $this = $(this),
@@ -104,17 +112,19 @@ $(function() {
 			liSiblings = li.siblings();
 		
 		// Vote for this answer
-		voteBest(id, request, li, liSiblings);
+		voteBest(id, request);
 		
 		liSiblings.removeClass('bestAnswer');
 		li.addClass('bestAnswer');
+		
+		$('.voteBest').show();
+		$('.bestAnswer .voteBest').hide();
 		
 	});
 	
 	var xmlHttp;
 	
 	function voteBest(answerId, requestId) {
-		
 		xmlHttp = GetXmlHttpObject();
 		if(xmlHttp == null) {
 			console.log('Browser does not support HTTP Request.');
