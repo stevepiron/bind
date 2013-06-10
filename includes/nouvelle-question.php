@@ -121,7 +121,11 @@
 <div class="content">
 	<div class="container">
 		
-		<h1>Demander de l'aide</h1>
+		<header role="page-header">
+			<div>
+				<h1>Pose une question</h1>
+			</div>
+		</header>
 		
 		<?php
 			if(isset($feedback)) {
@@ -156,16 +160,16 @@
 				</div><!-- /.containerFakeSelect -->
 			</div>
 			<div>
-				<label for="title">Titre de ta demande</label>
+				<label for="title">Quelle est ta question&nbsp;?</label>
 				<input type="text" name="title" id="title" value="<?php if(isset($title)) echo $title; ?>">
 			</div>
 			<div>
-				<label for="request">Demande</label>
+				<label for="request">Explique ton problème</label>
 				<div id="wysihtml5-toolbar" style="display: none;">
-					<a data-wysihtml5-command="bold">bold</a>
+					<a data-wysihtml5-command="bold">Gras</a>
 					
 					<!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
-					<a data-wysihtml5-command="createLink">insert link</a>
+					<a data-wysihtml5-command="createLink">Lien</a>
 					<div data-wysihtml5-dialog="createLink" style="display: none;">
 						<label>
 							Link:
@@ -174,9 +178,9 @@
 						<a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
 					</div>
 				</div><!-- /#wysihtml5-toolbar -->
-				<textarea type="request" name="request" id="request"><?php if(isset($requestMessage)) echo $requestMessage; ?></textarea>
+				<textarea name="request" id="wysihtml5-textarea"><?php if(isset($requestMessage)) echo $requestMessage; ?></textarea>
 			</div>
-			<input type="submit" name="newRequest" class="btn btn-green" value="Envoyer ma demande">
+			<input type="submit" name="newRequest" class="btn btn-green" value="Envoyer ma question">
 		</form>
 		
 	</div><!-- /.container -->
