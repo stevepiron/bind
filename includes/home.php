@@ -30,7 +30,7 @@
 				ON r.fk_author = u.id
 				LEFT JOIN categories c
 				ON r.fk_category = c.id
-				ORDER BY r.id DESC";
+				ORDER BY r.priority DESC, r.state ASC, r.id DESC"; // Urgent first, then unsolved, then solved. All this by date.
 		$res = $db -> query($sql);
 	}
 	catch(exception $e) {
@@ -60,7 +60,17 @@
 <div class="content">
 	<div class="container">
 		
-		<h1>Ton école</h1>
+		<header role="page-header">
+			<div>
+				<h1>Questions</h1>
+				<div class="headerActions">
+					<button id="search" class="btn btn-blue">Rechercher</button>
+					<?php if($_SESSION && $id != 0): ?>
+					<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
+					<?php endif ?>
+				</div><!-- actions -->
+			</div>
+		</header>
 		
 		<?php echo $requestsList; ?>
 	</div><!-- /.container -->
