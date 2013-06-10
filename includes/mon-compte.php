@@ -234,7 +234,11 @@
 <div class="content">
 	<div class="container">
 		
-		<h1>Gérer mon compte</h1>
+		<header role="page-header">
+			<div>
+				<h1>Gérer mon compte</h1>
+			</div>
+		</header>
 		
 		<?php
 			if(isset($feedback)) {
@@ -278,11 +282,16 @@
 					<input type="password" name="newPasswordConfirm" id="newPasswordConfirm">
 					<p class="helpText">Seulement si tu veux changer ton mot de passe.</p>
 				</div>
+				<div>
+					<p class="helpText"><a id="deleteAccount" href="#">Supprimer ton compte</a></p>
+				</div>
 			</fieldset>
 			<div class="actions">
 				<input type="submit" name="editAccount" class="btn btn-green" value="Enregistrer">
 			</div><!-- /.actions -->
 		</form>
+		
+		
 		
 		<?php } ?>
 		
