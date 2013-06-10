@@ -151,7 +151,7 @@
 			<div class="halfWidthSelect">
 				<label for="priority">Priorité</label>
 				<select name="priority" id="category" class="styled-select">
-					<option value="0" selected>Importante</option>
+					<option value="0" selected="selected">Importante</option>
 					<option value="1">Urgente</option>
 				</select>
 				<div class="containerFakeSelect">

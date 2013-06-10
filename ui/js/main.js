@@ -183,10 +183,12 @@ $(function() {
 			var liClass = $(elem).attr('data-class');
 			(typeof liClass == 'undefined') ? liClass = '' : liClass = liClass;
 			
+			var liVal = $(elem).val();
+			
 			//var background = $(elem).attr('data-img');
 			//img = (typeof background != 'undefined')? '<img src="'+background+'" />' : '';
 			
-			$(this).parent().siblings().children('.contVal').append($('<li class="'+liClass+'">' + '<span>' +$(elem).text() + '</span></li>').data('value', $(elem).val()));
+			$(this).parent().siblings().children('.contVal').append($('<li class="'+liClass+'" data-value="'+liVal+'">' + '<span>' +$(elem).text() + '</span></li>').data('value', $(elem).val()));
 		});
 	
 		$this.siblings().children('.valSelect').text(firstElem);
@@ -222,21 +224,24 @@ $(function() {
 
 	/* On a choisi un élement */
 	$('.contVal li').click(function(){
-
-		$('select option[selected="selected"]').removeAttr('selected');
+		var $this = $(this);
+		
+		$this.parent().parent().parent().find(':selected').removeAttr('selected');
+		
 		$('.contVal').hide();
 		
 		var text = $(this).text(),
 			val = $(this).data('value');
 
-		$(this).parent()
+		$this.parent()
 			.removeClass('shown')
 			.siblings('.valSelect')
 				.text(text)
 				.removeClass('active')
 			.siblings('.arrowSelect')
 				.removeClass('active');
-		$('select option[value="'+val+'"]').attr('selected', 'selected').change();
+		
+		$this.parent().parent().parent().find('select option[value="'+val+'"]').attr('selected', 'selected').change();
 	});
 
 

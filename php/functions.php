@@ -393,7 +393,7 @@
 			$categoryName	= htmlentities($category['category']);
 			
 			if($i == 0) {
-				$categoriesOptions .= '<option value="'.$categoryId.'" selected>'.$categoryName.'</option>';
+				$categoriesOptions .= '<option value="'.$categoryId.'" selected="selected">'.$categoryName.'</option>';
 			}
 			else {
 				$categoriesOptions .= '<option value="'.$categoryId.'">'.$categoryName.'</option>';	

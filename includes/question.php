@@ -200,9 +200,9 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 						<a data-wysihtml5-command="createLink">Lien</a>
 						
 						<select class="styled-select">
-							<option selected>Syntaxe</option>
-							<option data-class="math">Math</option>
-							<option data-class="chimie">Chimie</option>
+							<option selected="selected">Syntaxe</option>
+							<option value="math" data-class="math">Math</option>
+							<option value="chimie" data-class="chimie">Chimie</option>
 						</select>
 						<div class="containerFakeSelect">
 							<span class="valSelect"></span><span class="arrowSelect">v</span>
