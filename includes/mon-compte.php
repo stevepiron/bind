@@ -14,6 +14,35 @@
 	require_once 'php/functions.php';
 	require_once 'php/constants.php';
 	
+	
+	// Get user's year
+	try {
+		$sessionId = $_SESSION['id'];
+		$sql = "SELECT
+					year,
+					id
+				FROM users u
+				WHERE u.id = '$sessionId'";
+		$res = $db -> query($sql);
+		$year = $res -> fetchAll(PDO::FETCH_ASSOC);
+		$userYear = $year[0]['year'];
+	}
+	catch(exception $e) {
+		'Erreur lors de la récupération de ton année : '.$e -> getMessage();
+	}
+	
+	$yearsOptionsList = '';
+	for($i = 1; $i < 7; $i++) {
+		if($userYear == $i) {
+			$yearsOptionsList .= '<option value = "'.$i.'" selected="selected">'.$i.'</option>';
+		}
+		else {
+			$yearsOptionsList .= '<option value = "'.$i.'">'.$i.'</option>';
+		}
+	}
+	
+	
+	
 	// Form is sent
 	if(isset($_POST['editAccount'])) {
 		// Define variables
@@ -187,14 +216,16 @@
 					$sql = "UPDATE users
 							SET firstname = '$firstname',
 								email = '$email',
-								password = '$newPassword'
+								password = '$newPassword',
+								year = '$year'
 							WHERE id = '$id'";
 				}
 				else {
 					// Update data without password change
 					$sql = "UPDATE users
 							SET firstname = '$firstname',
-								email = '$email'
+								email = '$email',
+								year = '$year'
 							WHERE id = '$id'";
 				}
 				try {
@@ -236,7 +267,7 @@
 		
 		<header role="page-header">
 			<div>
-				<h1>Gérer mon compte</h1>
+				<h1>Gérer ton compte</h1>
 			</div>
 		</header>
 		
@@ -263,6 +294,18 @@
 				<div>
 					<label for="firstname">Ton prénom</label>
 					<input type="text" name="firstname" id="firstname" value="<?php if(isset($firstname)) echo $firstname; ?>">
+				</div>
+				<div>
+					<label for="year">Ton année</label>
+					<select name="year" id="year" class="styled-select">
+						<?php echo $yearsOptionsList; ?>
+					</select>
+					<div class="containerFakeSelect">
+						<span class="valSelect"></span><span class="arrowSelect">v</span>
+						<ul class="contVal">
+							
+						</ul><!-- /.contVal -->
+					</div><!-- /.containerFakeSelect -->
 				</div>
 			</fieldset>
 			<fieldset>
