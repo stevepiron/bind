@@ -69,7 +69,7 @@
     	
     	<div id="userDropdown" class="hidden">
     		<ul>
-    			<li><a href="#">Tes questions <span class="count"><?php echo $myRequestsNumber; ?></span></a></li>
+    			<li><a href="index.php?page=tes-questions">Tes questions <span class="count"><?php echo $myRequestsNumber; ?></span></a></li>
     			<!-- <li><a href="#">Questions surveillées <span class="count">2</span></a></li> -->
     			<!-- <li><a href="#">Mes élèves <span class="count">1</span></a></li> -->
     			<li><a href="index.php?page=mon-compte">Gérer ton compte</a></li>

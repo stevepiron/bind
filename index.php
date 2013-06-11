@@ -45,6 +45,11 @@
 				include('includes/nouvelle-question.php');
 			break;
 			
+			case 'tes-questions':
+				include('global_html/header.php');
+				include('includes/tes-questions.php');
+			break;
+			
 			default:
 				include('includes/404.html');
 			break;
