@@ -63,6 +63,7 @@
 		<header role="page-header">
 			<div>
 				<h1>Questions</h1>
+				<?php if($_SESSION && $id != 0): ?>
 				<div class="headerActions">
 					<div class="newFeature">
 						<button id="search" class="btn btn-blue feature">Rechercher</button>
@@ -74,10 +75,9 @@
 							</div><!-- /.tipBox -->
 						</div><!-- /.tip -->
 					</div><!-- /.newFeature -->
-					<?php if($_SESSION && $id != 0): ?>
 					<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
-					<?php endif ?>
 				</div><!-- actions -->
+				<?php endif ?>
 			</div>
 		</header>
 		

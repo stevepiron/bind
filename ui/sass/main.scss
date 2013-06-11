@@ -353,6 +353,7 @@ body {
 	#search {
 		text-indent: -9999px;
 		background: $lightBlue url('../../media/img/assets/spritesheet.png') -63px 9px no-repeat;
+		display: inline-block;
 		&:hover {
 			background-color: darken($lightBlue, 5%);
 		}
@@ -646,7 +647,7 @@ body {
 				}
 				.headerActions {
 					float: none;
-					width: 235px;
+					width: 237px;
 					margin: 0 auto;
 				}
 			}
