@@ -27,7 +27,6 @@ if($level == 1) {
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo $dig ?>media/img/assets/icons/apple-touch-icon-57x57-precomposed.png">
 
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo $dig ?>ui/css/normalize.css">
         <link rel="stylesheet" href="<?php echo $dig ?>ui/css/main.min.css">
         <script src="<?php echo $dig ?>ui/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
