@@ -64,7 +64,16 @@
 			<div>
 				<h1>Questions</h1>
 				<div class="headerActions">
-					<button id="search" class="btn btn-blue">Rechercher</button>
+					<div class="newFeature">
+						<button id="search" class="btn btn-blue">Rechercher</button>
+						<div class="tip">
+							<div class="tipBox">
+								<div class="tipArrow"></div>
+								<button class="dismiss" id="dismissTipSearch">Fermer</button>
+								<p><strong>Nouveau&nbsp;!</strong> Tu peux désormais rechercher parmi l’archive de toutes les questions</p>
+							</div><!-- /.tipBox -->
+						</div><!-- /.tip -->
+					</div><!-- /.newFeature -->
 					<?php if($_SESSION && $id != 0): ?>
 					<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
 					<?php endif ?>

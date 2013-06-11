@@ -30,7 +30,8 @@ $(function() {
 		archive = $('#archive'),
 		interestedUsersTrigger = $('.interest'),
 		watchToggle = $('.watchToggle'),
-		vote = $('.voteBest');
+		vote = $('.voteBest'),
+		dismiss = $('.dismiss');
 	
 	/*
 	 * Functions
@@ -252,5 +253,13 @@ $(function() {
 		if($('.valSelect').hasClass('active')) $('.valSelect').removeClass('active');
 		if($('.arrowSelect').hasClass('active')) $('.arrowSelect').removeClass('active');
 	});
+	
+	/*
+	 * Dismiss tip
+	 */
+	
+	dismiss.click(function() {
+		$(this).parent().parent().fadeOut(167);
+	})
 	
 });

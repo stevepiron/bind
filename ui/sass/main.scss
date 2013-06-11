@@ -334,7 +334,6 @@ body {
 			margin: 3em 0;
 			> div {
 				border-bottom: 2px solid $lightGrey;
-				overflow: hidden;
 				padding-bottom: 2em;
 			}
 			.headerActions {
@@ -431,6 +430,7 @@ body {
 @import "components/comments.scss";
 @import "components/select.scss";
 @import "components/wysihtml5.scss";
+@import "components/tip.scss";
 
 
 
@@ -704,6 +704,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
 		background-size: 7px 5px;
 	}
 	
+	.tip .tipBox .tipArrow {
+		background-image: url('../../media/img/assets/tip-arrow@2x.png');
+		background-size: 16px 9px;
+	}
 } 
 
 /* ==========================================================================
