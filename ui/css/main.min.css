@@ -2100,7 +2100,7 @@ input[type="file"] {
     opacity: 1;
   }
   .request.solved header h2 {
-    background-position-y: 6px;
+    background-position-y: -30px;
   }
   .request.urgent header h2 {
     background-position-y: -105px;
