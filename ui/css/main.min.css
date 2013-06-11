@@ -289,7 +289,7 @@ body .askForHelp {
 }
 body #search {
   text-indent: -9999px;
-  background: #dce8e6 url("../../media/img/assets/search.png") center center no-repeat;
+  background: #dce8e6 url("../../media/img/assets/spritesheet.png") -63px 9px no-repeat;
 }
 body #search:hover {
   background-color: #cddedb;
@@ -658,7 +658,7 @@ body > footer nav a:hover {
   width: 36px;
   height: 36px;
   padding: 0;
-  background: #edf0ea url("../../media/img/assets/watching.png") center center no-repeat;
+  background: #edf0ea url("../../media/img/assets/spritesheet.png") -170px 12px no-repeat;
   vertical-align: top;
 }
 
@@ -743,7 +743,7 @@ body > footer nav a:hover {
   font-size: 14px;
   font-weight: bold;
   color: #95bb39;
-  background: url("../../media/img/assets/best-answer.png") 64px center no-repeat;
+  background: url("../../media/img/assets/spritesheet.png") 64px -34px no-repeat;
   line-height: 1;
 }
 .request aside ul li.publishedDate {
@@ -801,7 +801,7 @@ body > footer nav a:hover {
   opacity: .6;
 }
 .request.solved h2 {
-  background: url("../../media/img/assets/best-answer.png") 262px 9px no-repeat;
+  background: url("../../media/img/assets/spritesheet.png") 262px -27px no-repeat;
 }
 .request.solved h2 a {
   color: #8c9299;
@@ -815,7 +815,7 @@ body > footer nav a:hover {
   background: #8c9299;
 }
 .request.urgent h2 {
-  background: url("../../media/img/assets/urgent.png") 262px 6px no-repeat;
+  background: url("../../media/img/assets/spritesheet.png") 262px -102px no-repeat;
 }
 .request.urgent h2 a {
   color: #d66037;
@@ -1148,7 +1148,7 @@ input[type="file"] {
   padding: 9px 10px 10px;
   text-indent: -9999px;
   width: 7px;
-  background: #dce8e6 url("../../media/img/assets/select-arrow.png") center center no-repeat;
+  background: #dce8e6 url("../../media/img/assets/spritesheet.png") -98px 15px no-repeat;
 }
 .containerFakeSelect .arrowSelect:hover, .containerFakeSelect .arrowSelect.active {
   background-color: #cddedb;
@@ -1251,7 +1251,7 @@ input[type="file"] {
   display: block;
   height: 9px;
   width: 16px;
-  background: url("../../media/img/assets/tip-arrow.png") 0 0 no-repeat;
+  background: url("../../media/img/assets/spritesheet.png") -144px 0 no-repeat;
   position: relative;
   top: -20px;
   right: -174px;
@@ -1264,7 +1264,7 @@ input[type="file"] {
   display: block;
   width: 11px;
   height: 11px;
-  background: url("../../media/img/assets/dismiss.png") 0 0 no-repeat;
+  background: url("../../media/img/assets/spritesheet.png") -36px 0 no-repeat;
   position: relative;
   top: 3px;
 }
@@ -1446,7 +1446,7 @@ input[type="file"] {
     position: static;
     top: auto;
     display: inline-block;
-    background-position: 9px center;
+    background-position: 9px -34px;
     padding-left: 25px;
   }
   .request aside ul li.publishedDate {
@@ -1596,7 +1596,7 @@ input[type="file"] {
     background-position-y: 6px;
   }
   .request.urgent header h2 {
-    background-position-y: 4px;
+    background-position-y: -105px;
   }
   .request aside {
     width: 100%;
@@ -1706,30 +1706,17 @@ input[type="file"] {
    Retina support
    ========================================================================== */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  .request.urgent h2 {
-    background-image: url("../../media/img/assets/urgent@2x.png");
-    background-size: 12px 15px;
-  }
-
+  .request.urgent h2,
   .request.solved h2,
-  .request aside ul li.bestAnswersCount {
-    background-image: url("../../media/img/assets/best-answer@2x.png");
-    background-size: 12px 11px;
-  }
-
-  .btn.btn-link.watchToggle.watching, #wysihtml5-toolbar > a.btn-link.watchToggle.watching {
-    background-image: url("../../media/img/assets/watching@2x.png");
-    background-size: 16px 11px;
-  }
-
-  .containerFakeSelect .arrowSelect {
-    background-image: url("../../media/img/assets/select-arrow@2x.png");
-    background-size: 7px 5px;
-  }
-
-  .tip .tipBox .tipArrow {
-    background-image: url("../../media/img/assets/tip-arrow@2x.png");
-    background-size: 16px 9px;
+  .request aside ul li.bestAnswersCount,
+  .btn.btn-link.watchToggle.watching,
+  #wysihtml5-toolbar > a.btn-link.watchToggle.watching,
+  .containerFakeSelect .arrowSelect,
+  .tip .tipBox .tipArrow,
+  .tip .tipBox .dismiss,
+  body #search {
+    background-image: url("../../media/img/assets/spritesheet@2x.png");
+    background-size: 216px 144px;
   }
 }
 /* ==========================================================================

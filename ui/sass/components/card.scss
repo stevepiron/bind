@@ -76,7 +76,7 @@
 					font-size: 14px;
 					font-weight: bold;
 					color: $darkGreen;
-					background: url('../../media/img/assets/best-answer.png') 64px center no-repeat;
+					background: url('../../media/img/assets/spritesheet.png') 64px -34px no-repeat;
 					line-height: 1;
 				}
 				&.publishedDate {
@@ -141,7 +141,7 @@
 	
 	&.solved {
 		h2 {
-			background: url('../../media/img/assets/best-answer.png') 262px 9px no-repeat;
+			background: url('../../media/img/assets/spritesheet.png') 262px -27px no-repeat;
 			a {
 				color: $darkBlue;
 				&.title {
@@ -158,7 +158,7 @@
 	}
 	&.urgent {
 		h2 {
-			background: url('../../media/img/assets/urgent.png') 262px 6px no-repeat;
+			background: url('../../media/img/assets/spritesheet.png') 262px -102px no-repeat;
 			a {
 				color: $red;
 				&.title {

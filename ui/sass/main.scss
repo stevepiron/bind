@@ -350,7 +350,7 @@ body {
 	
 	#search {
 		text-indent: -9999px;
-		background: $lightBlue url('../../media/img/assets/search.png') center center no-repeat;
+		background: $lightBlue url('../../media/img/assets/spritesheet.png') -63px 9px no-repeat;
 		&:hover {
 			background-color: darken($lightBlue, 5%);
 		}
@@ -692,30 +692,16 @@ only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
 
-	.request.urgent h2 {
-		background-image: url('../../media/img/assets/urgent@2x.png');
-		background-size: 12px 15px;
-	}
-	
+	.request.urgent h2,
 	.request.solved h2,
-	.request aside ul li.bestAnswersCount {
-		background-image: url('../../media/img/assets/best-answer@2x.png');
-		background-size: 12px 11px;
-	}
-	
-	.btn.btn-link.watchToggle.watching {
-		background-image: url('../../media/img/assets/watching@2x.png');
-		background-size: 16px 11px;
-	}
-	
-	.containerFakeSelect .arrowSelect {
-		background-image: url('../../media/img/assets/select-arrow@2x.png');
-		background-size: 7px 5px;
-	}
-	
-	.tip .tipBox .tipArrow {
-		background-image: url('../../media/img/assets/tip-arrow@2x.png');
-		background-size: 16px 9px;
+	.request aside ul li.bestAnswersCount,
+	.btn.btn-link.watchToggle.watching,
+	.containerFakeSelect .arrowSelect,
+	.tip .tipBox .tipArrow,
+	.tip .tipBox .dismiss,
+	body #search {
+		background-image: url('../../media/img/assets/spritesheet@2x.png');
+		background-size: 216px 144px;
 	}
 } 
 
