@@ -65,7 +65,7 @@
 				<h1>Questions</h1>
 				<div class="headerActions">
 					<div class="newFeature">
-						<button id="search" class="btn btn-blue">Rechercher</button>
+						<button id="search" class="btn btn-blue feature">Rechercher</button>
 						<div class="tip">
 							<div class="tipBox">
 								<div class="tipArrow"></div>

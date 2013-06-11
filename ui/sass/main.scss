@@ -339,6 +339,7 @@ body {
 			.headerActions {
 				float: right;
 				line-height: 60px;
+				width: auto;
 			}
 		}
 	}
@@ -637,6 +638,11 @@ body {
 						display: block;
 						text-align: center;
 					}
+				}
+				.headerActions {
+					float: none;
+					width: 235px;
+					margin: 0 auto;
 				}
 			}
 			.btn.btn-link.watchToggle.watching {

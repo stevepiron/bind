@@ -282,6 +282,7 @@ body .container > header > div {
 body .container > header .headerActions {
   float: right;
   line-height: 60px;
+  width: auto;
 }
 body .askForHelp {
   margin-left: 7px;
@@ -1218,6 +1219,7 @@ input[type="file"] {
 
 .newFeature {
   position: relative;
+  display: inline-block;
 }
 
 .tip {
@@ -1248,7 +1250,7 @@ input[type="file"] {
   background: url("../../media/img/assets/tip-arrow.png") 0 0 no-repeat;
   position: relative;
   top: -20px;
-  right: -175px;
+  right: -174px;
 }
 .tip .tipBox .dismiss {
   float: right;
@@ -1265,6 +1267,11 @@ input[type="file"] {
 .tip .tipBox p {
   margin: 0;
   width: 165px;
+}
+@media only screen and (max-width: 640px) {
+  .tip {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1526,6 +1533,11 @@ input[type="file"] {
   body .container > header > div h1 {
     display: block;
     text-align: center;
+  }
+  body .container > header .headerActions {
+    float: none;
+    width: 235px;
+    margin: 0 auto;
   }
   body .container .btn.btn-link.watchToggle.watching, body .container #wysihtml5-toolbar > a.btn-link.watchToggle.watching {
     width: 33px;
