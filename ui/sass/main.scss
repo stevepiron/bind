@@ -565,6 +565,7 @@ body {
 	}
 	@import "components/card_max1000.scss";
     @import "components/comments_max1000.scss";
+    @import "components/notices_max1000.scss";
 }
 
 @media only screen and (max-width: 750px) {
@@ -577,6 +578,7 @@ body {
 	}
 	@import "components/card_max750.scss";
     @import "components/comments_max750.scss";
+    @import "components/notices_max750.scss";
 }
 
 @media only screen and (max-width: 700px) {
