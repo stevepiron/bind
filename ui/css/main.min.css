@@ -438,8 +438,9 @@ body > footer nav a:hover {
   width: 100%;
   padding: 10px 18px;
 }
-.inscription .container #signUpForm div input[type="password"] {
+.inscription .container #signUpForm div:last-of-type {
   margin-bottom: 2em;
+  font-size: 14px;
 }
 .inscription .container #signUpForm input[type="submit"] {
   margin: 0 auto;

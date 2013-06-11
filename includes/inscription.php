@@ -28,6 +28,7 @@
 			$error_emailSyntax = NULL;
 			$error_emailAlreadyUsed = NULL;
 			$error_emptyPassword = NULL;
+			$error_termsAgreement = NULL;
 			
 			/*
 			 *  Error handling
@@ -69,6 +70,11 @@
 				$error_emptyPassword =  'Tu dois choisir un mot de passe.';
 			}
 			
+			if(!isset($terms)) {
+				$errors++;
+				$error_termsAgreement = 'Il est obligatoire d\'accepter les conditions d\'utilisation de Bind.';
+			}
+			
 			/*
 			 *  No error found
 			 *  Update the database
@@ -108,6 +114,7 @@
 				$feedback .= '<li>'.$error_emailSyntax.'</li>';
 				$feedback .= '<li>'.$error_emailAlreadyUsed.'</li>';
 				$feedback .= '<li>'.$error_emptyPassword.'</li>';
+				$feedback .= '<li>'.$error_termsAgreement.'</li>';
 				$feedback .= '</ul><!-- /.notice -->';
 			}
 			
@@ -142,6 +149,9 @@
 			<div>
 				<label for="password">Mot de passe</label>
 				<input type="password" name="password" id="password" value="<?php if(isset($password)) echo $password; ?>">
+			</div>
+			<div>
+				<input type="checkbox" name="terms" id="terms" <?php if(isset($terms)) echo 'checked="checked"'; ?>> J'accepte les <a href="#" target="_blank">conditions d'utilisation</a>
 			</div>
 			<input type="submit" name="signUp" class="btn btn-green" value="M'inscrire">
 		</form>

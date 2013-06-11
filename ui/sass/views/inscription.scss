@@ -31,8 +31,9 @@
 					width: 100%;
 					padding: 10px 18px;
 				}
-				input[type="password"] {
+				&:last-of-type {
 					margin-bottom: 2em;
+					font-size: 14px;
 				}
 			}
 			input[type="submit"] {
