@@ -1520,6 +1520,7 @@ input[type="file"] {
   body > header #userAccount #userDropdown {
     width: 100%;
     text-align: center;
+    z-index: 20;
   }
   body > header #userAccount #userDropdown ul li a {
     padding: 10px;

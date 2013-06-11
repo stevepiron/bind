@@ -152,6 +152,8 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 	
 	if($request) {
 		$__TITLE_PAGE__ = $request[0]['title'].' ('.htmlentities($request[0]['category']).') • Bind';
+		// htmlentities needed for the category as
+		// they have been entered from the database
 	}
 ?>
 
