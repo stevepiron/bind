@@ -1285,9 +1285,6 @@ body > footer nav a:hover {
   font-size: 13px;
   margin: 0;
 }
-.request article footer p.requestStats .interest {
-  margin-left: 2px;
-}
 .request article footer p.requestStats .interest.interest0:hover {
   color: #a6ada2;
   cursor: default;
