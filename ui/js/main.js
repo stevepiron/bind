@@ -258,8 +258,14 @@ $(function() {
 	 * Dismiss tip
 	 */
 	
+	// Show the tip only if it has not been removed yet
+	if(localStorage.featureDismiss) {
+		dismiss.parent().parent().hide();
+	}
+	
 	dismiss.click(function() {
 		$(this).parent().parent().fadeOut(167);
+		localStorage.featureDismiss = 'search';
 	})
 	
 });
