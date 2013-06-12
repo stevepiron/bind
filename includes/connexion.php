@@ -199,7 +199,11 @@
 			<input type="submit" name="login" class="btn btn-green" value="Connexion">
 		</form>
 		
-		<p class="center switchSignInSignUp"><a href="index.php?page=inscription">Tu n'as pas encore de compte ?</a></p>
+		<p class="center switchSignInSignUp">
+		<?php if(!$_GET['nom']): ?>
+		<a href="index.php?page=inscription">Tu n'as pas encore de compte ?</a>
+		<?php endif ?>
+		</p>
 		
 		<?php } ?>
 		
