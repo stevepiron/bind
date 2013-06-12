@@ -42,7 +42,7 @@
 							padding-left: 15px;
 							display: inline-block;
 							margin-left: 6px;
-							background: url('../../media/img/assets/best-answer.png') 0 center no-repeat;
+							background: url('../../media/img/assets/spritesheet.png') 0 -30px no-repeat;
 						}
 					}
 				}
@@ -106,8 +106,13 @@
 				}
 			}
 		}
-		> .btn {
+		> .btn:first-of-type {
 			margin-left: 68px;
+			margin-right: 7px;
+		}
+		> .btn.backNotLoggedIn {
+			margin-left: 68px;
+			margin-top: 40px;
 		}
 	}	
 }

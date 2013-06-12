@@ -702,7 +702,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	.containerFakeSelect .arrowSelect,
 	.tip .tipBox .tipArrow,
 	.tip .tipBox .dismiss,
-	body #search {
+	body #search,
+	#interactions .comments li article header .author .bestAnswersCount {
 		background-image: url('../../media/img/assets/spritesheet@2x.png');
 		background-size: 216px 144px;
 	}

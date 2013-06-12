@@ -237,7 +237,9 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 					else {
 						// User is not logged in
 			?>
-					<a class="btn" href="index.php">Retour aux questions</a>
+					<a class="btn btn-green" href="index.php?page=connexion">Te connecter</a>
+					<a class="btn btn-blue" href="index.php?page=inscription">T'inscrire</a><br>
+					<a class="btn backNotLoggedIn" href="index.php">Retour aux questions</a>
 		</section><!-- /.actions -->
 			<?php
 					}
