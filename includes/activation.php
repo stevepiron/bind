@@ -232,7 +232,8 @@
 									
 									try {
 										$sql = 'UPDATE users
-												SET firstname = "'.$firstname.'"
+												SET firstname = "'.$firstname.'",
+													year = "'.$year.'"
 												WHERE hash = "'.$hash.'"
 												AND active = "1"';
 										$db -> exec($sql); // Update the database
@@ -318,6 +319,23 @@
 				<label for="picture">Ta photo</label>
 				<input type="file" name="picture" id="picture">
 				<p class="helpText">Min. 96x96 pixels (idéal), max. 200x200 pixels.</p>
+			</div>
+			<div>
+				<label for="year">Ton année</label>
+				<select name="year" id="year" class="styled-select">
+					<option value="1" selected="selected">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+				<div class="containerFakeSelect">
+					<span class="valSelect"></span><span class="arrowSelect">v</span>
+					<ul class="contVal">
+						
+					</ul><!-- /.contVal -->
+				</div><!-- /.containerFakeSelect -->
 			</div>
 			<div>
 				<label for="firstname">Ton prénom</label>
