@@ -164,12 +164,13 @@ echo '<div class="devbox"><pre>Résultat de la requête 1 (la question) :<br>';
 		<header role="page-header">
 			<div>
 				<h1>Question</h1>
+				<?php if($_SESSION && $id != 0): ?>
 				<div class="headerActions">
 					<button id="search" class="btn btn-blue">Rechercher</button>
-					<?php if($_SESSION && $id != 0): ?>
+					
 					<a class="askForHelp btn btn-primary" href="index.php?page=nouvelle-question">Demander de l'aide</a>
-					<?php endif ?>
 				</div><!-- actions -->
+				<?php endif ?>
 			</div>
 		</header>
 		
